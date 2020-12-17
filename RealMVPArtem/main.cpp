@@ -6,19 +6,13 @@
 using namespace artem::graphics;
 using namespace artem::maths;
 
-void printsum(Vector2 a)
-{
-	std::cout << a << std::endl;
-}
-
 int main()
 {
 	Window window("Artem", 800, 600);
 	glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
 
-	Vector2 a(3, 3);
-	Vector2 b(8, 1);
-	printsum(a + b);
+	Vector3 a(3, 3, 1);
+	Vector3 b(8, 1, 6);
 	std::cout << a + b << std::endl;
 
 	while (!window.closed()) 
