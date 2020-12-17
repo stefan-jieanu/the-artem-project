@@ -1,35 +1,63 @@
 #pragma once
 
 #include <iostream>
+#include "vector3.h"
 
 namespace artem { namespace maths {
+
     struct Vector2
     {
         float x, y;
 
-        Vector2();
-        Vector2(const float x, const float y);
+		Vector2();
+		Vector2(float scalar);
+		Vector2(float x, float y);
+		Vector2(const Vector3& vector);
 
-        // Basic methods
-        Vector2& add(const Vector2& other);
-        Vector2& subtract(const Vector2& other);
-        Vector2& multiply(const float& scalar);
-        Vector2& divide(const float& scalar);
+		Vector2& Add(const Vector2& other);
+		Vector2& Subtract(const Vector2& other);
+		Vector2& Multiply(const Vector2& other);
+		Vector2& Divide(const Vector2& other);
 
-        // Operator overloading
-        friend Vector2& operator+(Vector2 left, const Vector2& right);
-        friend Vector2& operator-(Vector2 left, const Vector2& right);
-        friend Vector2& operator*(Vector2 vec, const float& scalar);
-        friend Vector2& operator/(Vector2 vec, const float& scalar);
+		Vector2& Add(float value);
+		Vector2& Subtract(float value);
+		Vector2& Multiply(float value);
+		Vector2& Divide(float value);
 
-        bool operator==(const Vector2& other);
-        bool operator!=(const Vector2& other);
+		friend Vector2 operator+(Vector2 left, const Vector2& right);
+		friend Vector2 operator-(Vector2 left, const Vector2& right);
+		friend Vector2 operator*(Vector2 left, const Vector2& right);
+		friend Vector2 operator/(Vector2 left, const Vector2& right);
 
-        Vector2& operator+=(const Vector2& other);
-        Vector2& operator-=(const Vector2& other);
-        Vector2& operator*=(const float& scalar);
-        Vector2& operator/=(const float& scalar);
+		friend Vector2 operator+(Vector2 left, float value);
+		friend Vector2 operator-(Vector2 left, float value);
+		friend Vector2 operator*(Vector2 left, float value);
+		friend Vector2 operator/(Vector2 left, float value);
 
-        friend std::ostream& operator<<(std::ostream& stream, const Vector2& vector2);
+		bool operator==(const Vector2& other) const;
+		bool operator!=(const Vector2& other) const;
+
+		Vector2& operator+=(const Vector2& other);
+		Vector2& operator-=(const Vector2& other);
+		Vector2& operator*=(const Vector2& other);
+		Vector2& operator/=(const Vector2& other);
+
+		Vector2& operator+=(float value);
+		Vector2& operator-=(float value);
+		Vector2& operator*=(float value);
+		Vector2& operator/=(float value);
+
+		bool operator<(const Vector2& other) const;
+		bool operator<=(const Vector2& other) const;
+		bool operator>(const Vector2& other) const;
+		bool operator>=(const Vector2& other) const;
+
+		float Magnitude() const;
+		Vector2 Normalise() const;
+		float Distance(const Vector2& other) const;
+		float Dot(const Vector2& other) const;
+
+		friend std::ostream& operator<<(std::ostream& stream, const Vector2& vector);
     };
+
 } }

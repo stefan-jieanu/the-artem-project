@@ -3,33 +3,39 @@
 #include <iostream>
 
 namespace artem { namespace maths {
+
     struct Vector4
     {
         float x, y, z, w;
 
-        Vector4();
-        Vector4(const float x,const float y, const float z, const float w);
+		Vector4() = default;
+		Vector4(float scalar);
+		Vector4(float x, float y, float z, float w);
+		// Vector4(const Vector3& xyz, float w);
 
-        // Basic methods
-        Vector4& add(const Vector4& other);
-        Vector4& subtract(const Vector4& other);
-        Vector4& multiply(const float& scalar);
-        Vector4& divide(const float& scalar);
+		Vector4& Add(const Vector4& other);
+		Vector4& Subtract(const Vector4& other);
+		Vector4& Multiply(const Vector4& other);
+		Vector4& Divide(const Vector4& other);
 
-        // Operator overloading
-        friend Vector4& operator+(Vector4 left, const Vector4& right);
-        friend Vector4& operator-(Vector4 left, const Vector4& right);
-        friend Vector4& operator*(Vector4 vec, const float& scalar);
-        friend Vector4& operator/(Vector4 vec, const float& scalar);
+		// Vector4 Multiply(const Matrix4& transform) const;
 
-        bool operator==(const Vector4& other);
-        bool operator!=(const Vector4& other);
+		friend Vector4 operator+(Vector4 left, const Vector4& right);
+		friend Vector4 operator-(Vector4 left, const Vector4& right);
+		friend Vector4 operator*(Vector4 left, const Vector4& right);
+		friend Vector4 operator/(Vector4 left, const Vector4& right);
 
-        Vector4& operator+=(const Vector4& other);
-        Vector4& operator-=(const Vector4& other);
-        Vector4& operator*=(const float& scalar);
-        Vector4& operator/=(const float& scalar);
+		bool operator==(const Vector4& other);
+		bool operator!=(const Vector4& other);
 
-        friend std::ostream& operator<<(std::ostream& stream, const Vector4& vector4);
+		Vector4& operator+=(const Vector4& other);
+		Vector4& operator-=(const Vector4& other);
+		Vector4& operator*=(const Vector4& other);
+		Vector4& operator/=(const Vector4& other);
+
+		float Dot(const Vector4& other);
+
+		friend std::ostream& operator<<(std::ostream& stream, const Vector4& vector);
     };
+
 } }

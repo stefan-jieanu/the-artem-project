@@ -170,6 +170,9 @@
     <ClCompile Include="src\maths\vector4.cpp" />
     <ClInclude Include="src\maths\maths.h" />
     <ClInclude Include="src\maths\vector2.h" />
+    <ClInclude Include="src\maths\Matrix4.h" />
+    <ClCompile Include="src\maths\Matrix4.cpp" />
+    <ClInclude Include="src\maths\math_func.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
