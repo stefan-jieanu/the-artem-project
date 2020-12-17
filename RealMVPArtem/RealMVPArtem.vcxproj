@@ -160,10 +160,15 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\graphics\window.cpp" />
+    <ClCompile Include="src\maths\vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\window.h" />
-    <ClCompile Include="src\maths\vector2.cpp" />
+    <ClInclude Include="src\maths\vector3.h" />
+    <ClCompile Include="src\maths\vector3.cpp" />
+    <ClInclude Include="src\maths\vector4.h" />
+    <ClCompile Include="src\maths\vector4.cpp" />
+    <ClInclude Include="src\maths\maths.h" />
     <ClInclude Include="src\maths\vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,28 +1,37 @@
 #pragma once
 
 #include <iostream>
-#include <glm/ext/vector_float2.hpp>
 
-namespace artem { namespace maths {
-    class Vector2
-    {
-    private:
-        glm::vec2 value_;
-    public:
-        Vector2();
-        Vector2(float x, float y);
+namespace artem {
+    namespace maths {
+        struct Vector2
+        {
+            float x, y;
 
-        // Basic methods
-        Vector2& add(const Vector2& other);
-        Vector2& subtract(const Vector2& other);
-        Vector2& multiply(const Vector2& other);
-        Vector2& divide(const Vector2& other);
+            Vector2();
+            Vector2(const float x, const float y);
 
-        // Operator overloading
-        friend std::ostream& operator<<(std::ostream& stream, const Vector2& vector2);
+            // Basic methods
+            Vector2& add(const Vector2& other);
+            Vector2& subtract(const Vector2& other);
+            Vector2& multiply(const float& scalar);
+            Vector2& divide(const float& scalar);
 
-        // Getters
-        inline float x() const { return value_.x; }
-        inline float y() const { return value_.y; }
-    };
-} }
+            // Operator overloading
+            friend Vector2& operator+(Vector2 left, const Vector2& right);
+            friend Vector2& operator-(Vector2 left, const Vector2& right);
+            friend Vector2& operator*(Vector2 vec, const float& scalar);
+            friend Vector2& operator/(Vector2 vec, const float& scalar);
+
+            bool operator==(const Vector2& other);
+            bool operator!=(const Vector2& other);
+
+            Vector2& operator+=(const Vector2& other);
+            Vector2& operator-=(const Vector2& other);
+            Vector2& operator*=(const float& scalar);
+            Vector2& operator/=(const float& scalar);
+
+            friend std::ostream& operator<<(std::ostream& stream, const Vector2& vector2);
+        };
+    }
+}
