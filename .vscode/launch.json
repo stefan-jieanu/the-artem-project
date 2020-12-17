@@ -9,12 +9,16 @@
             "type": "cppvsdbg",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/x64/Debug/RealMVPArtem.exe",
+            "program": "${workspaceFolder}/bin/x64/Debug/RealMVPArtem.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": true
+            "externalConsole": true,
+            "logging": {
+                "trace": true,
+                "moduleLoad": false
+            },
         }
     ]
 }
