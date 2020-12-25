@@ -27,9 +27,9 @@ namespace artem { namespace graphics {
             const int vertexDataCount = 4 * 3;
             float vertices[vertexDataCount] = {
                 0, 0, 0,           //color.x, color.y, color.z, color.w,
-                0, size.y, 0,      //color.x, color.y, color.z, color.w,
-                size.x, size.y, 0, //color.x, color.y, color.z, color.w,
-                size.x, 0, 0,      //color.x, color.y, color.z, color.w,
+                0, 1, 0,      //color.x, color.y, color.z, color.w,
+                1, 1, 0, //color.x, color.y, color.z, color.w,
+                1, 0, 0,      //color.x, color.y, color.z, color.w,
             };
 
             VertexBuffer vertexData(vertices, vertexDataCount * sizeof(float));
@@ -54,7 +54,7 @@ namespace artem { namespace graphics {
         inline Shader& GetShader() const { return shader_; }
 
         inline const maths::Vector3& GetPosition() const { return position_; }
-        inline const maths::Vector2& GetSize() const { return size_; }
+        inline const maths::Vector3& GetSize() const { return size_; }
         inline const maths::Vector4& GetColor() const { return color_; }
     };
 

@@ -18,11 +18,11 @@ int main()
 	Shader shader("RealMVPArtem/res/shaders/basic.shader");
 	shader.Bind();
 
-	shader.SetUniformMat4f("u_Projection", camera.GetOrthographicMatrix());
-	shader.SetUniformMat4f("u_View", Matrix4::Translate(Vector3(0.0f, 0.0f, -3.0f)));
+	shader.SetUniformMat4f("u_Projection", Matrix4::Orthographic(-400, 400, -300, 300, 0.1f, 100.f));
+	// shader.SetUniformMat4f("u_View", Matrix4::Translate(Vector3(0.0f, 0.0f, 1.0f)));
 
-	Renderable2d sprite1(Vector3(300, 400, 1), Vector3(10, 10, 1), Vector4(1.0f, 0.5f, 0.5f, 1.0f), shader);
-	Renderable2d sprite2(Vector3(10, 10, 1), Vector3(50, 50, 1), Vector4(0.5f, 1.0f, 0.5f, 1.0f), shader);
+	Renderable2d sprite1(Vector3(0, 0, 1), Vector3(200, 150, 1), Vector4(1.0f, 0.5f, 0.5f, 1.0f), shader);
+	Renderable2d sprite2(Vector3(0, 0, 1), Vector3(-50, 50, 1), Vector4(0.5f, 1.0f, 0.5f, 1.0f), shader);
 	SimpleRenderer renderer;
 
 	while (!window.closed()) 

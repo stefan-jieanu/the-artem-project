@@ -22,7 +22,7 @@ namespace artem { namespace graphics {
         Matrix4 orthoMatrix = Matrix4::Orthographic(left, right, bottom, top, 0.1f, 100.0f);
         Matrix4 zoomMatrix = Matrix4::Scale(Vector3(1, 1, zoom_));
 
-        ortographicsMatrix_ = orthoMatrix * zoomMatrix;
+        ortographicsMatrix_ = orthoMatrix; //* zoomMatrix;
     }
 
 } }
