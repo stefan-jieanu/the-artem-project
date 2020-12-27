@@ -17,8 +17,9 @@ namespace artem { namespace graphics {
             GLCall(rend->GetIBO()->Bind());
 
             maths::Matrix4 pos = maths::Matrix4::Translate(rend->GetPosition());
-            maths::Matrix4 scale = maths::Matrix4::Scale(rend->GetSize());
-            rend->GetShader().SetUniformMat4f("u_Model", scale * pos);
+            maths::Matrix4 size = maths::Matrix4::Scale(rend->GetSize());
+            rend->GetShader().SetUniformMat4f("u_Model", pos * size);
+            
         	rend->GetShader().SetUniform4f("u_Color", rend->GetColor());
             GLCall(glDrawElements(GL_TRIANGLES, rend->GetIBO()->GetCount(), GL_UNSIGNED_INT, nullptr));
 

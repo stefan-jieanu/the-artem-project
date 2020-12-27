@@ -69,8 +69,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>E:\Work\RealMVPArtem\libs\lib-vc2019;$(LibraryPath)</LibraryPath>
-    <IncludePath>E:\Work\RealMVPArtem\libs\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\ActualWork\artem\libs\lib-vc2019;E:\Work\RealMVPArtem\libs\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\ActualWork\artem\libs\glew-2.1.0\include;E:\ActualWork\artem\libs\include;E:\Work\RealMVPArtem\libs\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>E:\Work\RealMVPArtem\libs\glew-2.1.0\lib\Release\x64;E:\Work\RealMVPArtem\libs\lib-vc2019;$(LibraryPath)</LibraryPath>
-    <IncludePath>E:\Work\RealMVPArtem\libs\glew-2.1.0\include;E:\Work\RealMVPArtem\libs\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\ActualWork\artem\libs\lib-vc2019;E:\Work\RealMVPArtem\libs\glew-2.1.0\lib\Release\x64;E:\Work\RealMVPArtem\libs\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\ActualWork\artem\libs\glew-2.1.0\include;E:\ActualWork\artem\libs\include;E:\Work\RealMVPArtem\libs\glew-2.1.0\include;E:\Work\RealMVPArtem\libs\include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\$(Platform)\$(Configuration)\Intermdiates\</IntDir>
   </PropertyGroup>
@@ -93,14 +93,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\Work\RealMVPArtem\libs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/libs/glew-2.1.0/include/;E:\Work\RealMVPArtem\libs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>E:\Work\RealMVPArtem\libs\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:\ActualWork\artem\libs\glew-2.1.0\lib\Release\x64;$(ProjectDir)/libs/lib-vs2019/;E:\Work\RealMVPArtem\libs\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies);%(AdditionalDependencies);%(AdditionalDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -128,14 +128,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\RealMVPArtem\src\glm;E:\Work\RealMVPArtem\libs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)/libs/glew-2.1.0/include/;$(SolutionDir)\RealMVPArtem\src\glm;E:\Work\RealMVPArtem\libs\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>E:\Work\RealMVPArtem\libs\glew-2.1.0\lib\Release\x64;E:\Work\RealMVPArtem\libs\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:\ActualWork\artem\libs\glew-2.1.0\lib\Release\x64;$(ProjectDir)/libs/lib-vs2019/;E:\Work\RealMVPArtem\libs\glew-2.1.0\lib\Release\x64;E:\Work\RealMVPArtem\libs\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies);%(AdditionalDependencies);%(AdditionalDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
