@@ -17,7 +17,7 @@ namespace artem { namespace graphics {
             {
                 case GL_FLOAT:        return sizeof(GLfloat);
                 case GL_UNSIGNED_INT: return sizeof(GLuint);
-                case GL_BYTE:         return sizeof(GLbyte);
+                case GL_UNSIGNED_BYTE:return sizeof(GLbyte);
             }
             ASSERT(false);
             return 0;
@@ -57,7 +57,7 @@ namespace artem { namespace graphics {
         void Push<unsigned char>(unsigned int count, bool normalized)
         {
             elements_.push_back({GL_UNSIGNED_BYTE, count, normalized ? GL_TRUE : GL_FALSE});
-            stride_ += count * VertexBufferElement::GetSizeOfType(GL_BYTE);
+            stride_ += count * VertexBufferElement::GetSizeOfType(GL_UNSIGNED_BYTE);
         }
 
         inline const std::vector<VertexBufferElement>& GetElements() const { return elements_; }

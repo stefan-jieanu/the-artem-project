@@ -1,5 +1,9 @@
 #include "Vector3.h"
 
+#include "Vector2.h"
+#include "Vector4.h"
+#include "Matrix4.h"
+
 namespace artem { namespace maths {
     
     Vector3::Vector3()
@@ -144,14 +148,14 @@ namespace artem { namespace maths {
 		return *this;
 	}
 
-	// Vector3 Vector3::Multiply(const Matrix4& transform) const
-	// {
-	// 	return Vector3(
-	// 		transform.rows[0].x * x + transform.rows[0].y * y + transform.rows[0].z * z + transform.rows[0].w,
-	// 		transform.rows[1].x * x + transform.rows[1].y * y + transform.rows[1].z * z + transform.rows[1].w,
-	// 		transform.rows[2].x * x + transform.rows[2].y * y + transform.rows[2].z * z + transform.rows[2].w
-	// 		);
-	// }
+	Vector3 Vector3::Multiply(const Matrix4& transform) const
+	{
+		return Vector3(
+			transform.rows[0].x * x + transform.rows[0].y * y + transform.rows[0].z * z + transform.rows[0].w,
+			transform.rows[1].x * x + transform.rows[1].y * y + transform.rows[1].z * z + transform.rows[1].w,
+			transform.rows[2].x * x + transform.rows[2].y * y + transform.rows[2].z * z + transform.rows[2].w
+			);
+	}
 
 	Vector3 operator+(Vector3 left, const Vector3& right)
 	{

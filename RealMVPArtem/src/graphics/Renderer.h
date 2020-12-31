@@ -7,10 +7,15 @@
 namespace artem { namespace graphics {
 
     class Renderer
-    {
+    {        
+    protected:
+
+        Renderer()
+        {
+        }
     public:
-        virtual void submit(const Renderable2d* rend) = 0;
-        virtual void flush() = 0;
+        virtual void Submit(const Renderable2d* rend) = 0;
+        virtual void Flush() = 0;
     };
 
 } }

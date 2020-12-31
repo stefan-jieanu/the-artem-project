@@ -2,7 +2,7 @@
 
 namespace artem { namespace graphics {
 
-    Shader::Shader(const std::string& filepath)
+    Shader::Shader(const std::string filepath)
         : shaderID_(0)
     {
         ShaderProgramSource source = ParseShader(filepath);
@@ -96,6 +96,11 @@ namespace artem { namespace graphics {
         if (location == -1)
             std::cout << "Warning: uniform '" << name << "' doesn't exist!" << std::endl;
         return location;
+    }
+
+    void Shader::SetUniform2f(const std::string& name, maths::Vector2 value)
+    {
+        glUniform2f(GetUniformLocation(name), value.x, value.y);
     }
 
     void Shader::SetUniform4f(const std::string& name, maths::Vector4 value)

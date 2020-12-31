@@ -26,10 +26,11 @@ namespace artem { namespace graphics {
 
         int GetUniformLocation(const std::string& name);
     public:
-        Shader(const std::string& filepath);
+        Shader(const std::string filepath);
         ~Shader();
 
         void SetUniform4f(const std::string& name, maths::Vector4 value);
+        void SetUniform2f(const std::string& name, maths::Vector2 value);
         void SetUniformMat4f(const std::string& name, maths::Matrix4 value);
 
         void Bind() const;

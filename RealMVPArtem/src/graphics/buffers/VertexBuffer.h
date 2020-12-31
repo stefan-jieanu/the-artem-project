@@ -9,7 +9,7 @@ namespace artem { namespace graphics {
     private:
         unsigned int bufferID_;
     public:
-        VertexBuffer(const void* data, unsigned int size);
+        VertexBuffer(const void* data, unsigned int size, bool staticDraw);
         ~VertexBuffer();
 
         void Bind() const;

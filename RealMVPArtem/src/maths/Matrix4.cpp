@@ -1,5 +1,8 @@
 #include "Matrix4.h"
 
+#include "Vector3.h"
+#include "Vector4.h"
+
 namespace artem { namespace maths {
 
     Matrix4::Matrix4()
@@ -53,10 +56,10 @@ namespace artem { namespace maths {
 		return *this;
 	}
 
-	// Vector3 Matrix4::Multiply(const Vector3& other) const
-	// {
-	// 	return other.Multiply(*this);
-	// }
+	Vector3 Matrix4::Multiply(const Vector3& other) const
+	{
+		return other.Multiply(*this);
+	}
 
 	// Vector4 Matrix4::Multiply(const Vector4& other) const
 	// {
@@ -73,10 +76,10 @@ namespace artem { namespace maths {
 	// 	return Multiply(other);
 	// }
 
-	// Vector3 operator*(const Matrix4& left, const Vector3& right)
-	// {
-	// 	return left.Multiply(right);
-	// }
+	Vector3 operator*(const Matrix4& left, const Vector3& right)
+	{
+		return left.Multiply(right);
+	}
 
 	// Vector4 operator*(const Matrix4& left, const Vector4& right)
 	// {

@@ -6,6 +6,12 @@
 
 namespace artem { namespace graphics {
 
+    struct VertexData
+    {
+        maths::Vector3 position;
+        unsigned int color;
+    };
+
     class Renderable2d
     {
     protected:
@@ -15,7 +21,6 @@ namespace artem { namespace graphics {
 
         VertexArray* vertexArray_;
         IndexBuffer* indexBuffer_;
-
         Shader& shader_;
 
     public:
@@ -32,7 +37,7 @@ namespace artem { namespace graphics {
                 1, 0, 0,      //color.x, color.y, color.z, color.w,
             };
 
-            VertexBuffer vertexData(vertices, vertexDataCount * sizeof(float));
+            VertexBuffer vertexData(vertices, vertexDataCount * sizeof(float), true);
             VertexBufferLayout layout;
             layout.Push<float>(3, false);
             // layout.Push<float>(4, false);

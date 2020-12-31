@@ -4,6 +4,10 @@
 
 namespace artem { namespace maths {
 
+	struct Vector2;
+	struct Vector4;
+	struct Matrix4;
+
     struct Vector3
     {
         float x, y, z;
@@ -35,7 +39,7 @@ namespace artem { namespace maths {
 		Vector3& Multiply(float other);
 		Vector3& Divide(float other);
 
-		// Vector3 Multiply(const Matrix4& transform) const;
+		Vector3 Multiply(const Matrix4& transform) const;
 
 		friend Vector3 operator+(Vector3 left, const Vector3& right);
 		friend Vector3 operator-(Vector3 left, const Vector3& right);

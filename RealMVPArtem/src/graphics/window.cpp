@@ -58,7 +58,7 @@ namespace artem { namespace graphics {
         // Set a callback for the cursor position
         glfwSetCursorPosCallback(window_, cursor_position_callback);
 
-
+        glfwSwapInterval(0.0f);
         // Initializing GLEW
         if (glewInit() != GLEW_OK)
         {
@@ -107,10 +107,9 @@ namespace artem { namespace graphics {
         return s_MouseButtons_[button];
     }
 
-    void Window::getMousePosition(double &x, double &y) const
+    const maths::Vector2& Window::getMousePosition() const
     {
-        x = s_MouseX;
-        y = s_MouseY;
+        return maths::Vector2(s_MouseX, s_MouseY);
     }
 
     // Funcion not part of the window class, just a "helper function"

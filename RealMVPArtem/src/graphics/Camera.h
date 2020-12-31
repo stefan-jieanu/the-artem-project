@@ -17,6 +17,7 @@ namespace artem { namespace graphics {
 
         void ComputeProjectionMatrix();
     public:
+        Camera();
         Camera(const Vector2& focusPosition, float zoom, const Vector2& windowDimensions);
         ~Camera();
 

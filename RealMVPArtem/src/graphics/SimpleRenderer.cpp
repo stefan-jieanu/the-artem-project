@@ -3,12 +3,12 @@
 
 namespace artem { namespace graphics {
 
-    void SimpleRenderer::submit(const Renderable2d* rend)
+    void SimpleRenderer::Submit(const Renderable2d* rend)
     {
         renderQueue_.push_back(rend);
     }
 
-    void SimpleRenderer::flush()
+    void SimpleRenderer::Flush()
     {
         while (!renderQueue_.empty())
         {

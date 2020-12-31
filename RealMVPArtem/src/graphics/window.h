@@ -3,6 +3,7 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include "../maths/maths.h"
 
 namespace artem { namespace graphics {
     constexpr unsigned int max_keys = 1024;
@@ -36,6 +37,6 @@ namespace artem { namespace graphics {
 
         bool isKeyPressed(unsigned int keycode) const;
         bool isButtonPressed(unsigned int button) const;
-        void getMousePosition(double &x, double &y) const;
+        const maths::Vector2& getMousePosition() const;
     };
 } } 

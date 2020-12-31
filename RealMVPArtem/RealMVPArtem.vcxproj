@@ -183,7 +183,8 @@
     <ClInclude Include="src\graphics\buffers\VertexBufferLayout.h" />
     <ClInclude Include="src\graphics\Shader.h" />
     <ClCompile Include="src\graphics\Shader.cpp" />
-    <Content Include="res\shaders\basic.shader" />
+    <ClInclude Include="src\utils\timer.h" />
+    <Content Include="res\shaders\basic_light.shader" />
     <ClInclude Include="src\graphics\Renderable2d.h" />
     <ClInclude Include="src\graphics\buffers\buffers.h" />
     <ClInclude Include="src\graphics\Renderer.h" />
@@ -191,6 +192,20 @@
     <ClCompile Include="src\graphics\SimpleRenderer.cpp" />
     <ClInclude Include="src\graphics\Camera.h" />
     <ClCompile Include="src\graphics\Camera.cpp" />
+    <ClInclude Include="src\graphics\BatchRenderer.h" />
+    <ClCompile Include="src\graphics\BatchRenderer.cpp" />
+    <ClInclude Include="src\graphics\Sprite.h" />
+    <ClInclude Include="src\graphics\StaticSprite.h" />
+    <ClCompile Include="src\graphics\StaticSprite.cpp" />
+    <ClCompile Include="src\graphics\Sprite.cpp" />
+    <ClInclude Include="src\graphics\layers\Layer.h" />
+    <ClCompile Include="src\graphics\layers\Layer.cpp" />
+    <Content Include="src\graphics\layers\UILayer.h" />
+    <ClCompile Include="src\graphics\layers\UILayer.cpp" />
+    <ClInclude Include="src\settings\config.h" />
+    <Content Include="src\graphics\layers\SceneLayer.h" />
+    <ClCompile Include="src\graphics\layers\SceneLayer.cpp" />
+    <Content Include="res\shaders\basic_ui.shader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

@@ -10,8 +10,8 @@ namespace artem { namespace graphics {
     private:
         std::deque<const Renderable2d*> renderQueue_;
     public:
-        void submit(const Renderable2d* rend) override;
-        void flush() override;
+        void Submit(const Renderable2d* rend) override;
+        void Flush() override;
     };
 
 } }

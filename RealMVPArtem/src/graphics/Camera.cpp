@@ -8,6 +8,11 @@ namespace artem { namespace graphics {
         ComputeProjectionMatrix();
     }
 
+    Camera::Camera()
+    {
+        
+    }
+
     Camera::~Camera()
     {
     }
