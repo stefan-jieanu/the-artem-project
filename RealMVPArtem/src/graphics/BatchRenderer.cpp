@@ -1,4 +1,5 @@
 #include "BatchRenderer.h"
+#include "sprite.h"
 
 namespace artem { namespace graphics {
 

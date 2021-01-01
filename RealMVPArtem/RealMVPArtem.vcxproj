@@ -206,6 +206,7 @@
     <Content Include="src\graphics\layers\SceneLayer.h" />
     <ClCompile Include="src\graphics\layers\SceneLayer.cpp" />
     <Content Include="res\shaders\basic_ui.shader" />
+    <ClCompile Include="src\graphics\layers\Group.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

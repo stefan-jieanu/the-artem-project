@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Renderable2d.h"
+#include "BatchRenderer.h"
 
 namespace artem { namespace graphics {
 
@@ -16,6 +17,11 @@ namespace artem { namespace graphics {
         Sprite();
         Sprite(const maths::Vector3& position, const maths::Vector3& size, const maths::Vector4& color);
         ~Sprite();
+
+        virtual void Submit(BatchRenderer* renderer) const 
+        {
+            renderer->Submit(this);
+        }
 
         inline const maths::Vector3& GetPosition() const { return position_; }
         inline const maths::Vector3& GetSize() const { return size_; }

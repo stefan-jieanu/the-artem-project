@@ -26,10 +26,11 @@ namespace artem { namespace graphics {
         shader_.Bind();
 
         for (const auto& object : objects_)
-            renderer_->Submit(object);
-        renderer_->End();
+            object->Submit(renderer_);
         
+        renderer_->End();
         renderer_->Flush();
+        
         shader_.Unbind();
     }
 

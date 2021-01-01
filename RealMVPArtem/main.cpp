@@ -7,6 +7,7 @@
 #include "src/graphics/layers/SceneLayer.h"
 #include "src/utils/timer.h"
 #include "src/settings/config.h"
+#include "src/graphics/layers/Group.h"
 
 using namespace artem::graphics;
 using namespace artem::maths;
@@ -25,7 +26,14 @@ int main()
 
 	// Creating layers and adding sprites to them
 	UILayer uiLayer(uiShader);
-	uiLayer.Add(new Sprite(Vector3(100, 100, 0), Vector3(100, 100, 0.1f), Vector4(0.5f, 1.0f, 1, 1)));
+	// uiLayer.Add(new Sprite(Vector3(100, 100, 0), Vector3(100, 100, 0.1f), Vector4(0.5f, 1.0f, 1, 1)));
+
+	Group* group = new Group(Matrix4::Translate(Vector3(100, 100, 0)));
+	Sprite* button = new Sprite(Vector3(0, 0, 0), Vector3(100, 100, 0.1f), Vector4(0.5f, 1.0f, 1, 1));
+	Sprite* button2 = new Sprite(Vector3(10, 10, 0), Vector3(100, 10, 0.1f), Vector4(1.0f, 0.4f, 0.7f, 1));
+	group->Add(button);
+	group->Add(button2);
+	uiLayer.Add(group);
 
 	SceneLayer sceneLayer(sceneShader);
 
