@@ -9,6 +9,8 @@ namespace artem { namespace graphics {
     struct VertexData
     {
         maths::Vector3 position;
+        maths::Vector2 uv;
+        float tid;
         unsigned int color;
     };
 

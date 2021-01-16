@@ -102,6 +102,16 @@ namespace artem { namespace graphics {
     {
         glUniform2f(GetUniformLocation(name), value.x, value.y);
     }
+    
+    void Shader::SetUniform1fv(const std::string& name, int count, const float* value)
+    {
+        glUniform1fv(GetUniformLocation(name), count, value);
+    }
+
+    void Shader::SetUniform1iv(const std::string& name, int count, const int* value)
+    {
+        glUniform1iv(GetUniformLocation(name), count, value);
+    }
 
     void Shader::SetUniform4f(const std::string& name, maths::Vector4 value)
     {

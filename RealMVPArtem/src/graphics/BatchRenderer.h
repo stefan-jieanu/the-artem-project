@@ -6,11 +6,11 @@
 
 namespace artem { namespace graphics {
 
-#define RENDERER_MAX_SPRITES  40000
-#define RENDERER_VERTEX_SIZE  sizeof(VertexData)
-#define RENDERER_SPRITE_SIZE  RENDERER_VERTEX_SIZE * 4
-#define RENDERER_BUFFER_SIZE  RENDERER_SPRITE_SIZE * RENDERER_MAX_SPRITES
-#define RENDERER_INDICES_SIZE RENDERER_MAX_SPRITES * 6
+    #define RENDERER_MAX_SPRITES  40000
+    #define RENDERER_VERTEX_SIZE  sizeof(VertexData)
+    #define RENDERER_SPRITE_SIZE  RENDERER_VERTEX_SIZE * 4
+    #define RENDERER_BUFFER_SIZE  RENDERER_SPRITE_SIZE * RENDERER_MAX_SPRITES
+    #define RENDERER_INDICES_SIZE RENDERER_MAX_SPRITES * 6
 
     class Sprite;
 
@@ -24,6 +24,9 @@ namespace artem { namespace graphics {
         VertexBufferLayout vertexBufferLayout_;
         unsigned int indexCount_;
         VertexData* vertexData_;
+
+        // Texture array
+        std::vector<unsigned int> textureSlots_;
 
         // The matrix tranformation stack
         std::vector<maths::Matrix4> transformationStack_;

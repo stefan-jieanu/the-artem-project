@@ -30,6 +30,8 @@ namespace artem { namespace graphics {
         ~Shader();
 
         void SetUniform4f(const std::string& name, maths::Vector4 value);
+        void SetUniform1fv(const std::string& name, int count, const float* value);
+        void SetUniform1iv(const std::string& name, int count, const int* value);
         void SetUniform2f(const std::string& name, maths::Vector2 value);
         void SetUniformMat4f(const std::string& name, maths::Matrix4 value);
 

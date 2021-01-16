@@ -25,6 +25,10 @@ namespace artem { namespace graphics {
         vertexBuffer_ = new VertexBuffer(NULL, RENDERER_BUFFER_SIZE, false);
         // Push the position of VertexData struct
         vertexBufferLayout_.Push<float>(3, false);
+        // Push the texture coordinates
+        vertexBufferLayout_.Push<float>(2, false);
+        // Push the texture index
+        vertexBufferLayout_.Push<float>(1, false);
         // Push the color of VertexData struct
         vertexBufferLayout_.Push<unsigned char>(4, true);
 
@@ -61,27 +65,76 @@ namespace artem { namespace graphics {
         const maths::Vector3& position = rend->GetPosition();
         const maths::Vector2& size = rend->GetSize();
         const maths::Vector4& color = rend->GetColor();
+        const std::vector<maths::Vector2>& uv = rend->GetUV();
+        const unsigned int textureID = rend->GetTextureID();
 
-        int r = color.x * 255.0f;
-        int g = color.y * 255.0f;
-        int b = color.z * 255.0f;
-        int a = color.w * 255.0f;
+        unsigned int c = 0;
+        float ts = 0.0f;
 
-        unsigned int c = a << 24 | b << 16 | g << 8 | r;
+
+        // Warning
+        /*
+            This method might not actually work with more than 32 textures
+            didn't test it yet
+        */
+        if (textureID > 0)
+        {
+            bool found = false;
+            for (int i = 0; i < textureSlots_.size(); i++)
+            {
+                if (textureSlots_[i] == textureID)
+                {
+                printf("fount text: %d\n", textureID);
+                    ts = (float) (i + 1);
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                if (textureSlots_.size() >= 32)
+                {
+                    End();
+                    Flush();
+                    Begin();
+                }
+                textureSlots_.push_back(textureID);
+                ts = (float) (textureSlots_.size());
+            }
+        }
+        else 
+        {
+            int r = color.x * 255.0f;
+            int g = color.y * 255.0f;
+            int b = color.z * 255.0f;
+            int a = color.w * 255.0f;
+
+            c = a << 24 | b << 16 | g << 8 | r;
+        }
+
 
         vertexData_->position = *transformationBack_ * position;
+        vertexData_->uv = uv[0];
+        vertexData_->tid = ts;
         vertexData_->color = c;
         vertexData_++;
 
         vertexData_->position = *transformationBack_ * maths::Vector3(position.x, position.y + size.y, position.z);
+        vertexData_->uv = uv[1];
+        vertexData_->tid = ts;
         vertexData_->color = c;
         vertexData_++;
 
         vertexData_->position = *transformationBack_ * maths::Vector3(position.x + size.x, position.y + size.y, position.z);
+        vertexData_->uv = uv[2];
+        vertexData_->tid = ts;
         vertexData_->color = c;
         vertexData_++;
 
         vertexData_->position = *transformationBack_ * maths::Vector3(position.x + size.x, position.y, position.z);
+        vertexData_->uv = uv[3];
+        vertexData_->tid = ts;
         vertexData_->color = c;
         vertexData_++;
 
@@ -90,6 +143,12 @@ namespace artem { namespace graphics {
     
     void BatchRenderer::Flush()
     {
+        for (int i = 0; i < textureSlots_.size(); i++)
+        {
+            glActiveTexture(GL_TEXTURE0 + i);
+            glBindTexture(GL_TEXTURE_2D, textureSlots_[i]);
+        }
+
         vertexArray_->Bind();
         indexBuffer_->Bind();
 

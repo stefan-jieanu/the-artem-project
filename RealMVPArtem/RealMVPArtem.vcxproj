@@ -207,6 +207,10 @@
     <ClCompile Include="src\graphics\layers\SceneLayer.cpp" />
     <Content Include="res\shaders\basic_ui.shader" />
     <ClCompile Include="src\graphics\layers\Group.cpp" />
+    <ClInclude Include="vendor\stb_image\stb_image.h" />
+    <ClInclude Include="src\graphics\Texture.h" />
+    <ClCompile Include="src\graphics\Texture.cpp" />
+    <Content Include="res\shaders\basic_texture.shader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
