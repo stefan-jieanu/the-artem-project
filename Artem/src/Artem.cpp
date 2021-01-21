@@ -1,6 +1,6 @@
-#include <Engine.h>
+#include <ArtemEngine.h>
 
-class Artem : public Engine::Application
+class Artem : public ArtemEngine::Application
 {
 public:
 	Artem()
@@ -14,7 +14,7 @@ public:
 	}
 };
 
-Engine::Application* Engine::CreateApplication()
+ArtemEngine::Application* ArtemEngine::CreateApplication()
 {
 	return new Artem();
 }

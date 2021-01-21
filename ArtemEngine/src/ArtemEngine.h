@@ -2,8 +2,8 @@
 #include <stdio.h>
 
 // For use in the Artem application
-#include "Engine/Application.h"
+#include "ArtemEngine/Application.h"
 
 // ---------- Entry Point -----------
-#include "Engine/EntryPoint.h"
+#include "ArtemEngine/EntryPoint.h"
 // ----------------------------------

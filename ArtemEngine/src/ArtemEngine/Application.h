@@ -1,7 +1,7 @@
 #pragma once
 #include "Core.h"
 
-namespace Engine {
+namespace ArtemEngine {
 
 	class ENGINE_API Application
 	{

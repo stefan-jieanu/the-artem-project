@@ -6,22 +6,20 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Engine\Application.h">
+    <ClInclude Include="src\ArtemEngine\Application.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Core.h">
+    <ClInclude Include="src\ArtemEngine\Core.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\EntryPoint.h">
+    <ClInclude Include="src\ArtemEngine\EntryPoint.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Test.h" />
-    <ClInclude Include="src\Engine.h" />
+    <ClInclude Include="src\ArtemEngine.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Engine\Application.cpp">
+    <ClCompile Include="src\ArtemEngine\Application.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="src\Test.cpp" />
   </ItemGroup>
 </Project>
