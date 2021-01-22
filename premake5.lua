@@ -29,6 +29,7 @@ project "ArtemEngine"
         "%{prj.name}/vendor/glfw/include",
         "%{prj.name}/vendor/glew/include",
         "%{prj.name}/vendor/sbt_image",
+        "%{prj.name}/vendor/spdlog/include"
     }
 
     libdirs
@@ -81,9 +82,7 @@ project "Artem"
 
     includedirs
     {
-        "%{prj.name}/vendor/glfw/include",
-        "%{prj.name}/vendor/glew/include",
-        "%{prj.name}/vendor/sbt_image",
+        "ArtemEngine/vendor/spdlog/include",
         "ArtemEngine/src"
     }
 

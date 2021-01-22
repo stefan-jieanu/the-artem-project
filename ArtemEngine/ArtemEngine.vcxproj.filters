@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Engine">
-      <UniqueIdentifier>{DBC7D3B0-C769-FE86-B024-12DB9C6585D7}</UniqueIdentifier>
+    <Filter Include="ArtemEngine">
+      <UniqueIdentifier>{94408502-00F6-FDF7-89EA-F7CEF59EF4FB}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ArtemEngine.h" />
     <ClInclude Include="src\ArtemEngine\Application.h">
-      <Filter>Engine</Filter>
+      <Filter>ArtemEngine</Filter>
     </ClInclude>
     <ClInclude Include="src\ArtemEngine\Core.h">
-      <Filter>Engine</Filter>
+      <Filter>ArtemEngine</Filter>
     </ClInclude>
     <ClInclude Include="src\ArtemEngine\EntryPoint.h">
-      <Filter>Engine</Filter>
+      <Filter>ArtemEngine</Filter>
     </ClInclude>
-    <ClInclude Include="src\ArtemEngine.h" />
+    <ClInclude Include="src\ArtemEngine\Log.h">
+      <Filter>ArtemEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\ArtemEngine\Events\Event.h" />
+    <ClInclude Include="src\ArtemEngine\Events\KeyEvent.h" />
+    <ClInclude Include="src\ArtemEngine\Events\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Application.cpp">
-      <Filter>Engine</Filter>
+      <Filter>ArtemEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Log.cpp">
+      <Filter>ArtemEngine</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
