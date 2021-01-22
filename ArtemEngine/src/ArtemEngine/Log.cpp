@@ -18,6 +18,8 @@ namespace ArtemEngine
 
 		sClientLogger_ = spdlog::stdout_color_mt("ARTEM");
 		sClientLogger_->set_level(spdlog::level::trace);
+
+		AR_CORE_INFO("Initialized Log");
 	}
 
 }
