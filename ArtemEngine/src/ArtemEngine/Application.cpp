@@ -20,8 +20,21 @@ namespace ArtemEngine
 	{
 		while (running_)
 		{
+			for (std::shared_ptr<Layer> layer : layerStack_)
+				layer->OnUpdate();
+
 			window_->OnUpdate();
 		}
+	}
+
+	void Application::PushLayer(std::shared_ptr<Layer> layer)
+	{
+		layerStack_.PushLayer(layer);
+	}
+
+	void Application::PopLayer(std::shared_ptr<Layer> layer)
+	{
+		layerStack_.PopLayer(layer);
 	}
 
 	void Application::OnEvent(Event& e)
@@ -29,7 +42,12 @@ namespace ArtemEngine
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
 
-		AR_CORE_TRACE("{0}", e);
+		for (std::shared_ptr<Layer> layer : layerStack_)
+		{
+			layer->OnEvent(e);
+			if (e.IsHandled())
+				break;
+		}
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)

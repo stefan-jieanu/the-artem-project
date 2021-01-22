@@ -7,6 +7,12 @@
     <Filter Include="ArtemEngine\Events">
       <UniqueIdentifier>{F8FDA131-E4E1-6287-4D42-5DDA39454D09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ArtemEngine.h" />
@@ -31,21 +37,36 @@
     <ClInclude Include="src\ArtemEngine\Events\MouseEvent.h">
       <Filter>ArtemEngine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Layer.h">
+      <Filter>ArtemEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\LayerStack.h">
+      <Filter>ArtemEngine</Filter>
+    </ClInclude>
     <ClInclude Include="src\ArtemEngine\Log.h">
       <Filter>ArtemEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Window.h">
+      <Filter>ArtemEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\aepch.h" />
-    <ClInclude Include="src\ArtemEngine\Window.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Application.cpp">
       <Filter>ArtemEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\ArtemEngine\LayerStack.cpp">
+      <Filter>ArtemEngine</Filter>
+    </ClCompile>
     <ClCompile Include="src\ArtemEngine\Log.cpp">
       <Filter>ArtemEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\aepch.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

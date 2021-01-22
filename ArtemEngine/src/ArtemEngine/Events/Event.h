@@ -2,8 +2,6 @@
 
 #include "ArtemEngine/Core.h"
 
-
-
 namespace ArtemEngine {
 	// Events are currently blocking, meaning when an event occurs it
 	// immediately gets dispatched and must be dealt with rigth then and there.
@@ -49,6 +47,11 @@ namespace ArtemEngine {
 		{
 			return GetCategoryFlags() & category;
 		}
+
+		inline bool IsHandled() const
+		{
+			return handled_;
+		}
 	protected: 
 		bool handled_ = false;
 	};
@@ -75,7 +78,7 @@ namespace ArtemEngine {
 		Event& event_;
 	};
 
-	inline std::ostream& operator<<(std::ostream& os, const Event& e)
+	inline ARTEM_ENGINE_API std::ostream& operator<<(std::ostream& os, const Event& e)
 	{
 		return os << e.ToString();
 	}
