@@ -4,6 +4,9 @@
     <Filter Include="ArtemEngine">
       <UniqueIdentifier>{94408502-00F6-FDF7-89EA-F7CEF59EF4FB}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ArtemEngine\Events">
+      <UniqueIdentifier>{F8FDA131-E4E1-6287-4D42-5DDA39454D09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ArtemEngine.h" />
@@ -16,13 +19,21 @@
     <ClInclude Include="src\ArtemEngine\EntryPoint.h">
       <Filter>ArtemEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Events\ApplicationEvent.h">
+      <Filter>ArtemEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Events\Event.h">
+      <Filter>ArtemEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Events\KeyEvent.h">
+      <Filter>ArtemEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Events\MouseEvent.h">
+      <Filter>ArtemEngine\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\ArtemEngine\Log.h">
       <Filter>ArtemEngine</Filter>
     </ClInclude>
-    <ClInclude Include="src\ArtemEngine\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\ArtemEngine\Events\Event.h" />
-    <ClInclude Include="src\ArtemEngine\Events\KeyEvent.h" />
-    <ClInclude Include="src\ArtemEngine\Events\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Application.cpp">

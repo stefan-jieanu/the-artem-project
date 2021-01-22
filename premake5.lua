@@ -26,10 +26,11 @@ project "ArtemEngine"
 
     includedirs
     {
+        "%{prj.name}/src",
+        "%{prj.name}/vendor/spdlog/include",
         "%{prj.name}/vendor/glfw/include",
         "%{prj.name}/vendor/glew/include",
-        "%{prj.name}/vendor/sbt_image",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/sbt_image"
     }
 
     libdirs

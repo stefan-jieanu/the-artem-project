@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Core.h"
+#include "ArtemEngine/Core.h"
 
 #include <string>
 #include <functional>
