@@ -2,7 +2,6 @@
 
 #include "Event.h"
 
-
 namespace ArtemEngine {
 
 	class ARTEM_ENGINE_API KeyEvent : public Event
@@ -40,6 +39,7 @@ namespace ArtemEngine {
 
 	class ARTEM_ENGINE_API KeyReleasedEvent : public KeyEvent
 	{
+	public:
 		KeyReleasedEvent(int keycode)
 			: KeyEvent(keycode) {}
 
