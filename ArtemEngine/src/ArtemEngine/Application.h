@@ -3,7 +3,7 @@
 
 namespace ArtemEngine {
 
-	class ENGINE_API Application
+	class ARTEM_ENGINE_API Application
 	{
 	public:
 		Application();
