@@ -5,7 +5,7 @@ class Artem : public ArtemEngine::Application
 public:
 	Artem()
 	{
-		AR_CORE_DEBUG("hello world from artem");
+		
 	}
 
 	~Artem()

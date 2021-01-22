@@ -10,6 +10,12 @@ workspace "Artem"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (soulution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "ArtemEngine/vendor/GLFW/include"
+
+include "ArtemEngine/vendor/GLFW"
+
 project "ArtemEngine"
     location "ArtemEngine"
     kind "SharedLib"
@@ -17,6 +23,9 @@ project "ArtemEngine"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+    pchheader "aepch.h"
+    pchsource "ArtemEngine/src/aepch.cpp"
 
     files
     {
@@ -28,9 +37,13 @@ project "ArtemEngine"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{prj.name}/vendor/glfw/include",
-        "%{prj.name}/vendor/glew/include",
-        "%{prj.name}/vendor/sbt_image"
+        "%{IncludeDir.GLFW}"
+    }
+
+    links
+    {
+        "GLFW",
+        "opengl32.lib"
     }
 
     libdirs

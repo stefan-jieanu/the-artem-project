@@ -5,6 +5,7 @@
 
 # 3rd party libraries used as submodules with git
 ArtemEngine/vendor/spdlog
+ArtemEngine/vendor/GLFW
 
 # User-specific files
 *.rsuser

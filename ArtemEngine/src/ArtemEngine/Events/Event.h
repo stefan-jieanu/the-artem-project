@@ -2,8 +2,7 @@
 
 #include "ArtemEngine/Core.h"
 
-#include <string>
-#include <functional>
+
 
 namespace ArtemEngine {
 	// Events are currently blocking, meaning when an event occurs it

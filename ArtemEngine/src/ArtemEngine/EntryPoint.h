@@ -14,6 +14,8 @@ int main(int argc, char** argv)
 	auto app = ArtemEngine::CreateApplication();
 	app->Run();
 	delete app;
+
+	return 0;
 }
 
 #endif

@@ -1,5 +1,7 @@
 #pragma once
+
 #include "Core.h"
+#include "Window.h"
 
 namespace ArtemEngine {
 
@@ -10,6 +12,9 @@ namespace ArtemEngine {
 		virtual ~Application();
 
 		void Run();
+	private:
+		std::unique_ptr<Window> window_;
+		bool running_ = true;
 	};
 
 	// To be defined in CLIENT

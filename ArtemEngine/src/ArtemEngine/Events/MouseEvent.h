@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include "sstream"
-
 namespace ArtemEngine {
 
 	class ARTEM_ENGINE_API MouseMovedEvent : public Event

@@ -34,6 +34,9 @@
     <ClInclude Include="src\ArtemEngine\Log.h">
       <Filter>ArtemEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\aepch.h" />
+    <ClInclude Include="src\ArtemEngine\Window.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Application.cpp">
@@ -42,5 +45,7 @@
     <ClCompile Include="src\ArtemEngine\Log.cpp">
       <Filter>ArtemEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\aepch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>
