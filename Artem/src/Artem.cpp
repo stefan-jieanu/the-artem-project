@@ -14,7 +14,7 @@ public:
 
 	void OnEvent(ArtemEngine::Event& event) override
 	{
-		AR_TRACE("{0}::{1}", debugName_, event);
+		//AR_TRACE("{0}::{1}", debugName_, event);
 	}
 };
 

@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (soulution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "ArtemEngine/vendor/GLFW/include"
+IncludeDir["Glad"] = "ArtemEngine/vendor/Glad/include"
 
 include "ArtemEngine/vendor/GLFW"
+include "ArtemEngine/vendor/Glad"
 
 project "ArtemEngine"
     location "ArtemEngine"
@@ -37,12 +39,14 @@ project "ArtemEngine"
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}"
     }
 
     links
     {
         "GLFW",
+        "Glad",
         "opengl32.lib"
     }
 
@@ -60,7 +64,8 @@ project "ArtemEngine"
         defines 
         {
             "AR_PLATFORM_WINDOWS",
-            "AR_BUILD_DLL"
+            "AR_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands

@@ -9,7 +9,7 @@ namespace ArtemEngine {
 	{
 	public:
 		WindowsWindow(const WindowProps& props);
-		virtual ~WindowsWindow();
+		~WindowsWindow();
 
 		void OnUpdate() override;
 
@@ -20,6 +20,8 @@ namespace ArtemEngine {
 		inline void SetEventCallback(const EventCallbackFn& callback) override { data_.eventCallback = callback; }
 		void SetVSync(bool enabled) override;
 		bool IsVSync() const override;
+
+		inline void* GetNativeWindow() const override { return window_; }
 	private:
 		struct WindowData
 		{

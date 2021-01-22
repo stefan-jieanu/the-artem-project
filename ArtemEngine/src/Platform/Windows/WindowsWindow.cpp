@@ -5,6 +5,8 @@
 #include "ArtemEngine/Events/KeyEvent.h"
 #include "ArtemEngine/Events/MouseEvent.h"
 
+#include "glad/glad.h"
+
 namespace ArtemEngine {
 
 	static bool sGLFWInitialized = false;
@@ -49,6 +51,10 @@ namespace ArtemEngine {
 
 		window_ = glfwCreateWindow((int)data_.width, (int)data_.height, data_.title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(window_);
+
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		AR_CORE_ASSERT(status, "Failed to initialize Glad!");
+
 		glfwSetWindowUserPointer(window_, &data_);
 		SetVSync(true);
 

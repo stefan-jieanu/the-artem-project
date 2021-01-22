@@ -14,17 +14,21 @@ namespace ArtemEngine {
 		virtual ~Application();
 
 		void Run();
-
 		void PushLayer(std::shared_ptr<Layer> layer);
 		void PopLayer(std::shared_ptr<Layer> layer);
 
 		void OnEvent(Event& e);
+
+		Window& GetWindow() { return *window_; }
+		static Application& Get() { return *sInstance_; }
 	private:
-		bool OnWindowClose(WindowCloseEvent& e);
+		static Application* sInstance_;
 
 		std::unique_ptr<Window> window_;
 		bool running_ = true;
 		LayerStack layerStack_;
+
+		bool OnWindowClose(WindowCloseEvent& e);
 	};
 
 	// To be defined in CLIENT
