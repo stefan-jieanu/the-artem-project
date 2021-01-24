@@ -13,7 +13,7 @@ namespace ArtemEngine {
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
-		AR_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
+		LOG_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
 	}
 
 	Window* Window::Create(const WindowProps& props)
@@ -37,13 +37,13 @@ namespace ArtemEngine {
 		data_.width = props.width;
 		data_.height = props.height;
 
-		AR_CORE_INFO("Creating window {0} ({1}, {2})", data_.title, data_.width, data_.height);
+		LOG_CORE_INFO("Creating window {0} ({1}, {2})", data_.title, data_.width, data_.height);
 
 		if (!sGLFWInitialized)
 		{
 			// TODO: glfwTerminate on system shutdown
 			int success = glfwInit();
-			AR_CORE_ASSERT(success, "Could not initialize GLFW!");
+			LOG_CORE_ASSERT(success, "Could not initialize GLFW!");
 
 			glfwSetErrorCallback(GLFWErrorCallback);
 			sGLFWInitialized = true;
@@ -53,7 +53,7 @@ namespace ArtemEngine {
 		glfwMakeContextCurrent(window_);
 
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		AR_CORE_ASSERT(status, "Failed to initialize Glad!");
+		LOG_CORE_ASSERT(status, "Failed to initialize Glad!");
 
 		glfwSetWindowUserPointer(window_, &data_);
 		SetVSync(true);

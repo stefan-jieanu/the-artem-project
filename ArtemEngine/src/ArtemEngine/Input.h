@@ -19,4 +19,10 @@ namespace ArtemEngine {
 		static Input* sInstance_;
 	};
 
+	struct ARTEM_ENGINE_API KeyCode
+	{
+		static const int Space = 32;
+		// static const int A = 
+	};
+
 }

@@ -11,6 +11,8 @@ namespace ArtemEngine {
 		LayerStack();
 		~LayerStack();
 
+		// TODO: Change std::shared_ptr to raw pointer
+		// The layer stack should manage all the layers
 		void PushLayer(std::shared_ptr<Layer> layer);
 		void PopLayer(std::shared_ptr<Layer> layer);
 

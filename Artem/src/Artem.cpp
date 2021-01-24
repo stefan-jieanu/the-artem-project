@@ -5,16 +5,17 @@ class ExampleLayer : public ArtemEngine::Layer
 public:
 	ExampleLayer(const std::string& name)
 		: Layer(name)
-	{}
+	{
+	}
 
 	void OnUpdate() override
 	{
-		//AR_INFO("{0}::Updates", debugName_);
+		//LOG_INFO("{0}::Updates", debugName_);
 	}
 
 	void OnEvent(ArtemEngine::Event& event) override
 	{
-		//AR_TRACE("{0}::{1}", debugName_, event);
+		//LOG_TRACE("{0}::{1}", debugName_, event);
 	}
 };
 

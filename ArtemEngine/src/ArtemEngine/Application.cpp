@@ -16,6 +16,8 @@ namespace ArtemEngine
 		window_->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 
 		sInstance_ = this;
+
+		LOG_CORE_TRACE("hello");
 	}
 
 	Application::~Application()
@@ -30,7 +32,7 @@ namespace ArtemEngine
 				layer->OnUpdate();
 
 			bool pressed = Input::IsKeyPressed(87);
-			AR_CORE_TRACE("{0}", pressed);
+			//LOG_CORE_DEBUG("{0}", pressed);
 
 			window_->OnUpdate();
 		}
