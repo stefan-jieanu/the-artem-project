@@ -17,7 +17,11 @@ namespace ArtemEngine
 
 		sInstance_ = this;
 
-		LOG_CORE_TRACE("hello");
+		LOG_CORE_TRACE("engine");
+		LOG_CORE_DEBUG("engine");
+		LOG_CORE_INFO("engine");
+		LOG_CORE_WARN("engine");
+		LOG_CORE_ERROR("engine");
 	}
 
 	Application::~Application()

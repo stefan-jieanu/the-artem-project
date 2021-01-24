@@ -9,7 +9,7 @@ namespace ArtemEngine
 
 	void Log::Init()
 	{
-		spdlog::set_pattern("%^[%n]: %@ %v%$");
+		spdlog::set_pattern("%^[%n]: [%s, %#]: [%l]: %v%$");
 
 		sCoreLogger_ = spdlog::stdout_color_mt("ENGINE");
 		sCoreLogger_->set_level(spdlog::level::trace);

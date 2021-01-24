@@ -11,6 +11,7 @@
 #include "ArtemEngine/EntryPoint.h"
 // ----------------------------------
 
+// Undefine logger macros specific to the engine
 #undef LOG_CORE_TRACE
 #undef LOG_CORE_DEBUG
 #undef LOG_CORE_INFO

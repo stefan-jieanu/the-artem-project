@@ -29,6 +29,12 @@ public:
 
 		PushLayer(layer1);
 		PushLayer(layer2);
+
+		LOG_TRACE("artem");
+		LOG_DEBUG("artem");
+		LOG_INFO("artem");
+		LOG_WARN("artem");
+		LOG_ERROR("artem");
 	}
 
 	~Artem()
