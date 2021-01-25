@@ -7,6 +7,7 @@ namespace ArtemEngine {
 	class ARTEM_ENGINE_API MouseMovedEvent : public Event
 	{
 	public:
+		// TODO: Change x, y to Vector2()
 		MouseMovedEvent(float x, float y)
 			: mouseX_(x), mouseY_(y) {}
 

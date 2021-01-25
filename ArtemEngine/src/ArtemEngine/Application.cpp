@@ -35,11 +35,17 @@ namespace ArtemEngine
 			for (std::shared_ptr<Layer> layer : layerStack_)
 				layer->OnUpdate();
 
-			bool pressed = Input::IsKeyPressed(87);
-			//LOG_CORE_DEBUG("{0}", pressed);
+			//bool pressed = Input::GetKey(KeyCode.W);
+			if (Input::GetKey(KeyCode::A))
+				LOG_CORE_TRACE("A is pressed");
 
 			window_->OnUpdate();
 		}
+	}
+
+	void Application::Terminate()
+	{
+		running_ = false;
 	}
 
 	void Application::PushLayer(std::shared_ptr<Layer> layer)
@@ -58,18 +64,68 @@ namespace ArtemEngine
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
+		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(Application::OnWindowResize));
+		dispatcher.Dispatch<KeyPressedEvent>(BIND_EVENT_FN(Application::OnKeyPressed));
+		dispatcher.Dispatch<KeyRepeatEvent>(BIND_EVENT_FN(Application::OnKeyRepeat));
+		dispatcher.Dispatch<KeyReleasedEvent>(BIND_EVENT_FN(Application::OnKeyReleased));
+		dispatcher.Dispatch<MouseButtonPressedEvent>(BIND_EVENT_FN(Application::OnMouseButtonPressed));
+		dispatcher.Dispatch<MouseButtonReleasedEvent>(BIND_EVENT_FN(Application::OnMouseButtonReleased));
+		dispatcher.Dispatch<MouseMovedEvent>(BIND_EVENT_FN(Application::OnMouseMoved));
+		dispatcher.Dispatch<MouseScrolledEvent>(BIND_EVENT_FN(Application::OnMouseScrolled));
 
-		for (std::shared_ptr<Layer> layer : layerStack_)
-		{
-			layer->OnEvent(e);
-			if (e.IsHandled())
-				break;
-		}
+		// If the event was not marked as handled by any of the previous callbacks
+		// then send the event to the layers
+		if (!e.IsHandled())
+			for (std::shared_ptr<Layer> layer : layerStack_)
+			{
+				layer->OnEvent(e);
+				if (e.IsHandled())
+					break;
+			}
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
 	{
-		running_ = false;
-		return true;
+		return false;
+	}
+	
+	bool Application::OnWindowResize(WindowResizeEvent& e)
+	{
+		return false;
+	}
+	
+	bool Application::OnKeyPressed(KeyPressedEvent& e)
+	{
+		return false;
+	}
+	
+	bool Application::OnKeyRepeat(KeyRepeatEvent& e)
+	{
+		return false;
+	}
+	
+	bool Application::OnKeyReleased(KeyReleasedEvent& e)
+	{
+		return false;
+	}
+	
+	bool Application::OnMouseButtonPressed(MouseButtonPressedEvent& e)
+	{
+		return false;
+	}
+	
+	bool Application::OnMouseButtonReleased(MouseButtonReleasedEvent& e)
+	{
+		return false;
+	}
+	
+	bool Application::OnMouseMoved(MouseMovedEvent& e)
+	{
+		return false;
+	}
+	
+	bool Application::OnMouseScrolled(MouseScrolledEvent& e)
+	{
+		return false;
 	}
 }

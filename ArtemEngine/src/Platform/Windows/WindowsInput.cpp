@@ -8,14 +8,14 @@ namespace ArtemEngine {
 
 	Input* Input::sInstance_ = new WindowsInput();
 
-	bool WindowsInput::IsKeyPressedImpl(int keycode) 
+	bool WindowsInput::GetKeyImpl(KeyCode keycode)
 	{
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
-		auto state = glfwGetKey(window, keycode);
+		auto state = glfwGetKey(window, (int)keycode);
 		return state == GLFW_PRESS || state == GLFW_REPEAT;
 	}
 
-	bool WindowsInput::IsMouseButtonPressedImpl(int button)
+	bool WindowsInput::GetMouseButtonImpl(int button)
 	{
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		auto state = glfwGetMouseButton(window, button);

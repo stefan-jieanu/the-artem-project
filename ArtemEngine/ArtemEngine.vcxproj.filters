@@ -71,5 +71,6 @@
     </ClCompile>
     <ClCompile Include="src\aepch.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\ArtemEngine\Layer.cpp" />
   </ItemGroup>
 </Project>

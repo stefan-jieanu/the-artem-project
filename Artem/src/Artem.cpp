@@ -1,5 +1,7 @@
 #include <ArtemEngine.h>
 
+using namespace ArtemEngine;
+
 class ExampleLayer : public ArtemEngine::Layer
 {
 public:
@@ -13,10 +15,12 @@ public:
 		//LOG_INFO("{0}::Updates", debugName_);
 	}
 
-	void OnEvent(ArtemEngine::Event& event) override
+	bool OnKeyPressed(KeyPressedEvent& e) override
 	{
-		//LOG_TRACE("{0}::{1}", debugName_, event);
+		LOG_DEBUG("Layer: {0}", e);
+		return true;
 	}
+
 };
 
 class Artem : public ArtemEngine::Application
@@ -25,10 +29,10 @@ public:
 	Artem()
 	{
 		std::shared_ptr<ExampleLayer> layer1 = std::make_shared<ExampleLayer>("xxx");		
-		std::shared_ptr<ExampleLayer> layer2 = std::make_shared<ExampleLayer>("yyy");		
+		//std::shared_ptr<ExampleLayer> layer2 = std::make_shared<ExampleLayer>("yyy");		
 
 		PushLayer(layer1);
-		PushLayer(layer2);
+		//PushLayer(layer2);
 
 		LOG_TRACE("artem");
 		LOG_DEBUG("artem");
@@ -40,6 +44,18 @@ public:
 	~Artem()
 	{
 
+	}
+
+	bool OnWindowClose(WindowCloseEvent& e) override
+	{
+		Terminate();
+		return true;
+	}
+
+	bool OnKeyPressed(KeyPressedEvent& e) override
+	{
+		LOG_DEBUG("main: {0}", e);
+		return false;
 	}
 };
 

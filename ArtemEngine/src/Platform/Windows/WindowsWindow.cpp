@@ -86,7 +86,7 @@ namespace ArtemEngine {
 			{
 			case GLFW_PRESS:
 			{
-				KeyPressedEvent event(key, 0);
+				KeyPressedEvent event(key);
 				data.eventCallback(event);
 				break;
 			}
@@ -100,7 +100,7 @@ namespace ArtemEngine {
 
 			case GLFW_REPEAT:
 			{
-				KeyPressedEvent event(key, 1);
+				KeyRepeatEvent event(key);
 				data.eventCallback(event);
 				break;
 			}

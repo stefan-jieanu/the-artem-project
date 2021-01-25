@@ -20,21 +20,34 @@ namespace ArtemEngine {
 	class ARTEM_ENGINE_API KeyPressedEvent : public KeyEvent
 	{
 	public:
-		KeyPressedEvent(int keycode, int repeadCount)
-			: KeyEvent(keycode), repeatCount_(repeadCount) {}
+		KeyPressedEvent(int keycode)
+			: KeyEvent(keycode) {}
 
-		inline int GetRepeatCount() const { return repeatCount_; }
 
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyPressedEvent: " << keyCode_ << " (" << repeatCount_ << " repeats)";
+			ss << "KeyPressedEvent: " << keyCode_;
 			return ss.str();
 		}
 
 		EVENT_CLASS_TYPE(KeyPressed);
-	private:
-		int repeatCount_;
+	};
+
+	class ARTEM_ENGINE_API KeyRepeatEvent : public KeyEvent
+	{
+	public:
+		KeyRepeatEvent(int keycode)
+			: KeyEvent(keycode) {}
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "KeyRepeatEvent: " << keyCode_;
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE(KeyRepeat);
 	};
 
 	class ARTEM_ENGINE_API KeyReleasedEvent : public KeyEvent

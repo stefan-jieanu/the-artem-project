@@ -7,8 +7,11 @@ namespace ArtemEngine {
 	class WindowsInput : public Input
 	{
 	protected:
-		virtual bool IsKeyPressedImpl(int keycode) override;
-		virtual bool IsMouseButtonPressedImpl(int button) override;
+		// Keyboard handling
+		bool GetKeyImpl(KeyCode keycode) override;
+
+		// Mouse handling
+		bool GetMouseButtonImpl(int button) override;
 	};
 
 }
