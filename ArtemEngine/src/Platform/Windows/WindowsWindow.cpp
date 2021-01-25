@@ -4,6 +4,7 @@
 #include "ArtemEngine/Events/ApplicationEvent.h"
 #include "ArtemEngine/Events/KeyEvent.h"
 #include "ArtemEngine/Events/MouseEvent.h"
+#include "ArtemEngine/KeyCode.h"
 
 #include "glad/glad.h"
 
@@ -86,21 +87,21 @@ namespace ArtemEngine {
 			{
 			case GLFW_PRESS:
 			{
-				KeyPressedEvent event(key);
+				KeyPressedEvent event((KeyCode)key);
 				data.eventCallback(event);
 				break;
 			}
 
 			case GLFW_RELEASE:
 			{
-				KeyReleasedEvent event(key);
+				KeyReleasedEvent event((KeyCode)key);
 				data.eventCallback(event);
 				break;
 			}
 
 			case GLFW_REPEAT:
 			{
-				KeyRepeatEvent event(key);
+				KeyRepeatEvent event((KeyCode)key);
 				data.eventCallback(event);
 				break;
 			}

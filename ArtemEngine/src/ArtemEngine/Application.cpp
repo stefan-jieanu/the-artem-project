@@ -35,10 +35,6 @@ namespace ArtemEngine
 			for (std::shared_ptr<Layer> layer : layerStack_)
 				layer->OnUpdate();
 
-			//bool pressed = Input::GetKey(KeyCode.W);
-			if (Input::GetKey(KeyCode::A))
-				LOG_CORE_TRACE("A is pressed");
-
 			window_->OnUpdate();
 		}
 	}

@@ -1,33 +1,34 @@
 #pragma once
 
 #include "Event.h"
+#include "ArtemEngine/KeyCode.h"
 
 namespace ArtemEngine {
 
 	class KeyEvent : public Event
 	{
 	public:
-		inline int GetKeyCode() const { return keyCode_; }
+		inline KeyCode GetKeyCode() const { return keyCode_; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput);
 	protected:
-		KeyEvent(int keycode)
+		KeyEvent(KeyCode keycode)
 			: keyCode_(keycode) {}
 
-		int keyCode_;
+		KeyCode keyCode_;
 	};
 
 	class KeyPressedEvent : public KeyEvent
 	{
 	public:
-		KeyPressedEvent(int keycode)
+		KeyPressedEvent(KeyCode keycode)
 			: KeyEvent(keycode) {}
 
 
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyPressedEvent: " << keyCode_;
+			ss << "KeyPressedEvent: " << (int)keyCode_;
 			return ss.str();
 		}
 
@@ -37,13 +38,13 @@ namespace ArtemEngine {
 	class KeyRepeatEvent : public KeyEvent
 	{
 	public:
-		KeyRepeatEvent(int keycode)
+		KeyRepeatEvent(KeyCode keycode)
 			: KeyEvent(keycode) {}
 
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyRepeatEvent: " << keyCode_;
+			ss << "KeyRepeatEvent: " << (int)keyCode_;
 			return ss.str();
 		}
 
@@ -53,13 +54,13 @@ namespace ArtemEngine {
 	class KeyReleasedEvent : public KeyEvent
 	{
 	public:
-		KeyReleasedEvent(int keycode)
+		KeyReleasedEvent(KeyCode keycode)
 			: KeyEvent(keycode) {}
 
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyReleasedEvent: " << keyCode_;
+			ss << "KeyReleasedEvent: " << (int)keyCode_;
 			return ss.str();
 		}
 

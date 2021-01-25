@@ -15,6 +15,12 @@ public:
 		
 	}
 
+	bool OnKeyPressed(KeyPressedEvent& e) override 
+	{
+		LOG_TRACE("{}", (char)e.GetKeyCode());
+		return false;
+	}
+
 };
 
 class Artem : public ArtemEngine::Application
