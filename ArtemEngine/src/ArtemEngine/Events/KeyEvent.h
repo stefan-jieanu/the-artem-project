@@ -4,7 +4,7 @@
 
 namespace ArtemEngine {
 
-	class ARTEM_ENGINE_API KeyEvent : public Event
+	class KeyEvent : public Event
 	{
 	public:
 		inline int GetKeyCode() const { return keyCode_; }
@@ -17,7 +17,7 @@ namespace ArtemEngine {
 		int keyCode_;
 	};
 
-	class ARTEM_ENGINE_API KeyPressedEvent : public KeyEvent
+	class KeyPressedEvent : public KeyEvent
 	{
 	public:
 		KeyPressedEvent(int keycode)
@@ -34,7 +34,7 @@ namespace ArtemEngine {
 		EVENT_CLASS_TYPE(KeyPressed);
 	};
 
-	class ARTEM_ENGINE_API KeyRepeatEvent : public KeyEvent
+	class KeyRepeatEvent : public KeyEvent
 	{
 	public:
 		KeyRepeatEvent(int keycode)
@@ -50,7 +50,7 @@ namespace ArtemEngine {
 		EVENT_CLASS_TYPE(KeyRepeat);
 	};
 
-	class ARTEM_ENGINE_API KeyReleasedEvent : public KeyEvent
+	class KeyReleasedEvent : public KeyEvent
 	{
 	public:
 		KeyReleasedEvent(int keycode)

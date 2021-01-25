@@ -23,7 +23,7 @@ namespace ArtemEngine {
 	};
 
 	// Interface representing a desktop system based Window
-	class ARTEM_ENGINE_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;

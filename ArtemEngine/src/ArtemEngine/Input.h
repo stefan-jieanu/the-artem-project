@@ -5,7 +5,7 @@
 namespace ArtemEngine {
 
 	// Key codes declarations
-	enum class ARTEM_ENGINE_API KeyCode
+	enum class KeyCode
 	{
 		// Printable keys
 		Space = 32,
@@ -134,7 +134,7 @@ namespace ArtemEngine {
 		Menu = 348
 	};
 
-	class ARTEM_ENGINE_API Input
+	class Input
 	{
 	public:
 		// Keyboard handling

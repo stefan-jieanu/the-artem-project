@@ -18,7 +18,7 @@
 
 namespace ArtemEngine {
 
-	class ARTEM_ENGINE_API Log
+	class Log
 	{
 	public:
 		static void Init();
@@ -42,12 +42,6 @@ namespace ArtemEngine {
 
 
 // Client log macros
-#define LOG_TRACE(...) ::ArtemEngine::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define LOG_DEBUG(...) ::ArtemEngine::Log::GetClientLogger()->debug(__VA_ARGS__)
-#define LOG_INFO(...)  ::ArtemEngine::Log::GetClientLogger()->info(__VA_ARGS__)
-#define LOG_WARN(...)  ::ArtemEngine::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define LOG_ERROR(...) ::ArtemEngine::Log::GetClientLogger()->error(__VA_ARGS__)
-
 #define LOG_TRACE(...) SPDLOG_LOGGER_TRACE(::ArtemEngine::Log::GetClientLogger(), __VA_ARGS__)
 #define LOG_DEBUG(...) SPDLOG_LOGGER_DEBUG(::ArtemEngine::Log::GetClientLogger(), __VA_ARGS__)
 #define LOG_INFO(...) SPDLOG_LOGGER_INFO(::ArtemEngine::Log::GetClientLogger(), __VA_ARGS__)

@@ -5,7 +5,7 @@
 
 namespace ArtemEngine {
 
-	class ARTEM_ENGINE_API LayerStack
+	class LayerStack
 	{
 	public:
 		LayerStack();

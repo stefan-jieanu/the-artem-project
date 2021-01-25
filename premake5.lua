@@ -20,8 +20,10 @@ include "ArtemEngine/vendor/Glad"
 
 project "ArtemEngine"
     location "ArtemEngine"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
+    cppdialect "C++17"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -50,14 +52,13 @@ project "ArtemEngine"
         "opengl32.lib"
     }
 
-    libdirs
-    {
-        "%{prj.name}/vendor/glfw/lib-vc2019",
-        "%{prj.name}/vendor/glew/lib-vc2019/lib/Release/x64",
-    }
+    --libdirs
+    --{
+    --    "%{prj.name}/vendor/glfw/lib-vc2019",
+    --    "%{prj.name}/vendor/glew/lib-vc2019/lib/Release/x64",
+    --}
 
     filter "system:windows"
-        cppdialect "C++17"
         staticruntime "On"
         systemversion "latest"
 
@@ -68,30 +69,32 @@ project "ArtemEngine"
             "GLFW_INCLUDE_NONE"
         }
 
-        postbuildcommands
-        {
-            ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Artem")
-        }
+        --postbuildcommands
+        --{
+        --    ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Artem")
+        --}
 
     filter "configurations:Debug"
         defines "AR_DEBUG"
-        buildoptions "/MDd"
-        symbols "On"
+        runtime "Debug"
+        symbols "on"
 
     filter "configurations:Release"
         defines "AR_RELEASE"
-        buildoptions "/MD"
-        optimize "On"
+        runtime "Release"
+        optimize "on"
     
     filter "configurations:Dist"
         defines "AR_DIST"
-        buildoptions "/MD"
-        optimize "On"
+        runtime "Release"
+        optimize "on"
 
 project "Artem"
     location "Artem"
     kind "ConsoleApp"
     language "C++"
+    cppdialect "C++17"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -114,7 +117,6 @@ project "Artem"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         staticruntime "On"
         systemversion "latest"
 
@@ -125,12 +127,12 @@ project "Artem"
 
     filter "configurations:Debug"
         defines "AR_DEBUG"
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         defines "AR_RELEASE"
-        optimize "On"
+        optimize "on"
     
     filter "configurations:Dist"
         defines "AR_DIST"
-        optimize "On"
+        optimize "on"

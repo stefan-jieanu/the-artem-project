@@ -33,7 +33,7 @@ namespace ArtemEngine {
 
 	#define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-	class ARTEM_ENGINE_API Event
+	class Event
 	{
 		friend class EventDispatcher;
 
@@ -78,7 +78,7 @@ namespace ArtemEngine {
 		Event& event_;
 	};
 
-	inline ARTEM_ENGINE_API std::ostream& operator<<(std::ostream& os, const Event& e)
+	inline std::ostream& operator<<(std::ostream& os, const Event& e)
 	{
 		return os << e.ToString();
 	}

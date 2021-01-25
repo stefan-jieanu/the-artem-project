@@ -37,6 +37,9 @@
     <ClInclude Include="src\ArtemEngine\Events\MouseEvent.h">
       <Filter>ArtemEngine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Input.h">
+      <Filter>ArtemEngine</Filter>
+    </ClInclude>
     <ClInclude Include="src\ArtemEngine\Layer.h">
       <Filter>ArtemEngine</Filter>
     </ClInclude>
@@ -49,15 +52,19 @@
     <ClInclude Include="src\ArtemEngine\Window.h">
       <Filter>ArtemEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\aepch.h" />
-    <ClInclude Include="src\ArtemEngine\Input.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Application.cpp">
+      <Filter>ArtemEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Layer.cpp">
       <Filter>ArtemEngine</Filter>
     </ClCompile>
     <ClCompile Include="src\ArtemEngine\LayerStack.cpp">
@@ -66,11 +73,12 @@
     <ClCompile Include="src\ArtemEngine\Log.cpp">
       <Filter>ArtemEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\aepch.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
-    <ClCompile Include="src\ArtemEngine\Layer.cpp" />
   </ItemGroup>
 </Project>
