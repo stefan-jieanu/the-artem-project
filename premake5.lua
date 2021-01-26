@@ -56,12 +56,6 @@ project "ArtemEngine"
         "opengl32.lib"
     }
 
-    --libdirs
-    --{
-    --    "%{prj.name}/vendor/glfw/lib-vc2019",
-    --    "%{prj.name}/vendor/glew/lib-vc2019/lib/Release/x64",
-    --}
-
     filter "system:windows"
         staticruntime "On"
         systemversion "latest"
@@ -72,11 +66,6 @@ project "ArtemEngine"
             "AR_BUILD_DLL",
             "GLFW_INCLUDE_NONE"
         }
-
-        --postbuildcommands
-        --{
-        --    ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Artem")
-        --}
 
     filter "configurations:Debug"
         defines "AR_DEBUG"
@@ -112,6 +101,7 @@ project "Artem"
     includedirs
     {
         "ArtemEngine/vendor/spdlog/include",
+        "ArtemEngine/vendor/glm",
         "ArtemEngine/src"
     }
 

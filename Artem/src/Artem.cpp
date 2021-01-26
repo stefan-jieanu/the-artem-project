@@ -31,6 +31,11 @@ public:
 		std::shared_ptr<ExampleLayer> layer1 = std::make_shared<ExampleLayer>("xxx");		
 
 		PushLayer(layer1);
+		
+		Vector2 vec2(4, 5);
+		Vector3 vec3(1, 2, 3);
+		Vector4 vec4(0.0f, 0.0f, 0.0f, 0.0f);
+		LOG_TRACE("{0}, {1}, {2}", vec2, vec3, vec4);
 	}
 
 	~Artem()

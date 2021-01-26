@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "Window.h"
+#include "Math/math.h"
 #include "ArtemEngine/LayerStack.h"
 #include "ArtemEngine/Events/Event.h"
 #include "ArtemEngine/Events/ApplicationEvent.h"

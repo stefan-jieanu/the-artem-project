@@ -10,6 +10,9 @@
     <Filter Include="src\ArtemEngine\Events">
       <UniqueIdentifier>{AF617928-9B5B-A27A-84C8-388B706108E7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ArtemEngine\Math">
+      <UniqueIdentifier>{E42BF46B-D0BA-7D35-79D9-913065478EDB}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
     </Filter>
@@ -66,6 +69,9 @@
     <ClInclude Include="src\ArtemEngine\Input.h">
       <Filter>src\ArtemEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\ArtemEngine\KeyCode.h">
+      <Filter>src\ArtemEngine</Filter>
+    </ClInclude>
     <ClInclude Include="src\ArtemEngine\Layer.h">
       <Filter>src\ArtemEngine</Filter>
     </ClInclude>
@@ -74,6 +80,9 @@
     </ClInclude>
     <ClInclude Include="src\ArtemEngine\Log.h">
       <Filter>src\ArtemEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Math\math.h">
+      <Filter>src\ArtemEngine\Math</Filter>
     </ClInclude>
     <ClInclude Include="src\ArtemEngine\Window.h">
       <Filter>src\ArtemEngine</Filter>
@@ -1326,7 +1335,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\ArtemEngine\KeyCode.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Application.cpp">
