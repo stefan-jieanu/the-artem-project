@@ -112,7 +112,7 @@ namespace ArtemEngine {
         return location;
     }
 
-    void Shader::SetUniform2f(const std::string& name, Math::Vector2 value)
+    void Shader::SetUniform2f(const std::string& name, const Math::Vector2& value)
     {
         glUniform2f(GetUniformLocation(name), value.x, value.y);
     }
@@ -132,14 +132,14 @@ namespace ArtemEngine {
         glUniform1i(GetUniformLocation(name), value);
     }
 
-    void Shader::SetUniform4f(const std::string& name, Math::Vector4 value)
+    void Shader::SetUniform4f(const std::string& name, const Math::Vector4& value)
     {
         glUniform4f(GetUniformLocation(name), value.x, value.y, value.z, value.w);
     }
 
-    void Shader::SetUniformMat4f(const std::string& name, Math::Matrix4 value)
+    void Shader::SetUniformMat4f(const std::string& name, const Math::Matrix4& value)
     {
-        //glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, value.elements);
+        glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, Math::GetValuePointer(value));
     }
 
     void Shader::Bind() const

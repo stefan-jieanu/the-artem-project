@@ -4,17 +4,19 @@
 layout(location = 0) in vec3 position;
 layout(location = 1) in vec4 color;
 
+uniform mat4 u_ProjectionView;
+
 out DATA
 {
-	vec3 pos;
+	vec4 pos;
 	vec4 color;
 } vs_out;
 
 void main()
 {
-	vs_out.pos = position;
+	vs_out.pos = u_ProjectionView * vec4(position, 1.0);;
 	vs_out.color = color;
-	gl_Position = vec4(position, 1.0);
+	gl_Position = vs_out.pos;
 }
 
 #shader fragment

@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "Input.h"
 #include "ArtemEngine/Renderer/Renderer.h"
+#include "ArtemEngine/Renderer/OrthographicCamera.h"
 
 namespace ArtemEngine
 {
@@ -14,37 +15,9 @@ namespace ArtemEngine
 	{
 		LOG_ASSERT(!sInstance_, "Application already exists!");
 		sInstance_ = this;
-		
+
 		window_ = std::unique_ptr<Window>(Window::Create());
 		window_->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
-
-		vao.reset(VertexArray::Create());
-
-		float vertices[3 * 7] = {
-			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
-			0.5f, -0.5f, 0.0f, 0.4f, 0.8f, 0.8f, 1.0f,
-			0.0f, 0.5f, 0.0f, 0.2f, 0.8f, 0.3f, 1.0f
-		};
-
-		vb.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
-
-		BufferLayout layout{
-			{ ShaderDataType::Float3, "position"},
-			{ ShaderDataType::Float4, "color"}
-		};
-		vb->SetLayout(layout);
-
-		vao->AddVertexBuffer(vb);
-
-		uint32_t indices[3] = { 0, 1, 2 };
-		ib.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
-
-		vao->SetIndexBuffer(ib);
-
-		vao->Bind();
-
-		shader.reset(new Shader("E:/Work/Artem/ArtemEngine/res/Shaders/basic.shader"));
-		shader->Bind();
 	}
 
 	Application::~Application()
@@ -55,13 +28,6 @@ namespace ArtemEngine
 	{
 		while (running_)
 		{
-			RenderCommand::SetClearColor(Color::DarkGrey);
-			RenderCommand::Clear();
-
-			Renderer::Begin();
-			Renderer::Submit(vao);
-			Renderer::End();
-
 			for (std::shared_ptr<Layer> layer : layerStack_)
 				layer->OnUpdate();
 

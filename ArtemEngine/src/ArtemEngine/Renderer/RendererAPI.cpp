@@ -5,5 +5,6 @@
 
 namespace ArtemEngine {
 
+	RendererAPI::API RendererAPI::sAPI_ = RendererAPI::API::OpenGL;
 
 }

@@ -45,11 +45,6 @@ namespace ArtemEngine {
 		std::unique_ptr<Window> window_;
 		bool running_ = true;
 		LayerStack layerStack_;
-
-		std::unique_ptr<Shader> shader;
-		std::shared_ptr<VertexBuffer> vb;
-		std::shared_ptr<IndexBuffer> ib;
-		std::shared_ptr<VertexArray> vao;
 	};
 
 	// To be defined in CLIENT

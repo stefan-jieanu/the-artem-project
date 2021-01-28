@@ -31,11 +31,11 @@ namespace ArtemEngine {
         ~Shader();
 
         void SetUniform1i(const std::string& name, const int value);
-        void SetUniform2f(const std::string& name, Math::Vector2 value);
-        void SetUniform4f(const std::string& name, Math::Vector4 value);
+        void SetUniform2f(const std::string& name, const Math::Vector2& value);
+        void SetUniform4f(const std::string& name, const Math::Vector4& value);
         void SetUniform1fv(const std::string& name, int count, const float* value);
         void SetUniform1iv(const std::string& name, int count, const int* value);
-        void SetUniformMat4f(const std::string& name, Math::Matrix4 value);
+        void SetUniformMat4f(const std::string& name, const Math::Matrix4& value);
 
         void Bind() const;
         void Unbind() const;

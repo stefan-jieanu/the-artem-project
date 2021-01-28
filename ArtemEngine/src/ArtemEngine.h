@@ -3,9 +3,22 @@
 
 // For use in the Artem application
 #include "ArtemEngine/Application.h"
-#include "ArtemEngine/Input.h"
 #include "ArtemEngine/Layer.h"
 #include "ArtemEngine/Log.h"
+
+#include "ArtemEngine/Input.h"
+#include "ArtemEngine/KeyCode.h"
+
+// ----------- Renderer -------------
+#include "ArtemEngine/Renderer/Renderer.h"
+#include "ArtemEngine/Renderer/RenderCommand.h"
+
+#include "ArtemEngine/Renderer/Buffers.h"
+#include "ArtemEngine/Renderer/Shader.h"
+#include "ArtemEngine/Renderer/VertexArray.h"
+// ----------------------------------
+
+#include "ArtemEngine/Renderer/OrthographicCamera.h"
 
 // ---------- Entry Point -----------
 #include "ArtemEngine/EntryPoint.h"
