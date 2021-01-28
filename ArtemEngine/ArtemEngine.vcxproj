@@ -140,6 +140,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\ArtemEngine\Renderer\Color.h" />
     <ClInclude Include="src\ArtemEngine.h" />
     <ClInclude Include="src\ArtemEngine\Application.h" />
     <ClInclude Include="src\ArtemEngine\Core.h" />
@@ -155,11 +156,14 @@
     <ClInclude Include="src\ArtemEngine\Log.h" />
     <ClInclude Include="src\ArtemEngine\Math\math.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\Buffers.h" />
+    <ClInclude Include="src\ArtemEngine\Renderer\RenderCommand.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\Renderer.h" />
+    <ClInclude Include="src\ArtemEngine\Renderer\RendererAPI.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\Shader.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\VertexArray.h" />
     <ClInclude Include="src\ArtemEngine\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffers.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -584,10 +588,14 @@
     <ClCompile Include="src\ArtemEngine\LayerStack.cpp" />
     <ClCompile Include="src\ArtemEngine\Log.cpp" />
     <ClCompile Include="src\ArtemEngine\Renderer\Buffers.cpp" />
+    <ClCompile Include="src\ArtemEngine\Renderer\Color.cpp" />
+    <ClCompile Include="src\ArtemEngine\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\ArtemEngine\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\ArtemEngine\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\ArtemEngine\Renderer\Shader.cpp" />
     <ClCompile Include="src\ArtemEngine\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffers.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />

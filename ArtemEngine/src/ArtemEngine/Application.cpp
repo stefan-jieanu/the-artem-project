@@ -1,8 +1,8 @@
 #include "aepch.h"
 
 #include "Application.h"
-#include "glad/glad.h"
 #include "Input.h"
+#include "ArtemEngine/Renderer/Renderer.h"
 
 namespace ArtemEngine
 {
@@ -55,13 +55,15 @@ namespace ArtemEngine
 	{
 		while (running_)
 		{
-			glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
+			RenderCommand::SetClearColor(Color::DarkGrey);
+			RenderCommand::Clear();
+
+			Renderer::Begin();
+			Renderer::Submit(vao);
+			Renderer::End();
 
 			for (std::shared_ptr<Layer> layer : layerStack_)
 				layer->OnUpdate();
-
-			glDrawElements(GL_TRIANGLES, ib->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			window_->OnUpdate();
 		}

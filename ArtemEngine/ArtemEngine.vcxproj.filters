@@ -1355,6 +1355,10 @@
     </ClInclude>
     <ClInclude Include="src\ArtemEngine\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\ArtemEngine\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\ArtemEngine\Renderer\Color.h" />
+    <ClInclude Include="src\ArtemEngine\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Application.cpp">
@@ -1392,6 +1396,10 @@
     </ClCompile>
     <ClCompile Include="src\ArtemEngine\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\ArtemEngine\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\ArtemEngine\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\ArtemEngine\Renderer\Color.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\Shaders\basic.shader" />

@@ -1,20 +1,18 @@
 #pragma once
 
-namespace ArtemEngine {
+#include "RenderCommand.h"
 
-	enum class RendererAPI
-	{
-		None = 0,
-		OpenGL = 1
-	};
+namespace ArtemEngine {
 
 	class Renderer
 	{
 	public:
-		inline static RendererAPI GetAPI() { return sRendererAPI_; }
-	private:
-		static RendererAPI sRendererAPI_;
-		
+		static void Begin();
+		static void End();
+
+		static void Submit(const std::shared_ptr<VertexArray>& vertexArray);
+
+		inline static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); }
 	};
 }
 
