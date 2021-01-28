@@ -43,6 +43,8 @@ public:
 
 	void OnUpdate(DeltaTime dt) override
 	{
+		LOG_TRACE("Delta time: {0}s, ({1}ms)", dt.GetSeconds(), dt.GetMilliseconds());
+
 		if (Input::GetKey(KeyCode::W))
 			cameraPosition_.y += cameraSpeed_ * dt;
 		else if (Input::GetKey(KeyCode::S))
@@ -53,9 +55,9 @@ public:
 			cameraPosition_.x += cameraSpeed_ * dt;
 
 		if (Input::GetKey(KeyCode::Q))
-			cameraRotation_ -= cameraSpeed_ * dt * 20;
+			cameraRotation_ -= cameraSpeed_ * dt * 180;
 		else if (Input::GetKey(KeyCode::E))
-			cameraRotation_ += cameraSpeed_ * dt * 20;
+			cameraRotation_ += cameraSpeed_ * dt * 180;
 
 		RenderCommand::SetClearColor(Color::DarkGrey);
 		RenderCommand::Clear();
@@ -76,7 +78,7 @@ private:
 	std::shared_ptr<VertexArray> vao_;
 	Math::Vector3 cameraPosition_;
 	float cameraRotation_;
-	float cameraSpeed_ = 0.1f;;
+	float cameraSpeed_ = 1.f;;
 };
 
 class Artem : public ArtemEngine::Application

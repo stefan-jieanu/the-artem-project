@@ -24,12 +24,12 @@ namespace ArtemEngine
 
 	void Application::Run()
 	{
-		float time = (float)glfwGetTime(); // TODO: Put the glfw in the platform thing
-		DeltaTime dt = time - lastFrameTime_;
-		lastFrameTime_ = time;
-
 		while (running_)
 		{
+			float time = (float)glfwGetTime(); // TODO: Put the glfw in the platform thing
+			DeltaTime dt = time - lastFrameTime_;
+			lastFrameTime_ = time;
+
 			for (std::shared_ptr<Layer> layer : layerStack_)
 				layer->OnUpdate(dt);
 
