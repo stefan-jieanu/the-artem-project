@@ -1,9 +1,6 @@
 #include "aepch.h"
 
 #include "Application.h"
-#include "Input.h"
-#include "ArtemEngine/Renderer/Renderer.h"
-#include "ArtemEngine/Renderer/OrthographicCamera.h"
 
 namespace ArtemEngine
 {

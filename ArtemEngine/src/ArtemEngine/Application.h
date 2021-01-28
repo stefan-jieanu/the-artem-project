@@ -2,15 +2,11 @@
 
 #include "Core.h"
 #include "Window.h"
-#include "Math/math.h"
 #include "ArtemEngine/LayerStack.h"
 #include "ArtemEngine/Events/Event.h"
 #include "ArtemEngine/Events/ApplicationEvent.h"
 #include "ArtemEngine/Events/KeyEvent.h"
 #include "ArtemEngine/Events/MouseEvent.h"
-#include "ArtemEngine/Renderer/Buffers.h"
-#include "ArtemEngine/Renderer/VertexArray.h"
-#include "ArtemEngine/Renderer/Shader.h"
 
 namespace ArtemEngine {
 
