@@ -140,6 +140,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\ArtemEngine\Core\DeltaTime.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\Color.h" />
     <ClInclude Include="src\ArtemEngine.h" />

@@ -1360,6 +1360,7 @@
     <ClInclude Include="src\ArtemEngine\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\ArtemEngine\Core\DeltaTime.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Application.cpp">

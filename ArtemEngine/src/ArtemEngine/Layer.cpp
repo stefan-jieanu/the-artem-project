@@ -21,7 +21,7 @@ namespace ArtemEngine {
 	{
 	}
 
-	void Layer::OnUpdate()
+	void Layer::OnUpdate(DeltaTime dt)
 	{
 	}
 

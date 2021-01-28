@@ -7,6 +7,7 @@
 #include "ArtemEngine/Events/ApplicationEvent.h"
 #include "ArtemEngine/Events/KeyEvent.h"
 #include "ArtemEngine/Events/MouseEvent.h"
+#include "ArtemEngine/Core/DeltaTime.h"
 
 namespace ArtemEngine {
 
@@ -41,6 +42,8 @@ namespace ArtemEngine {
 		std::unique_ptr<Window> window_;
 		bool running_ = true;
 		LayerStack layerStack_;
+
+		float lastFrameTime_= 0.0f;
 	};
 
 	// To be defined in CLIENT

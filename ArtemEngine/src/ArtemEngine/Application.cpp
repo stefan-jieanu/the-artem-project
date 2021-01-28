@@ -1,6 +1,7 @@
 #include "aepch.h"
 
 #include "Application.h"
+#include "glfw/glfw3.h"
 
 namespace ArtemEngine
 {
@@ -23,10 +24,14 @@ namespace ArtemEngine
 
 	void Application::Run()
 	{
+		float time = (float)glfwGetTime(); // TODO: Put the glfw in the platform thing
+		DeltaTime dt = time - lastFrameTime_;
+		lastFrameTime_ = time;
+
 		while (running_)
 		{
 			for (std::shared_ptr<Layer> layer : layerStack_)
-				layer->OnUpdate();
+				layer->OnUpdate(dt);
 
 			window_->OnUpdate();
 		}

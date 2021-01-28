@@ -41,21 +41,21 @@ public:
 
 	}
 
-	void OnUpdate() override
+	void OnUpdate(DeltaTime dt) override
 	{
 		if (Input::GetKey(KeyCode::W))
-			cameraPosition_.y += cameraSpeed_;
+			cameraPosition_.y += cameraSpeed_ * dt;
 		else if (Input::GetKey(KeyCode::S))
-			cameraPosition_.y -= cameraSpeed_;
+			cameraPosition_.y -= cameraSpeed_ * dt;
 		if (Input::GetKey(KeyCode::A))
-			cameraPosition_.x -= cameraSpeed_;
+			cameraPosition_.x -= cameraSpeed_ * dt;
 		else if (Input::GetKey(KeyCode::D))
-			cameraPosition_.x += cameraSpeed_;
+			cameraPosition_.x += cameraSpeed_ * dt;
 
 		if (Input::GetKey(KeyCode::Q))
-			cameraRotation_ -= cameraSpeed_;
+			cameraRotation_ -= cameraSpeed_ * dt * 20;
 		else if (Input::GetKey(KeyCode::E))
-			cameraRotation_ += cameraSpeed_;
+			cameraRotation_ += cameraSpeed_ * dt * 20;
 
 		RenderCommand::SetClearColor(Color::DarkGrey);
 		RenderCommand::Clear();

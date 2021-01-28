@@ -5,6 +5,7 @@
 #include "ArtemEngine/Events/ApplicationEvent.h"
 #include "ArtemEngine/Events/KeyEvent.h"
 #include "ArtemEngine/Events/MouseEvent.h"
+#include "ArtemEngine/Core/DeltaTime.h"
 
 namespace ArtemEngine {
 
@@ -16,7 +17,7 @@ namespace ArtemEngine {
 
 		virtual void OnAttach();
 		virtual void OnDetach();
-		virtual void OnUpdate();
+		virtual void OnUpdate(DeltaTime dt);
 
 		void OnEvent(Event& event);
 		virtual bool OnWindowClose(WindowCloseEvent& e);

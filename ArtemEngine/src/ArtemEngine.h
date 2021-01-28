@@ -6,6 +6,8 @@
 #include "ArtemEngine/Layer.h"
 #include "ArtemEngine/Log.h"
 
+#include "ArtemEngine/Core/DeltaTime.h"
+
 #include "ArtemEngine/Input.h"
 #include "ArtemEngine/KeyCode.h"
 
