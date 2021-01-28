@@ -154,7 +154,13 @@
     <ClInclude Include="src\ArtemEngine\LayerStack.h" />
     <ClInclude Include="src\ArtemEngine\Log.h" />
     <ClInclude Include="src\ArtemEngine\Math\math.h" />
+    <ClInclude Include="src\ArtemEngine\Renderer\Buffers.h" />
+    <ClInclude Include="src\ArtemEngine\Renderer\Renderer.h" />
+    <ClInclude Include="src\ArtemEngine\Renderer\Shader.h" />
+    <ClInclude Include="src\ArtemEngine\Renderer\VertexArray.h" />
     <ClInclude Include="src\ArtemEngine\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffers.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\aepch.h" />
@@ -577,6 +583,12 @@
     <ClCompile Include="src\ArtemEngine\Layer.cpp" />
     <ClCompile Include="src\ArtemEngine\LayerStack.cpp" />
     <ClCompile Include="src\ArtemEngine\Log.cpp" />
+    <ClCompile Include="src\ArtemEngine\Renderer\Buffers.cpp" />
+    <ClCompile Include="src\ArtemEngine\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\ArtemEngine\Renderer\Shader.cpp" />
+    <ClCompile Include="src\ArtemEngine\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffers.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\aepch.cpp">
@@ -590,6 +602,11 @@
     <ProjectReference Include="vendor\Glad\Glad.vcxproj">
       <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\Shaders\basic.shader">
+      <FileType>Document</FileType>
+    </Text>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

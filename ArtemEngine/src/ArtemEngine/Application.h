@@ -8,6 +8,9 @@
 #include "ArtemEngine/Events/ApplicationEvent.h"
 #include "ArtemEngine/Events/KeyEvent.h"
 #include "ArtemEngine/Events/MouseEvent.h"
+#include "ArtemEngine/Renderer/Buffers.h"
+#include "ArtemEngine/Renderer/VertexArray.h"
+#include "ArtemEngine/Renderer/Shader.h"
 
 namespace ArtemEngine {
 
@@ -43,6 +46,10 @@ namespace ArtemEngine {
 		bool running_ = true;
 		LayerStack layerStack_;
 
+		std::unique_ptr<Shader> shader;
+		std::shared_ptr<VertexBuffer> vb;
+		std::shared_ptr<IndexBuffer> ib;
+		std::shared_ptr<VertexArray> vao;
 	};
 
 	// To be defined in CLIENT
