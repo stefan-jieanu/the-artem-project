@@ -1363,6 +1363,7 @@
     <ClInclude Include="src\ArtemEngine\Core\Window.h">
       <Filter>src\ArtemEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Renderer\Renderer2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Renderer\Buffers.cpp">
@@ -1407,6 +1408,7 @@
     <ClCompile Include="src\ArtemEngine\Core\Log.cpp">
       <Filter>src\ArtemEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Renderer\Renderer2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\Shaders\basic.glsl" />

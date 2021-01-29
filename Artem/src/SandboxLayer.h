@@ -20,6 +20,10 @@ private:
 	Engine::Shared<ArtemEngine::VertexArray> vao_;
 	Engine::Math::Vector3 cameraPosition_;
 	float cameraRotation_;
-	float cameraSpeed_ = 1.f;;
+	float cameraSpeed_ = 1.f;
+
+	float rotation1 = 14.0f;
+	float rotation2 = 78.0f;
+	float rotation3 = 41.0f;
 };
 

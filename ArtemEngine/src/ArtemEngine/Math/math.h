@@ -25,6 +25,16 @@ namespace ArtemEngine { namespace Math {
 		return glm::translate(glm::mat4(1.0f), vector);
 	}
 
+	inline Matrix4 Scale(const Vector3& vector)
+	{
+		return glm::scale(glm::mat4(1.0f), vector);
+	}
+
+	inline Matrix4 Scale(const Vector2& vector)
+	{
+		return glm::scale(glm::mat4(1.0f), { vector.x, vector.y, 0.0f });
+	}
+
 	inline Matrix4 Rotate(float rotation, const Vector3& axis)
 	{
 		return glm::rotate(glm::mat4(1.0f), rotation, axis);
