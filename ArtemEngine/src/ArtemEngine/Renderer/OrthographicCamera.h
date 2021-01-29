@@ -11,11 +11,13 @@ namespace ArtemEngine {
 		OrthographicCamera(float left, float right, float bottom, float top);
 		~OrthographicCamera();
 
+		void SetProjection(float left, float right, float bottom, float top);
 		void SetPosition(const Math::Vector3& position);
 		void SetRotation(float rotation);
 
 		inline const Math::Vector3& GetPosition() const { return position_; }
 		inline const float GetRotation() const { return rotation_; }
+
 
 		inline const Math::Matrix4& GetProjectionMatrix() const { return projectionMatrix_; }
 		inline const Math::Matrix4& GetViewMatrix() const { return viewMatrix_; }

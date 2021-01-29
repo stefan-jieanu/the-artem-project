@@ -6,11 +6,8 @@ class ExampleLayer : public ArtemEngine::Layer
 {
 public:
 	ExampleLayer(const std::string& name)
-		: Layer(name), camera_(-1.6f, 1.6f, -0.9f, 0.9f)
+		: Layer(name), cameraController_(1280.0f / 720.0f)
 	{
-		cameraPosition_ = camera_.GetPosition();
-		cameraRotation_ = camera_.GetRotation();
-
 		vao_ = VertexArray::Create();
 
 		float vertices[3 * 7] = {
@@ -43,34 +40,24 @@ public:
 
 	void OnUpdate(DeltaTime dt) override
 	{
-		if (Input::GetKey(KeyCode::W))
-			cameraPosition_.y += cameraSpeed_ * dt;
-		else if (Input::GetKey(KeyCode::S))
-			cameraPosition_.y -= cameraSpeed_ * dt;
-		if (Input::GetKey(KeyCode::A))
-			cameraPosition_.x -= cameraSpeed_ * dt;
-		else if (Input::GetKey(KeyCode::D))
-			cameraPosition_.x += cameraSpeed_ * dt;
-
-		if (Input::GetKey(KeyCode::Q))
-			cameraRotation_ -= cameraSpeed_ * dt * 180;
-		else if (Input::GetKey(KeyCode::E))
-			cameraRotation_ += cameraSpeed_ * dt * 180;
-
 		RenderCommand::SetClearColor(Color::DarkGrey);
 		RenderCommand::Clear();
 
-		camera_.SetPosition(cameraPosition_);
-		camera_.SetRotation(cameraRotation_);
+		cameraController_.OnUpdate(dt);
 
-		Renderer::Begin(camera_);
+		Renderer::Begin(cameraController_.GetCamera());
 		Renderer::Submit(shaderLibrary_.Get("basic"), vao_);
 		Renderer::End();
 	}
 
+	void OnEvent(Event& e) override
+	{
+		cameraController_.OnEvent(e);
+	}
+
 private:
+	OrthographicCameraController cameraController_;
 	ShaderLibrary shaderLibrary_;
-	OrthographicCamera camera_;
 	Shared<VertexBuffer> vb_;
 	Shared<IndexBuffer> ib_;
 	Shared<VertexArray> vao_;

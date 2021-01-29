@@ -26,6 +26,15 @@ namespace ArtemEngine {
 	{
 	}
 
+	void OrthographicCamera::SetProjection(float left, float right, float bottom, float top)
+	{
+		projectionMatrix_ = Math::Orthographic(left, right, bottom, top, -1.0f, 1.0f);
+
+		position_ = Math::Vector3(0, 0, 0);
+		rotation_ = 0.0f;
+		RecalculateViewMatrix();
+	}
+
 	void OrthographicCamera::SetPosition(const Math::Vector3& position)
 	{
 		position_ = position;

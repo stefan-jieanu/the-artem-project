@@ -1362,6 +1362,7 @@
     <ClInclude Include="src\ArtemEngine\KeyCode.h">
       <Filter>src\ArtemEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\ArtemEngine\OrthographicCameraController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Application.cpp">
@@ -1405,6 +1406,7 @@
     <ClCompile Include="src\ArtemEngine\Renderer\Color.cpp" />
     <ClCompile Include="src\ArtemEngine\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="src\ArtemEngine\OrthographicCameraController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\Shaders\basic.glsl" />

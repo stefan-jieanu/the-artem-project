@@ -20,7 +20,7 @@
 #include "ArtemEngine/Renderer/VertexArray.h"
 // ----------------------------------
 
-#include "ArtemEngine/Renderer/OrthographicCamera.h"
+#include "ArtemEngine/OrthographicCameraController.h"
 
 // ---------- Entry Point -----------
 #include "ArtemEngine/EntryPoint.h"

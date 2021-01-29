@@ -19,7 +19,8 @@ namespace ArtemEngine {
 		virtual void OnDetach();
 		virtual void OnUpdate(DeltaTime dt);
 
-		void OnEvent(Event& event);
+		virtual void OnEvent(Event& event);
+	protected:
 		virtual bool OnWindowClose(WindowCloseEvent& e);
 		virtual bool OnWindowResize(WindowResizeEvent& e);
 		virtual bool OnKeyPressed(KeyPressedEvent& e);
