@@ -11,12 +11,12 @@ namespace ArtemEngine {
 	{
 	}
 
-	void LayerStack::PushLayer(std::shared_ptr<Layer> layer)
+	void LayerStack::PushLayer(Shared<Layer> layer)
 	{
 		layers_.push_back(layer);
 	}
 
-	void LayerStack::PopLayer(std::shared_ptr<Layer> layer)
+	void LayerStack::PopLayer(Shared<Layer> layer)
 	{
 		layers_.erase(std::remove(layers_.begin(), layers_.end(), layer), layers_.end());
 	}

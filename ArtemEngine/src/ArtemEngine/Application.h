@@ -19,8 +19,8 @@ namespace ArtemEngine {
 
 		void Run();
 		void Terminate();
-		void PushLayer(std::shared_ptr<Layer> layer);
-		void PopLayer(std::shared_ptr<Layer> layer);
+		void PushLayer(Shared<Layer> layer);
+		void PopLayer(Shared<Layer> layer);
 
 		// Event handling callbacks
 		void OnEvent(Event& e);
@@ -39,7 +39,7 @@ namespace ArtemEngine {
 	private:
 		static Application* sInstance_;
 
-		std::unique_ptr<Window> window_;
+		Unique<Window> window_;
 		bool running_ = true;
 		LayerStack layerStack_;
 

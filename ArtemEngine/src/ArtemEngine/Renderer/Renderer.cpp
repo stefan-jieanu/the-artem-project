@@ -17,7 +17,7 @@ namespace ArtemEngine {
 
 	}
 
-	void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray)
+	void Renderer::Submit(const Shared<Shader>& shader, const Shared<VertexArray>& vertexArray)
 	{
 		shader->Bind();
 		shader->SetUniformMat4("u_ProjectionView", sSceneData_->projectionViewMatrix_);

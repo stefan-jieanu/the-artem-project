@@ -46,7 +46,7 @@ namespace ArtemEngine {
 		glBindVertexArray(0);
 	}
 
-	void OpenGLVertexArray::AddVertexBuffer(const std::shared_ptr<VertexBuffer>& vertexBuffer)
+	void OpenGLVertexArray::AddVertexBuffer(const Shared<VertexBuffer>& vertexBuffer)
 	{
 		glBindVertexArray(vertexArrayID_);
 		vertexBuffer->Bind();
@@ -71,7 +71,7 @@ namespace ArtemEngine {
 		vertexBuffer->Unbind();
 	}
 
-	void OpenGLVertexArray::SetIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer)
+	void OpenGLVertexArray::SetIndexBuffer(const Shared<IndexBuffer>& indexBuffer)
 	{
 		glBindVertexArray(vertexArrayID_);
 		indexBuffer->Bind();

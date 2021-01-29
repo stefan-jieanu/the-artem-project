@@ -23,12 +23,12 @@ namespace ArtemEngine {
 	public:
 		static void Init();
 
-		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return sCoreLogger_; }
-		inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return sClientLogger_; }
+		inline static Shared<spdlog::logger>& GetCoreLogger() { return sCoreLogger_; }
+		inline static Shared<spdlog::logger>& GetClientLogger() { return sClientLogger_; }
 
 	private:
-		static std::shared_ptr<spdlog::logger> sCoreLogger_;
-		static std::shared_ptr<spdlog::logger> sClientLogger_;
+		static Shared<spdlog::logger> sCoreLogger_;
+		static Shared<spdlog::logger> sClientLogger_;
  	};
 
 }

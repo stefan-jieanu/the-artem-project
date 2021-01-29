@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 
 #ifdef AR_PLATFORM_WINDOWS
 	
@@ -15,3 +16,13 @@
 #endif
 
 #define BIT(x) (1 << x)
+
+namespace ArtemEngine {
+
+	template<typename T>
+	using Unique = std::unique_ptr<T>;
+
+	template<typename T>
+	using Shared = std::shared_ptr<T>;
+
+}

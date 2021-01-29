@@ -14,7 +14,7 @@ namespace ArtemEngine
 		LOG_ASSERT(!sInstance_, "Application already exists!");
 		sInstance_ = this;
 
-		window_ = std::unique_ptr<Window>(Window::Create());
+		window_ = Unique<Window>(Window::Create());
 		window_->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 	}
 
@@ -30,7 +30,7 @@ namespace ArtemEngine
 			DeltaTime dt = time - lastFrameTime_;
 			lastFrameTime_ = time;
 
-			for (std::shared_ptr<Layer> layer : layerStack_)
+			for (Shared<Layer> layer : layerStack_)
 				layer->OnUpdate(dt);
 
 			window_->OnUpdate();
@@ -42,13 +42,13 @@ namespace ArtemEngine
 		running_ = false;
 	}
 
-	void Application::PushLayer(std::shared_ptr<Layer> layer)
+	void Application::PushLayer(Shared<Layer> layer)
 	{
 		layerStack_.PushLayer(layer);
 		layer->OnAttach();
 	}
 
-	void Application::PopLayer(std::shared_ptr<Layer> layer)
+	void Application::PopLayer(Shared<Layer> layer)
 	{
 		layerStack_.PopLayer(layer);
 		layer->OnDetach();
@@ -70,7 +70,7 @@ namespace ArtemEngine
 		// If the event was not marked as handled by any of the previous callbacks
 		// then send the event to the layers
 		if (!e.IsHandled())
-			for (std::shared_ptr<Layer> layer : layerStack_)
+			for (Shared<Layer> layer : layerStack_)
 			{
 				layer->OnEvent(e);
 				if (e.IsHandled())

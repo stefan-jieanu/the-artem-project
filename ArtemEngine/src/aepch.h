@@ -12,6 +12,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "ArtemEngine/Core.h"
 #include "ArtemEngine/Log.h"
 
 #ifdef AR_PLATFORM_WINDOWS

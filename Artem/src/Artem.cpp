@@ -70,10 +70,10 @@ public:
 
 private:
 	OrthographicCamera camera_;
-	std::shared_ptr<Shader> shader_;
-	std::shared_ptr<VertexBuffer> vb_;
-	std::shared_ptr<IndexBuffer> ib_;
-	std::shared_ptr<VertexArray> vao_;
+	Shared<Shader> shader_;
+	Shared<VertexBuffer> vb_;
+	Shared<IndexBuffer> ib_;
+	Shared<VertexArray> vao_;
 	Math::Vector3 cameraPosition_;
 	float cameraRotation_;
 	float cameraSpeed_ = 1.f;;
