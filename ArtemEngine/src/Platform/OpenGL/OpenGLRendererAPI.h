@@ -6,10 +6,11 @@ namespace ArtemEngine {
 
 	class OpenGLRendererAPI : public RendererAPI
 	{
-		virtual void SetClearColor(const Color& color) override;
-		virtual void Clear() override;
+		void SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height) override;
+		void SetClearColor(const Color& color) override;
+		void Clear() override;
 
-		virtual void DrawIndexed(const Shared<VertexArray>& vertexArray) override;
+		void DrawIndexed(const Shared<VertexArray>& vertexArray) override;
 
 	};
 

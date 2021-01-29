@@ -7,6 +7,11 @@ namespace ArtemEngine {
 
 	Renderer::SceneData* Renderer::sSceneData_ = new Renderer::SceneData;
 
+	void Renderer::OnWindowResize(uint32_t width, uint32_t heigth)
+	{
+		RenderCommand::SetViewport(0, 0, width, heigth);
+	}
+
 	void Renderer::Begin(const OrthographicCamera& camera)
 	{
 		sSceneData_->projectionViewMatrix_ = camera.GetProjectionViewMatrix();

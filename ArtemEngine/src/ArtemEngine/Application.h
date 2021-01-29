@@ -41,6 +41,7 @@ namespace ArtemEngine {
 
 		Unique<Window> window_;
 		bool running_ = true;
+		bool minimized_ = false;
 		LayerStack layerStack_;
 
 		float lastFrameTime_= 0.0f;

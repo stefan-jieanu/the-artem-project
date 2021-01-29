@@ -2,6 +2,7 @@
 
 #include "Application.h"
 #include "glfw/glfw3.h"
+#include "ArtemEngine/Renderer/Renderer.h"
 
 namespace ArtemEngine
 {
@@ -30,8 +31,9 @@ namespace ArtemEngine
 			DeltaTime dt = time - lastFrameTime_;
 			lastFrameTime_ = time;
 
-			for (Shared<Layer> layer : layerStack_)
-				layer->OnUpdate(dt);
+			if (!minimized_)
+				for (Shared<Layer> layer : layerStack_)
+					layer->OnUpdate(dt);
 
 			window_->OnUpdate();
 		}
@@ -85,6 +87,16 @@ namespace ArtemEngine
 	
 	bool Application::OnWindowResize(WindowResizeEvent& e)
 	{
+		if (e.GetWidth() == 0 || e.GetHeight() == 0)
+		{
+			minimized_ = true;
+			return false;
+		}
+
+		minimized_ = false;
+		
+		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
+
 		return false;
 	}
 	

@@ -10,6 +10,8 @@ namespace ArtemEngine {
 	class Renderer
 	{
 	public:
+		static void OnWindowResize(uint32_t width, uint32_t heigth);
+
 		static void Begin(const OrthographicCamera& camera);
 		static void End();
 

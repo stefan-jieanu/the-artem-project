@@ -53,6 +53,11 @@ public:
 	void OnEvent(Event& e) override
 	{
 		cameraController_.OnEvent(e);
+
+		if (e.GetEventType() == EventType::WindowResize)
+		{
+			auto& re = (WindowResizeEvent&)e;
+		}
 	}
 
 private:
