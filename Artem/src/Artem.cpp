@@ -36,15 +36,13 @@ public:
 
 		vao_->Bind();
 
-		shader_.reset(new Shader("E:/Work/Artem/ArtemEngine/res/Shaders/basic.shader"));
+		shader_.reset(Shader::Create("E:/Work/Artem/ArtemEngine/res/Shaders/basic.glsl"));
 		shader_->Bind();
 
 	}
 
 	void OnUpdate(DeltaTime dt) override
 	{
-		LOG_TRACE("Delta time: {0}s, ({1}ms)", dt.GetSeconds(), dt.GetMilliseconds());
-
 		if (Input::GetKey(KeyCode::W))
 			cameraPosition_.y += cameraSpeed_ * dt;
 		else if (Input::GetKey(KeyCode::S))

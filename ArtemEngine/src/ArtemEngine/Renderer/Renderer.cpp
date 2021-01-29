@@ -1,6 +1,8 @@
 #include "aepch.h"
 #include "Renderer.h"
 
+#include "Platform/OpenGL/OpenGLShader.h"
+
 namespace ArtemEngine {
 
 	Renderer::SceneData* Renderer::sSceneData_ = new Renderer::SceneData;
@@ -18,7 +20,7 @@ namespace ArtemEngine {
 	void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray)
 	{
 		shader->Bind();
-		shader->SetUniformMat4f("u_ProjectionView", sSceneData_->projectionViewMatrix_);
+		shader->SetUniformMat4("u_ProjectionView", sSceneData_->projectionViewMatrix_);
 
 		vertexArray->Bind();
 		RenderCommand::DrawIndexed(vertexArray);

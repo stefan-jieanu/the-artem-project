@@ -140,6 +140,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\ArtemEngine\Core\DeltaTime.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\Color.h" />
@@ -585,6 +586,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="src\ArtemEngine\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\ArtemEngine\Application.cpp" />
     <ClCompile Include="src\ArtemEngine\Layer.cpp" />
@@ -615,7 +617,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="res\Shaders\basic.shader">
+    <Text Include="res\Shaders\basic.glsl">
       <FileType>Document</FileType>
     </Text>
   </ItemGroup>
