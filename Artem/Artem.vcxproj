@@ -131,12 +131,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\SandboxLayer.cpp" />
     <ClCompile Include="src\Artem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArtemEngine\ArtemEngine.vcxproj">
       <Project>{94408502-00F6-FDF7-89EA-F7CEF59EF4FB}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\SandboxLayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
