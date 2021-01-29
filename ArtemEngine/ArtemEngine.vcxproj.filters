@@ -75,9 +75,6 @@
     <ClInclude Include="src\ArtemEngine\Input.h">
       <Filter>src\ArtemEngine</Filter>
     </ClInclude>
-    <ClInclude Include="src\ArtemEngine\KeyCode.h">
-      <Filter>src\ArtemEngine</Filter>
-    </ClInclude>
     <ClInclude Include="src\ArtemEngine\Layer.h">
       <Filter>src\ArtemEngine</Filter>
     </ClInclude>
@@ -1362,6 +1359,9 @@
     <ClInclude Include="src\ArtemEngine\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\ArtemEngine\Core\DeltaTime.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="src\ArtemEngine\KeyCode.h">
+      <Filter>src\ArtemEngine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Application.cpp">

@@ -11,7 +11,7 @@ public:
 		cameraPosition_ = camera_.GetPosition();
 		cameraRotation_ = camera_.GetRotation();
 
-		vao_.reset(VertexArray::Create());
+		vao_ = VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -19,7 +19,7 @@ public:
 			0.0f, 0.5f, 0.0f, 0.2f, 0.8f, 0.3f, 1.0f
 		};
 
-		vb_.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+		vb_ = VertexBuffer::Create(vertices, sizeof(vertices));
 
 		BufferLayout layout{
 			{ ShaderDataType::Float3, "position"},
@@ -30,7 +30,7 @@ public:
 		vao_->AddVertexBuffer(vb_);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		ib_.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		ib_ = IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 
 		vao_->SetIndexBuffer(ib_);
 
