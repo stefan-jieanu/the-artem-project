@@ -40,14 +40,29 @@ namespace ArtemEngine {
         glUniform2f(GetUniformLocation(name), value.x, value.y);
     }
 
+    void OpenGLShader::SetUniformFloat2(const std::string& name, float v1, float v2) const
+    {
+        glUniform2f(GetUniformLocation(name), v1, v2);
+    }
+
     void OpenGLShader::SetUniformFloat3(const std::string& name, const Math::Vector3& value) const
     {
         glUniform3f(GetUniformLocation(name), value.x, value.y, value.z);
     }
 
+    void OpenGLShader::SetUniformFloat3(const std::string& name, float v1, float v2, float v3) const
+    {
+        glUniform3f(GetUniformLocation(name), v1, v2, v3);
+    }
+
     void OpenGLShader::SetUniformFloat4(const std::string& name, const Math::Vector4& value) const
     {
         glUniform4f(GetUniformLocation(name), value.x, value.y, value.z, value.w);
+    }
+
+    void OpenGLShader::SetUniformFloat4(const std::string& name, float v1, float v2, float v3, float v4) const
+    {
+        glUniform4f(GetUniformLocation(name), v1, v2, v3, v4);
     }
 
     void OpenGLShader::SetUniformMat3() const
@@ -70,14 +85,29 @@ namespace ArtemEngine {
         glUniform2i(GetUniformLocation(name), (int)value.x, (int)value.y);
     }
 
+    void OpenGLShader::SetUnifomInt2(const std::string& name, int v1, int v2) const
+    {
+        glUniform2i(GetUniformLocation(name), v1, v2);
+    }
+
     void OpenGLShader::SetUnifomInt3(const std::string& name, const Math::Vector3& value) const
     {
         glUniform3i(GetUniformLocation(name), (int)value.x, (int)value.y, (int)value.z);
     }
 
+    void OpenGLShader::SetUnifomInt3(const std::string& name, int v1, int v2, int v3) const
+    {
+        glUniform3i(GetUniformLocation(name), v1, v2, v3);
+    }
+
     void OpenGLShader::SetUnifomInt4(const std::string& name, const Math::Vector4& value) const
     {
         glUniform4i(GetUniformLocation(name), (int)value.x, (int)value.y, (int)value.z, (int)value.w);
+    }
+
+    void OpenGLShader::SetUnifomInt4(const std::string& name, int v1, int v2, int v3, int v4) const
+    {
+        glUniform4i(GetUniformLocation(name), v1, v2, v3, v4);
     }
 
     void OpenGLShader::SetUniformBoll(const std::string& name, bool value) const
@@ -163,6 +193,8 @@ namespace ArtemEngine {
 
         // Deleting the now unused vertex and fragment shader because they are now stored 
         // in a unified(linked) shader program
+        glDetachShader(program, vs);
+        glDetachShader(program, fs);
         glDeleteShader(vs);
         glDeleteShader(fs);
 
