@@ -41,8 +41,11 @@ namespace ArtemEngine {
 		void SetUnifomInt4(const std::string& name, int v1, int v2, int v3, int v4) const override;
 
 		void SetUniformBoll(const std::string& name, bool value) const override;
+
+		inline const std::string& GetName() const override { return name_; }
 	private:
 		uint32_t shaderID_;
+		std::string name_;
 
 		// Parses a source file to split it into vertex and fragment shader code strings
 		ShaderProgramSource ParseShader(const std::string& filepath);

@@ -4,6 +4,9 @@
 
 namespace ArtemEngine {
 
+    /*************************************************/
+    /*  			      Shader                     */
+    /*************************************************/
     class Shader
     {
     public:
@@ -33,7 +36,26 @@ namespace ArtemEngine {
 
         virtual void SetUniformBoll(const std::string& name, bool value) const = 0;
 
-        static Shader* Create(const std::string& filepath);
+        virtual const std::string& GetName() const = 0;
+
+        static Shared<Shader> Create(const std::string& filepath);
+    };
+
+    /*************************************************/
+    /*  			  Shader Library                 */
+    /*************************************************/
+    class ShaderLibrary
+    {
+    public:
+        // Take a const reference because the smart pointer reference counter gets incremented 
+        // when added into the unordered_map; no reason to increment to when passing as a parameter
+        void Add(const Shared<Shader>& shader);
+
+        Shared<Shader> Load(const std::string& filepath);
+
+        Shared<Shader> Get(const std::string& name);
+    private:
+        std::unordered_map<std::string, Shared<Shader>> shaders_;
     };
 
 }

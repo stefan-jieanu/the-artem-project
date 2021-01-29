@@ -8,6 +8,14 @@ namespace ArtemEngine {
     OpenGLShader::OpenGLShader(const std::string& filepath)
         : shaderID_(0)
     {
+        // Get the the of the shader from the filepath
+        auto lastSlash = filepath.find_last_of("/\\");
+        lastSlash = lastSlash == std::string::npos ? 0 : lastSlash + 1;
+        auto lastDot = filepath.rfind(".");
+
+        auto count = lastDot == std::string::npos ? filepath.size() - lastSlash : lastDot - lastSlash;
+        name_ = filepath.substr(lastSlash, count);
+
         // Get the source code for each shader program
         ShaderProgramSource source = ParseShader(filepath);
 

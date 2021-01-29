@@ -6,16 +6,43 @@
 
 namespace ArtemEngine {
 
-    Shader* Shader::Create(const std::string& filepath)
+    /*************************************************/
+    /*  			      Shader                     */
+    /*************************************************/
+    Shared<Shader> Shader::Create(const std::string& filepath)
     {
         switch (Renderer::GetAPI())
         {
             case RendererAPI::API::None: LOG_CORE_ASSERT(false, "RendererAPI::None is not supported!"); return nullptr;
-            case RendererAPI::API::OpenGL: return new OpenGLShader(filepath);
+            case RendererAPI::API::OpenGL: return std::make_shared<OpenGLShader>(filepath);
         }
 
         LOG_CORE_ASSERT(false, "Unknown RendererAPI!");
         return nullptr;
+    }
+
+    /*************************************************/
+    /*  			  Shader Library                 */
+    /*************************************************/
+    void ShaderLibrary::Add(const Shared<Shader>& shader)
+    {
+        const std::string& name = shader->GetName();
+        LOG_CORE_ASSERT(shaders_.find(name) == shaders_.end(), "Shader already exists!");
+        shaders_[name] = shader;
+    }
+
+    Shared<Shader> ShaderLibrary::Load(const std::string& filepath)
+    {
+        Shared<Shader> shader = Shader::Create(filepath);
+        Add(shader);
+
+        return shader;
+    }
+
+    Shared<Shader> ShaderLibrary::Get(const std::string& name)
+    {
+        LOG_CORE_ASSERT(shaders_.find(name) != shaders_.end(), "Shader not found!");
+        return shaders_[name];
     }
 
 }

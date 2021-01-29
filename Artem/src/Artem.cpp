@@ -36,8 +36,8 @@ public:
 
 		vao_->Bind();
 
-		shader_.reset(Shader::Create("E:/Work/Artem/ArtemEngine/res/Shaders/basic.glsl"));
-		shader_->Bind();
+		shaderLibrary_.Load("E:/Work/Artem/ArtemEngine/res/Shaders/basic.glsl");
+		shaderLibrary_.Get("basic")->Bind();
 
 	}
 
@@ -64,13 +64,13 @@ public:
 		camera_.SetRotation(cameraRotation_);
 
 		Renderer::Begin(camera_);
-		Renderer::Submit(shader_, vao_);
+		Renderer::Submit(shaderLibrary_.Get("basic"), vao_);
 		Renderer::End();
 	}
 
 private:
+	ShaderLibrary shaderLibrary_;
 	OrthographicCamera camera_;
-	Shared<Shader> shader_;
 	Shared<VertexBuffer> vb_;
 	Shared<IndexBuffer> ib_;
 	Shared<VertexArray> vao_;
