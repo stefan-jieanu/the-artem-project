@@ -1,8 +1,5 @@
 #pragma once
 
-#include "Core.h"
-#include "Window.h"
-#include "ArtemEngine/LayerStack.h"
 #include "ArtemEngine/Events/Event.h"
 #include "ArtemEngine/Events/ApplicationEvent.h"
 #include "ArtemEngine/Events/KeyEvent.h"
@@ -11,19 +8,18 @@
 
 namespace ArtemEngine {
 
-	class Application
+	class Layer
 	{
 	public:
-		Application();
-		virtual ~Application();
+		Layer(const std::string& name = "Layer");
+		virtual ~Layer();
 
-		void Run();
-		void Terminate();
-		void PushLayer(Shared<Layer> layer);
-		void PopLayer(Shared<Layer> layer);
+		virtual void OnAttach();
+		virtual void OnDetach();
+		virtual void OnUpdate(DeltaTime dt);
 
-		// Event handling callbacks
-		void OnEvent(Event& e);
+		virtual void OnEvent(Event& event);
+	protected:
 		virtual bool OnWindowClose(WindowCloseEvent& e);
 		virtual bool OnWindowResize(WindowResizeEvent& e);
 		virtual bool OnKeyPressed(KeyPressedEvent& e);
@@ -34,20 +30,10 @@ namespace ArtemEngine {
 		virtual bool OnMouseMoved(MouseMovedEvent& e);
 		virtual bool OnMouseScrolled(MouseScrolledEvent& e);
 
-		Window& GetWindow() { return *window_; }
-		static Application& Get() { return *sInstance_; }
-	private:
-		static Application* sInstance_;
-
-		Unique<Window> window_;
-		bool running_ = true;
-		bool minimized_ = false;
-		LayerStack layerStack_;
-
-		float lastFrameTime_= 0.0f;
+		inline const std::string& GetName() const { return debugName_; }
+	protected:
+		std::string debugName_;
 	};
 
-	// To be defined in CLIENT
-	Application* CreateApplication();
 }
 

@@ -1,7 +1,7 @@
 #include "aepch.h"
 #include "WindowsInput.h"
 
-#include "ArtemEngine/Application.h"
+#include "ArtemEngine/Core/Application.h"
 #include "GLFW/glfw3.h"
 
 namespace ArtemEngine {

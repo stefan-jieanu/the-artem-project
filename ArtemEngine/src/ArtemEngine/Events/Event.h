@@ -1,6 +1,5 @@
 #pragma once
 
-#include "ArtemEngine/Core.h"
 
 namespace ArtemEngine {
 	// Events are currently blocking, meaning when an event occurs it

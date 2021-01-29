@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ArtemEngine/Window.h"
+#include "ArtemEngine/Core/Window.h"
 #include <GLFW/glfw3.h>
 
 namespace ArtemEngine {

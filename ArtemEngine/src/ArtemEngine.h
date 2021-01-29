@@ -2,14 +2,14 @@
 #include <stdio.h>
 
 // For use in the Artem application
-#include "ArtemEngine/Application.h"
-#include "ArtemEngine/Layer.h"
-#include "ArtemEngine/Log.h"
+#include "ArtemEngine/Core/Application.h"
+#include "ArtemEngine/Core/Layer.h"
+#include "ArtemEngine/Core/Log.h"
 
 #include "ArtemEngine/Core/DeltaTime.h"
 
-#include "ArtemEngine/Input.h"
-#include "ArtemEngine/KeyCode.h"
+#include "ArtemEngine/Core/Input.h"
+#include "ArtemEngine/Core/KeyCode.h"
 
 // ----------- Renderer -------------
 #include "ArtemEngine/Renderer/Renderer.h"
@@ -23,7 +23,7 @@
 #include "ArtemEngine/OrthographicCameraController.h"
 
 // ---------- Entry Point -----------
-#include "ArtemEngine/EntryPoint.h"
+#include "ArtemEngine/Core/EntryPoint.h"
 // ----------------------------------
 
 // Undefine logger macros specific to the engine

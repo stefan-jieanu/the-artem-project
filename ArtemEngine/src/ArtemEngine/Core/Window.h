@@ -2,7 +2,6 @@
 
 #include "aepch.h"
 
-#include "ArtemEngine/Core.h"
 #include "ArtemEngine/Events/Event.h"
 
 namespace ArtemEngine {

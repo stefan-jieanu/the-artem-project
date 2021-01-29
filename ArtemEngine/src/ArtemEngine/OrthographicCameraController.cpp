@@ -1,7 +1,7 @@
 #include "aepch.h"
 #include "OrthographicCameraController.h"
 
-#include "ArtemEngine/Input.h"
+#include "ArtemEngine/Core/Input.h"
 
 namespace ArtemEngine {
 

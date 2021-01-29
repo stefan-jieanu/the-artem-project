@@ -4,7 +4,7 @@
 #include "ArtemEngine/Events/ApplicationEvent.h"
 #include "ArtemEngine/Events/KeyEvent.h"
 #include "ArtemEngine/Events/MouseEvent.h"
-#include "ArtemEngine/KeyCode.h"
+#include "ArtemEngine/Core/KeyCode.h"
 
 #include "glad/glad.h"
 

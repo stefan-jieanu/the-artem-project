@@ -1,6 +1,5 @@
 #pragma once
 
-#include "ArtemEngine/Core.h"
 #include "Layer.h"
 
 namespace ArtemEngine {

@@ -54,10 +54,10 @@ public:
 	{
 		cameraController_.OnEvent(e);
 
-		if (e.GetEventType() == EventType::WindowResize)
+		/*if (e.GetEventType() == EventType::WindowResize)
 		{
 			auto& re = (WindowResizeEvent&)e;
-		}
+		}*/
 	}
 
 private:

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Event.h"
-#include "ArtemEngine/KeyCode.h"
+#include "ArtemEngine/Core/KeyCode.h"
 
 namespace ArtemEngine {
 

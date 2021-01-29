@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ArtemEngine/Input.h"
+#include "ArtemEngine/Core/Input.h"
 
 namespace ArtemEngine {
 
