@@ -7,6 +7,9 @@
     <Filter Include="src\ArtemEngine">
       <UniqueIdentifier>{2B745F1A-97FF-CCDE-A010-50D30C1B29DF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ArtemEngine\Core">
+      <UniqueIdentifier>{63EBEE6B-4F7A-7835-F898-8C30E40689DB}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\ArtemEngine\Events">
       <UniqueIdentifier>{AF617928-9B5B-A27A-84C8-388B706108E7}</UniqueIdentifier>
     </Filter>
@@ -46,10 +49,43 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\stb">
+      <UniqueIdentifier>{8BD3C5A8-778B-07F6-E092-E051CC69A2E6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ArtemEngine.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Core\Application.h">
+      <Filter>src\ArtemEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Core\Core.h">
+      <Filter>src\ArtemEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Core\DeltaTime.h">
+      <Filter>src\ArtemEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Core\EntryPoint.h">
+      <Filter>src\ArtemEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Core\Input.h">
+      <Filter>src\ArtemEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Core\KeyCode.h">
+      <Filter>src\ArtemEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Core\Layer.h">
+      <Filter>src\ArtemEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Core\LayerStack.h">
+      <Filter>src\ArtemEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Core\Log.h">
+      <Filter>src\ArtemEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Core\Window.h">
+      <Filter>src\ArtemEngine\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\ArtemEngine\Events\ApplicationEvent.h">
       <Filter>src\ArtemEngine\Events</Filter>
@@ -66,16 +102,52 @@
     <ClInclude Include="src\ArtemEngine\Math\math.h">
       <Filter>src\ArtemEngine\Math</Filter>
     </ClInclude>
+    <ClInclude Include="src\ArtemEngine\OrthographicCameraController.h">
+      <Filter>src\ArtemEngine</Filter>
+    </ClInclude>
     <ClInclude Include="src\ArtemEngine\Renderer\Buffers.h">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Renderer\Color.h">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Renderer\OrthographicCamera.h">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Renderer\RenderCommand.h">
       <Filter>src\ArtemEngine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ArtemEngine\Renderer\Renderer.h">
       <Filter>src\ArtemEngine\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Renderer\Renderer2D.h">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Renderer\RendererAPI.h">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\ArtemEngine\Renderer\Shader.h">
       <Filter>src\ArtemEngine\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Renderer\Texture.h">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Renderer\VertexArray.h">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffers.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
@@ -1326,56 +1398,69 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\ArtemEngine\Renderer\VertexArray.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\ArtemEngine\Renderer\RendererAPI.h" />
-    <ClInclude Include="src\ArtemEngine\Renderer\Color.h" />
-    <ClInclude Include="src\ArtemEngine\Renderer\RenderCommand.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\ArtemEngine\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="src\ArtemEngine\Core\DeltaTime.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
-    <ClInclude Include="src\ArtemEngine\OrthographicCameraController.h" />
-    <ClInclude Include="src\ArtemEngine\Core\Application.h">
-      <Filter>src\ArtemEngine</Filter>
+    <ClInclude Include="vendor\stb\stb_image.h">
+      <Filter>vendor\stb</Filter>
     </ClInclude>
-    <ClInclude Include="src\ArtemEngine\Core\Core.h">
-      <Filter>src\ArtemEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ArtemEngine\Core\EntryPoint.h">
-      <Filter>src\ArtemEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ArtemEngine\Core\Input.h">
-      <Filter>src\ArtemEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ArtemEngine\Core\KeyCode.h">
-      <Filter>src\ArtemEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ArtemEngine\Core\Layer.h">
-      <Filter>src\ArtemEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ArtemEngine\Core\LayerStack.h">
-      <Filter>src\ArtemEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ArtemEngine\Core\Log.h">
-      <Filter>src\ArtemEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ArtemEngine\Core\Window.h">
-      <Filter>src\ArtemEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ArtemEngine\Renderer\Renderer2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ArtemEngine\Core\Application.cpp">
+      <Filter>src\ArtemEngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Core\Layer.cpp">
+      <Filter>src\ArtemEngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Core\LayerStack.cpp">
+      <Filter>src\ArtemEngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Core\Log.cpp">
+      <Filter>src\ArtemEngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ArtemEngine\OrthographicCameraController.cpp">
+      <Filter>src\ArtemEngine</Filter>
+    </ClCompile>
     <ClCompile Include="src\ArtemEngine\Renderer\Buffers.cpp">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Renderer\Color.cpp">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Renderer\OrthographicCamera.cpp">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Renderer\RenderCommand.cpp">
       <Filter>src\ArtemEngine\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ArtemEngine\Renderer\Renderer.cpp">
       <Filter>src\ArtemEngine\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Renderer\Renderer2D.cpp">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Renderer\RendererAPI.cpp">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\ArtemEngine\Renderer\Shader.cpp">
       <Filter>src\ArtemEngine\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Renderer\Texture.cpp">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Renderer\VertexArray.cpp">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffers.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
@@ -1387,30 +1472,8 @@
     <ClCompile Include="src\aepch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ArtemEngine\Renderer\VertexArray.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="src\ArtemEngine\Renderer\RendererAPI.cpp" />
-    <ClCompile Include="src\ArtemEngine\Renderer\RenderCommand.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="src\ArtemEngine\Renderer\Color.cpp" />
-    <ClCompile Include="src\ArtemEngine\Renderer\OrthographicCamera.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
-    <ClCompile Include="src\ArtemEngine\OrthographicCameraController.cpp" />
-    <ClCompile Include="src\ArtemEngine\Core\Application.cpp">
-      <Filter>src\ArtemEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ArtemEngine\Core\Layer.cpp">
-      <Filter>src\ArtemEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ArtemEngine\Core\LayerStack.cpp">
-      <Filter>src\ArtemEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ArtemEngine\Core\Log.cpp">
-      <Filter>src\ArtemEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ArtemEngine\Renderer\Renderer2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="res\Shaders\basic.glsl" />
+    <None Include="res\Shaders\texture.glsl" />
   </ItemGroup>
 </Project>

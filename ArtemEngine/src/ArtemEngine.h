@@ -15,6 +15,7 @@
 #include "ArtemEngine/Renderer/Renderer.h"
 #include "ArtemEngine/Renderer/Renderer2D.h"
 #include "ArtemEngine/Renderer/RenderCommand.h"
+#include "ArtemEngine/Renderer/Texture.h"
 
 #include "ArtemEngine/Renderer/Buffers.h"
 #include "ArtemEngine/Renderer/Shader.h"

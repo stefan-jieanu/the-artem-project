@@ -22,6 +22,8 @@ private:
 	float cameraRotation_;
 	float cameraSpeed_ = 1.f;
 
+	Engine::Shared<Engine::Texture> texture_;
+
 	float rotation1 = 14.0f;
 	float rotation2 = 78.0f;
 	float rotation3 = 41.0f;

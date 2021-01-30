@@ -7,6 +7,11 @@ namespace ArtemEngine {
 
 	Renderer::SceneData* Renderer::sSceneData_ = new Renderer::SceneData;
 
+	void Renderer::Init()
+	{
+		RenderCommand::Init();
+	}
+
 	void Renderer::OnWindowResize(uint32_t width, uint32_t heigth)
 	{
 		RenderCommand::SetViewport(0, 0, width, heigth);

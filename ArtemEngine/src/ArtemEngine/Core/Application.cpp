@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "glfw/glfw3.h"
 #include "ArtemEngine/Renderer/Renderer.h"
+#include "ArtemEngine/Renderer/Renderer2D.h"
 
 namespace ArtemEngine
 {
@@ -17,6 +18,9 @@ namespace ArtemEngine
 
 		window_ = Unique<Window>(Window::Create());
 		window_->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
+
+		Renderer::Init();
+		Renderer2D::Init();
 	}
 
 	Application::~Application()

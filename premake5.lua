@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "ArtemEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "ArtemEngine/vendor/Glad/include"
 IncludeDir["glm"] = "ArtemEngine/vendor/glm"
+IncludeDir["stb"] = "ArtemEngine/vendor/stb"
 
 include "ArtemEngine/vendor/GLFW"
 include "ArtemEngine/vendor/Glad"
@@ -37,7 +38,9 @@ project "ArtemEngine"
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
         "%{prj.name}/vendor/glm/glm/**.hpp",
-        "%{prj.name}/vendor/glm/glm/**.inl"
+        "%{prj.name}/vendor/glm/glm/**.inl",
+        "%{prj.name}/vendor/stb/**.h",
+        "%{prj.name}/vendor/stb/**.cpp",
     }
 
     includedirs
@@ -46,7 +49,8 @@ project "ArtemEngine"
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.stb}"
     }
 
     links

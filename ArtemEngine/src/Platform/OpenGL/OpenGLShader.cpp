@@ -127,7 +127,7 @@ namespace ArtemEngine {
     {
         std::ifstream stream(filepath);
         if (!stream.good())
-            LOG_ERROR("Shader source file not found: {}", filepath);
+            LOG_CORE_ERROR("Shader source file not found: {}", filepath);
 
         std::string line;
 
@@ -173,8 +173,8 @@ namespace ArtemEngine {
             glGetShaderiv(id, GL_INFO_LOG_LENGTH, &lenght);
             char* message = (char*)alloca(lenght * sizeof(char));
             glGetShaderInfoLog(id, lenght, &lenght, message);
-            LOG_ERROR("Failed to compile {} shader", (type == GL_VERTEX_SHADER ? "vertex" : "fragment"));
-            LOG_ERROR("{}", message);
+            LOG_CORE_ERROR("Failed to compile {} shader", (type == GL_VERTEX_SHADER ? "vertex" : "fragment"));
+            LOG_CORE_ERROR("{}", message);
             glDeleteShader(id);
             return 0;
         }
@@ -213,7 +213,7 @@ namespace ArtemEngine {
     {
         int location = glGetUniformLocation(shaderID_, name.c_str());
         if (location == -1)
-            LOG_WARN("Uniform \"{}\" doesn't exist", name);
+            LOG_CORE_WARN("Uniform \"{}\" doesn't exist", name);
         return location;
     }
 }

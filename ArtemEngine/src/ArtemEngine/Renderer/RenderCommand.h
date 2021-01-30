@@ -7,6 +7,11 @@ namespace ArtemEngine {
 	class RenderCommand
 	{
 	public:
+		inline static void Init()
+		{
+			sRendererAPI_->Init();
+		}
+
 		inline static void SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height)
 		{
 			sRendererAPI_->SetViewport(x, y, width, height);
