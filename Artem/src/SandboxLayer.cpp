@@ -11,9 +11,7 @@ SandboxLayer::~SandboxLayer()
 }
 
 void SandboxLayer::OnUpdate(Engine::DeltaTime dt)
-{
-
-
+{	
 	Engine::RenderCommand::SetClearColor(Engine::Color::DarkGrey);
 	Engine::RenderCommand::Clear();
 
