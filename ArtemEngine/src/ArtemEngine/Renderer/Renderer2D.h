@@ -13,6 +13,7 @@ namespace ArtemEngine {
 		static void Terminate();
 
 		static void BeginScene(const OrthographicCamera& camera);
+		static void Flush();
 		static void EndScene();
 
 		// Primitives

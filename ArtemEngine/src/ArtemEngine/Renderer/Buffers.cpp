@@ -6,12 +6,25 @@
 
 namespace ArtemEngine
 {
+	Shared<VertexBuffer> VertexBuffer::Create(uint32_t size)
+	{
+		switch (Renderer::GetAPI())
+		{
+			case RendererAPI::API::None: LOG_CORE_ASSERT(false, "RendererAPI::None is not supported!"); return nullptr;
+			case RendererAPI::API::OpenGL: return MakeShared<OpenGLVertexBuffer>(size);
+		}
+
+		LOG_CORE_ASSERT(false, "Unknown RendererAPI!");
+		return nullptr;
+	}
+
+
 	Shared<VertexBuffer> VertexBuffer::Create(float* vertices, uint32_t size)
 	{
 		switch (Renderer::GetAPI())
 		{
 			case RendererAPI::API::None: LOG_CORE_ASSERT(false, "RendererAPI::None is not supported!"); return nullptr;
-			case RendererAPI::API::OpenGL: return std::make_shared<OpenGLVertexBuffer>(vertices, size);
+			case RendererAPI::API::OpenGL: return MakeShared<OpenGLVertexBuffer>(vertices, size);
 		}
 
 		LOG_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -24,7 +37,7 @@ namespace ArtemEngine
 		switch (Renderer::GetAPI())
 		{
 			case RendererAPI::API::None: LOG_CORE_ASSERT(false, "RendererAPI::None is not supported!"); return nullptr;
-			case RendererAPI::API::OpenGL: return std::make_shared<OpenGLIndexBuffer>(indices, count);
+			case RendererAPI::API::OpenGL: return MakeShared<OpenGLIndexBuffer>(indices, count);
 		}
 
 		LOG_CORE_ASSERT(false, "Unknown RendererAPI!");

@@ -11,6 +11,7 @@ namespace ArtemEngine {
 	class OpenGLVertexBuffer : public VertexBuffer
 	{
 	public:
+		OpenGLVertexBuffer(uint32_t size);
 		OpenGLVertexBuffer(float* vertices, uint32_t size);
 		~OpenGLVertexBuffer();
 
@@ -19,6 +20,8 @@ namespace ArtemEngine {
 
 		inline void SetLayout(const BufferLayout& layout) override { layout_ = layout; }
 		inline const BufferLayout& GetLayout() const override { return layout_; }
+
+		void SetData(const void* data, uint32_t size) override;
 	private:
 		uint32_t bufferID_;
 		BufferLayout layout_;

@@ -27,9 +27,9 @@ namespace ArtemEngine {
 			sRendererAPI_->Clear();
 		}
 
-		inline static void DrawIndexed(const Shared<VertexArray>& vertexArray)
+		inline static void DrawIndexed(const Shared<VertexArray>& vertexArray, uint32_t count)
 		{
-			sRendererAPI_->DrawIndexed(vertexArray);
+			sRendererAPI_->DrawIndexed(vertexArray, count);
 		}
 	private:
 		static RendererAPI* sRendererAPI_;

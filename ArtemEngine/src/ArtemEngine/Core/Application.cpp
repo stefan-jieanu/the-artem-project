@@ -34,7 +34,7 @@ namespace ArtemEngine
 			float time = (float)glfwGetTime(); // TODO: Put the glfw in the platform thing
 			DeltaTime dt = time - lastFrameTime_;
 			lastFrameTime_ = time;
-
+			
 			if (!minimized_)
 				for (Shared<Layer> layer : layerStack_)
 					layer->OnUpdate(dt);

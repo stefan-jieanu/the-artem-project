@@ -12,7 +12,7 @@ namespace ArtemEngine {
 		void SetClearColor(const Color& color) override;
 		void Clear() override;
 
-		void DrawIndexed(const Shared<VertexArray>& vertexArray) override;
+		void DrawIndexed(const Shared<VertexArray>& vertexArray, uint32_t indexCount = 0) override;
 
 	};
 

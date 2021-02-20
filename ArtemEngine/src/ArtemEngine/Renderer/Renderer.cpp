@@ -27,13 +27,13 @@ namespace ArtemEngine {
 
 	}
 
-	void Renderer::Submit(const Shared<Shader>& shader, const Shared<VertexArray>& vertexArray)
+	/*void Renderer::Submit(const Shared<Shader>& shader, const Shared<VertexArray>& vertexArray)
 	{
 		shader->Bind();
 		shader->SetUniformMat4("u_ProjectionView", sSceneData_->projectionViewMatrix_);
 
 		vertexArray->Bind();
 		RenderCommand::DrawIndexed(vertexArray);
-	}
+	}*/
 
 }
