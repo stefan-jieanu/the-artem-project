@@ -12,6 +12,7 @@ namespace ArtemEngine {
 	{
 	public:
 		OrthographicCameraController(float aspectRatio, bool rotationEnabled = false);
+		OrthographicCameraController(float left, float right, float bottom, float top);
 		~OrthographicCameraController();
 
 		void OnUpdate(DeltaTime dt);

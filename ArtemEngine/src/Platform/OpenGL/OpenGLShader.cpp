@@ -118,6 +118,11 @@ namespace ArtemEngine {
         glUniform4i(GetUniformLocation(name), v1, v2, v3, v4);
     }
 
+    void OpenGLShader::SetUniformIntArray(const std::string& name, int* values, uint32_t count) const
+    {
+        glUniform1iv(GetUniformLocation(name), count, values);
+    }
+
     void OpenGLShader::SetUniformBoll(const std::string& name, bool value) const
     {
         LOG_CORE_ASSERT(false, "SetUniformBool() not implemented!");

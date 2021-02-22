@@ -13,6 +13,13 @@ namespace ArtemEngine {
 		cameraRotation_ = camera_.GetRotation();
 	}
 
+	OrthographicCameraController::OrthographicCameraController(float left, float right, float bottom, float top)
+		: camera_(left, right, bottom, top)
+	{
+		cameraPosition_ = camera_.GetPosition();
+		cameraRotation_ = camera_.GetRotation();
+	}
+
 	OrthographicCameraController::~OrthographicCameraController()
 	{
 	}

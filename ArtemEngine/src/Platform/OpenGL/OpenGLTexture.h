@@ -16,6 +16,11 @@ namespace ArtemEngine {
 
 		void SetData(void* data, uint32_t size);
 		void Bind(uint32_t slot = 0) const override;
+
+		bool operator==(const Texture& other) const override
+		{
+			return textureID_ == ((OpenGLTexture&)other).textureID_;
+		}
 	private:
 		uint32_t width_, height_;
 		uint32_t textureID_;

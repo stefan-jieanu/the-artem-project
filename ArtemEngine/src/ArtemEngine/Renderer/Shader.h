@@ -33,6 +33,7 @@ namespace ArtemEngine {
         virtual void SetUnifomInt3(const std::string& name, int v1, int v2, int v3) const = 0;
         virtual void SetUnifomInt4(const std::string& name, const Math::Vector4& value) const = 0;
         virtual void SetUnifomInt4(const std::string& name, int v1, int v2, int v3, int v4) const = 0;
+        virtual void SetUniformIntArray(const std::string& name, int* values, uint32_t count) const = 0;
 
         virtual void SetUniformBoll(const std::string& name, bool value) const = 0;
 

@@ -39,6 +39,7 @@ namespace ArtemEngine {
 		void SetUnifomInt3(const std::string& name, int v1, int v2, int v3) const override;
 		void SetUnifomInt4(const std::string& name, const Math::Vector4& value) const override;
 		void SetUnifomInt4(const std::string& name, int v1, int v2, int v3, int v4) const override;
+		void SetUniformIntArray(const std::string& name, int* values, uint32_t count) const override;
 
 		void SetUniformBoll(const std::string& name, bool value) const override;
 

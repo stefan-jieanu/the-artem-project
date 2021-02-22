@@ -12,7 +12,7 @@ namespace ArtemEngine {
 		Math::Vector3 position;
 		Color color;
 		Math::Vector2 texCoord;
-		// TODO: texid
+		float texIndex;
 	};
 
 	struct RendererData
@@ -20,6 +20,7 @@ namespace ArtemEngine {
 		const uint32_t maxQuads = 10000;
 		const uint32_t maxVertices = maxQuads * 4;
 		const uint32_t maxIndices = maxQuads * 6;
+		static const uint32_t maxTextureSlots = 32; 
 
 		Shared<VertexArray> vertexArray;
 		Shared<VertexBuffer> vertexBuffer;
@@ -30,7 +31,10 @@ namespace ArtemEngine {
 		QuadVertex* quadVertexBufferBase = nullptr;
 		QuadVertex* quadVertexBufferPtr = nullptr;
 
-		// std::array<uint32_t>
+		std::array<Shared<Texture>, maxTextureSlots> textureSlots;
+
+		// Starts at 1 because 0 is used for the white texture
+		uint32_t textureSlotIndex = 1; 
 	};
 
 	static RendererData sRendererData;
@@ -43,7 +47,8 @@ namespace ArtemEngine {
 		sRendererData.vertexBuffer->SetLayout({
 				{ ShaderDataType::Float3, "_position" },
 				{ ShaderDataType::Float4, "_color" },
-				{ ShaderDataType::Float2, "_texCoord" }
+				{ ShaderDataType::Float2, "_texCoord" },
+				{ ShaderDataType::Float, "_texIndex" }
 			});
 		sRendererData.vertexArray->AddVertexBuffer(sRendererData.vertexBuffer);
 
@@ -75,9 +80,16 @@ namespace ArtemEngine {
 		uint32_t whiteTextureData = 0xffffffff;
 		sRendererData.whiteTexture->SetData(&whiteTextureData, sizeof(uint32_t));
 
+		int32_t samplers[sRendererData.maxTextureSlots];
+		for (uint32_t i = 0; i < sRendererData.maxTextureSlots; i++)
+			samplers[i] = i;
+
 		sRendererData.shader = Shader::Create("E:/Work/Artem/ArtemEngine/res/Shaders/texture.glsl");
 		sRendererData.shader->Bind();
-		sRendererData.shader->SetUnifomInt("u_Texture", 0);
+
+		sRendererData.shader->SetUniformIntArray("u_textures", samplers, sRendererData.maxTextureSlots);
+
+		sRendererData.textureSlots[0] = sRendererData.whiteTexture;
 	}
 
 	void Renderer2D::Terminate()
@@ -91,10 +103,18 @@ namespace ArtemEngine {
 
 		sRendererData.quadIndexCount = 0;
 		sRendererData.quadVertexBufferPtr = sRendererData.quadVertexBufferBase;
+
+		sRendererData.textureSlotIndex = 1;
 	}
 
 	void Renderer2D::Flush()
 	{
+		// Bind textures
+		for (uint32_t i = 0; i < sRendererData.textureSlotIndex; i++)
+		{
+			sRendererData.textureSlots[i]->Bind(i);
+		}
+
 		RenderCommand::DrawIndexed(sRendererData.vertexArray,  sRendererData.quadIndexCount);
 	}
 
@@ -113,24 +133,31 @@ namespace ArtemEngine {
 
 	void Renderer2D::DrawQuad(const Math::Vector3& position, const Math::Vector2& size, const Color& color, float rotation)
 	{
+		// White texture index
+		const float texIndex = 0.0f;
+
 		sRendererData.quadVertexBufferPtr->position = position;
 		sRendererData.quadVertexBufferPtr->color = color;
 		sRendererData.quadVertexBufferPtr->texCoord = { 0.0f, 0.0f };
+		sRendererData.quadVertexBufferPtr->texIndex = texIndex;
 		sRendererData.quadVertexBufferPtr++;
 
 		sRendererData.quadVertexBufferPtr->position = { position.x + size.x, position.y, 0.0f };
 		sRendererData.quadVertexBufferPtr->color = color;
 		sRendererData.quadVertexBufferPtr->texCoord = { 1.0f, 0.0f };
+		sRendererData.quadVertexBufferPtr->texIndex = texIndex;
 		sRendererData.quadVertexBufferPtr++;
 
 		sRendererData.quadVertexBufferPtr->position = { position.x + size.x, position.y + size.y, 0.0f };
 		sRendererData.quadVertexBufferPtr->color = color;
 		sRendererData.quadVertexBufferPtr->texCoord = { 1.0f, 1.0f };
+		sRendererData.quadVertexBufferPtr->texIndex = texIndex;
 		sRendererData.quadVertexBufferPtr++;
 
 		sRendererData.quadVertexBufferPtr->position = { position.x, position.y + size.y, 0.0f };
 		sRendererData.quadVertexBufferPtr->color = color;
 		sRendererData.quadVertexBufferPtr->texCoord = { 0.0f, 1.0f };
+		sRendererData.quadVertexBufferPtr->texIndex = texIndex;
 		sRendererData.quadVertexBufferPtr++;
 
 		sRendererData.quadIndexCount += 6;
@@ -154,24 +181,49 @@ namespace ArtemEngine {
 	{
 		const Color color = Color::White;
 
+		float textureIndex = 0.0f;
+
+		for (uint32_t i = 1; i < sRendererData.textureSlotIndex; i++)
+		{
+			if (*sRendererData.textureSlots[i].get() == *texture.get())
+			{
+				textureIndex = (float)i;
+				break;
+			}
+		}
+
+		if (textureIndex == 0.0f)
+		{
+			textureIndex = (float)sRendererData.textureSlotIndex;
+			sRendererData.textureSlots[sRendererData.textureSlotIndex] = texture;
+			sRendererData.textureSlotIndex++;
+		}
+
+		// White texture index
+		const float texIndex = 0.0f;
+
 		sRendererData.quadVertexBufferPtr->position = position;
 		sRendererData.quadVertexBufferPtr->color = color;
 		sRendererData.quadVertexBufferPtr->texCoord = { 0.0f, 0.0f };
+		sRendererData.quadVertexBufferPtr->texIndex = textureIndex;
 		sRendererData.quadVertexBufferPtr++;
 
 		sRendererData.quadVertexBufferPtr->position = { position.x + size.x, position.y, 0.0f };
 		sRendererData.quadVertexBufferPtr->color = color;
 		sRendererData.quadVertexBufferPtr->texCoord = { 1.0f, 0.0f };
+		sRendererData.quadVertexBufferPtr->texIndex = textureIndex;
 		sRendererData.quadVertexBufferPtr++;
 
 		sRendererData.quadVertexBufferPtr->position = { position.x + size.x, position.y + size.y, 0.0f };
 		sRendererData.quadVertexBufferPtr->color = color;
 		sRendererData.quadVertexBufferPtr->texCoord = { 1.0f, 1.0f };
+		sRendererData.quadVertexBufferPtr->texIndex = textureIndex;
 		sRendererData.quadVertexBufferPtr++;
 
 		sRendererData.quadVertexBufferPtr->position = { position.x, position.y + size.y, 0.0f };
 		sRendererData.quadVertexBufferPtr->color = color;
 		sRendererData.quadVertexBufferPtr->texCoord = { 0.0f, 1.0f };
+		sRendererData.quadVertexBufferPtr->texIndex = textureIndex;
 		sRendererData.quadVertexBufferPtr++;
 
 		sRendererData.quadIndexCount += 6;
