@@ -17,9 +17,9 @@ namespace ArtemEngine {
 
 	struct RendererData
 	{
-		const uint32_t maxQuads = 10000;
-		const uint32_t maxVertices = maxQuads * 4;
-		const uint32_t maxIndices = maxQuads * 6;
+		static const uint32_t maxQuads = 10000;
+		static const uint32_t maxVertices = maxQuads * 4;
+		static const uint32_t maxIndices = maxQuads * 6;
 		static const uint32_t maxTextureSlots = 32; 
 
 		Shared<VertexArray> vertexArray;
@@ -124,6 +124,16 @@ namespace ArtemEngine {
 		RenderCommand::DrawIndexed(sRendererData.vertexArray,  sRendererData.quadIndexCount);
 	}
 
+	void Renderer2D::FlushAndReset()
+	{
+		EndScene();
+
+		sRendererData.quadIndexCount = 0;
+		sRendererData.quadVertexBufferPtr = sRendererData.quadVertexBufferBase;
+
+		sRendererData.textureSlotIndex = 1;
+	}
+
 	void Renderer2D::EndScene()
 	{
 		uint32_t dataSize = (uint8_t*)sRendererData.quadVertexBufferPtr - (uint8_t*)sRendererData.quadVertexBufferBase;
@@ -139,6 +149,9 @@ namespace ArtemEngine {
 
 	void Renderer2D::DrawQuad(const Math::Vector3& position, const Math::Vector2& size, const Color& color, float rotation)
 	{
+		if (sRendererData.quadIndexCount >= RendererData::maxIndices)
+			FlushAndReset();
+
 		// White texture index
 		const float texIndex = 0.0f;
 
@@ -181,6 +194,9 @@ namespace ArtemEngine {
 	void Renderer2D::DrawQuad(const Math::Vector3& position, const Math::Vector2& size, const Shared<Texture>& texture, float rotation)
 	{
 		const Color color = Color::White;
+
+		if (sRendererData.quadIndexCount >= RendererData::maxIndices)
+			FlushAndReset();
 
 		float textureIndex = 0.0f;
 

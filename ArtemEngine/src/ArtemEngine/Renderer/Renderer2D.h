@@ -14,6 +14,7 @@ namespace ArtemEngine {
 
 		static void BeginScene(const OrthographicCamera& camera);
 		static void Flush();
+		static void FlushAndReset();
 		static void EndScene();
 
 		// Primitives
