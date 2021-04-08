@@ -1402,6 +1402,8 @@
       <Filter>vendor\stb</Filter>
     </ClInclude>
     <ClInclude Include="src\ArtemEngine\Debug\Timer.h" />
+    <ClInclude Include="src\ArtemEngine\Renderer\Framebuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Core\Application.cpp">
@@ -1473,6 +1475,8 @@
     <ClCompile Include="src\aepch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Renderer\Framebuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\Shaders\texture.glsl" />

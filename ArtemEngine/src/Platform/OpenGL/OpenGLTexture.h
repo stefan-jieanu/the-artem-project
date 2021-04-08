@@ -14,8 +14,9 @@ namespace ArtemEngine {
 		inline uint32_t GetWidth() const override { return width_; }
 		inline uint32_t GetHeight() const override { return height_; }
 
-		void SetData(void* data, uint32_t size);
+		void SetData(void* data, uint32_t size) override;
 		void Bind(uint32_t slot = 0) const override;
+		uint32_t GetTextureID() const override { return textureID_; }
 
 		bool operator==(const Texture& other) const override
 		{

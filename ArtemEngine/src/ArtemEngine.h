@@ -19,6 +19,7 @@
 
 #include "ArtemEngine/Renderer/Buffers.h"
 #include "ArtemEngine/Renderer/Shader.h"
+#include "ArtemEngine/Renderer/Framebuffer.h"
 #include "ArtemEngine/Renderer/VertexArray.h"
 // ----------------------------------
 

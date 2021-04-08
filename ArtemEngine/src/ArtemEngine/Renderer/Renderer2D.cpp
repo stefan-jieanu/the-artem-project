@@ -217,7 +217,7 @@ namespace ArtemEngine {
 		}
 
 		// White texture index
-		const float texIndex = 0.0f;
+		const float texIndex = 0.0f; 
 
 		Math::Matrix4 transform = Math::Translate(position)
 			* Math::Rotate(Math::Radians(rotation), Math::Vector3(0, 0, 1)) 
@@ -261,6 +261,67 @@ namespace ArtemEngine {
 		RenderCommand::DrawIndexed(sRendererProps.vertexArray);
 #endif
 	}
+
+	/*void Renderer2D::DrawQuad(const Math::Vector3& position, const Math::Vector2& size, uint32_t texID, float rotation = 0.0f)
+	{
+		const Color color = Color::White;
+
+		if (sRendererData.quadIndexCount >= RendererData::maxIndices)
+			FlushAndReset();
+
+		float textureIndex = 0.0f;
+
+		for (uint32_t i = 1; i < sRendererData.textureSlotIndex; i++)
+		{
+			if (*sRendererData.textureSlots[i].get() == *texture.get())
+			{
+				textureIndex = (float)i;
+				break;
+			}
+		}
+
+		if (textureIndex == 0.0f)
+		{
+			textureIndex = (float)sRendererData.textureSlotIndex;
+			sRendererData.textureSlots[sRendererData.textureSlotIndex] = texture;
+			sRendererData.textureSlotIndex++;
+		}
+
+
+
+		// White texture index
+		const float texIndex = 0.0f;
+
+		Math::Matrix4 transform = Math::Translate(position)
+			* Math::Rotate(Math::Radians(rotation), Math::Vector3(0, 0, 1))
+			* Math::Scale(Math::Vector3(size.x, size.y, 1.0f));
+
+		sRendererData.quadVertexBufferPtr->position = transform * sRendererData.quadVertexPositions[0];
+		sRendererData.quadVertexBufferPtr->color = color;
+		sRendererData.quadVertexBufferPtr->texCoord = { 0.0f, 0.0f };
+		sRendererData.quadVertexBufferPtr->texIndex = textureIndex;
+		sRendererData.quadVertexBufferPtr++;
+
+		sRendererData.quadVertexBufferPtr->position = transform * sRendererData.quadVertexPositions[1];
+		sRendererData.quadVertexBufferPtr->color = color;
+		sRendererData.quadVertexBufferPtr->texCoord = { 1.0f, 0.0f };
+		sRendererData.quadVertexBufferPtr->texIndex = textureIndex;
+		sRendererData.quadVertexBufferPtr++;
+
+		sRendererData.quadVertexBufferPtr->position = transform * sRendererData.quadVertexPositions[2];
+		sRendererData.quadVertexBufferPtr->color = color;
+		sRendererData.quadVertexBufferPtr->texCoord = { 1.0f, 1.0f };
+		sRendererData.quadVertexBufferPtr->texIndex = textureIndex;
+		sRendererData.quadVertexBufferPtr++;
+
+		sRendererData.quadVertexBufferPtr->position = transform * sRendererData.quadVertexPositions[3];
+		sRendererData.quadVertexBufferPtr->color = color;
+		sRendererData.quadVertexBufferPtr->texCoord = { 0.0f, 1.0f };
+		sRendererData.quadVertexBufferPtr->texIndex = textureIndex;
+		sRendererData.quadVertexBufferPtr++;
+
+		sRendererData.quadIndexCount += 6;
+	}*/
 
 	/*void Renderer2D::DrawQuad(const Math::Vector2& position, const Math::Vector2& size, const Shared<Texture>& texture, const Color& color, float rotation)
 	{

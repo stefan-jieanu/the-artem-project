@@ -160,6 +160,7 @@
     <ClInclude Include="src\ArtemEngine\OrthographicCameraController.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\Buffers.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\Color.h" />
+    <ClInclude Include="src\ArtemEngine\Renderer\Framebuffer.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\RenderCommand.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\Renderer.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="src\ArtemEngine\Renderer\Texture.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffers.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h" />
@@ -599,6 +601,7 @@
     <ClCompile Include="src\ArtemEngine\OrthographicCameraController.cpp" />
     <ClCompile Include="src\ArtemEngine\Renderer\Buffers.cpp" />
     <ClCompile Include="src\ArtemEngine\Renderer\Color.cpp" />
+    <ClCompile Include="src\ArtemEngine\Renderer\Framebuffer.cpp" />
     <ClCompile Include="src\ArtemEngine\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\ArtemEngine\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\ArtemEngine\Renderer\Renderer.cpp" />
@@ -608,6 +611,7 @@
     <ClCompile Include="src\ArtemEngine\Renderer\Texture.cpp" />
     <ClCompile Include="src\ArtemEngine\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffers.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp" />

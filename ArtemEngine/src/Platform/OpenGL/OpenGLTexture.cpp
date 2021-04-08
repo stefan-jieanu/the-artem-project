@@ -31,9 +31,9 @@ namespace ArtemEngine {
 		glTextureParameteri(textureID_, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 		if (channels == 3)
-			glTextureSubImage2D(textureID_, 0, 0, 0, width_, height_, GL_RGB, GL_UNSIGNED_BYTE, data);
+			glTextureSubImage2D(textureID_, 0, 0, 0, width_, height_, GL_RGB8, GL_UNSIGNED_BYTE, data);
 		else if (channels == 4)
-			glTextureSubImage2D(textureID_, 0, 0, 0, width_, height_, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glTextureSubImage2D(textureID_, 0, 0, 0, width_, height_, GL_RGBA8, GL_UNSIGNED_BYTE, data);
 
 		stbi_image_free(data);
 	}

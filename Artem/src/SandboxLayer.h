@@ -24,6 +24,8 @@ private:
 
 	Engine::Shared<Engine::Texture> texture_;
 
+	Engine::Shared<Engine::Framebuffer> framebuffer_;
+
 	float rotation1 = 14.0f;
 	float rotation2 = 78.0f;
 	float rotation3 = 41.0f;

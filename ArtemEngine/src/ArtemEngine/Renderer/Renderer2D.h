@@ -23,6 +23,9 @@ namespace ArtemEngine {
 		static void DrawQuad(const Math::Vector2& position, const Math::Vector2& size, const Shared<Texture>& texture, float rotation = 0.0f);
 		static void DrawQuad(const Math::Vector3& position, const Math::Vector2& size, const Shared<Texture>& texture, float rotation = 0.0f);
 
+		// This is temporary, just here to test framebuffer
+		static void DrawQuad(const Math::Vector3& position, const Math::Vector2& size, uint32_t texID, float rotation = 0.0f);
+
 		static void DrawQuad(const Math::Vector2& position, const Math::Vector2& size, const Shared<Texture>& texture, const Color& color, float rotation = 0.0f);
 		static void DrawQuad(const Math::Vector3& position, const Math::Vector2& size, const Shared<Texture>& texture, const Color& color, float rotation = 0.0f);
 	};

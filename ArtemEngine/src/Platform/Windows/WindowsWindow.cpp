@@ -59,9 +59,8 @@ namespace ArtemEngine {
 		glfwSetWindowUserPointer(window_, &data_);
 		SetVSync(true);
 
-		// Enable MSAA
+		// MSAA
 		glfwWindowHint(GLFW_SAMPLES, 4);
-		glEnable(GL_MULTISAMPLE);
 
 		// Set GLFW callbacks
 		glfwSetWindowSizeCallback(window_, [](GLFWwindow* window, int width, int height)
