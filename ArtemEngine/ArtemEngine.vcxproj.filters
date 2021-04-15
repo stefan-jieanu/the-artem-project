@@ -1479,6 +1479,7 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\Shaders\texture.glsl" />
+    <None Include="res\Shaders\texture.frag" />
+    <None Include="res\Shaders\texture.vert" />
   </ItemGroup>
 </Project>

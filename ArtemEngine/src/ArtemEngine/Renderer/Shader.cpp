@@ -9,12 +9,12 @@ namespace ArtemEngine {
     /*************************************************/
     /*  			      Shader                     */
     /*************************************************/
-    Shared<Shader> Shader::Create(const std::string& filepath)
+    Shared<Shader> Shader::Create(const std::string& vertexFilepath, const std::string& fragmentFilepath)
     {
         switch (Renderer::GetAPI())
         {
             case RendererAPI::API::None: LOG_CORE_ASSERT(false, "RendererAPI::None is not supported!"); return nullptr;
-            case RendererAPI::API::OpenGL: return std::make_shared<OpenGLShader>(filepath);
+            case RendererAPI::API::OpenGL: return std::make_shared<OpenGLShader>(vertexFilepath, fragmentFilepath);
         }
 
         LOG_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -31,9 +31,9 @@ namespace ArtemEngine {
         shaders_[name] = shader;
     }
 
-    Shared<Shader> ShaderLibrary::Load(const std::string& filepath)
+    Shared<Shader> ShaderLibrary::Load(const std::string& vertexFilepath, const std::string& fragmentFilepath)
     {
-        Shared<Shader> shader = Shader::Create(filepath);
+        Shared<Shader> shader = Shader::Create(vertexFilepath, fragmentFilepath);
         Add(shader);
 
         return shader;

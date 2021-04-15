@@ -5,17 +5,10 @@
 
 namespace ArtemEngine {
 
-	// Holds the source code of the vertex and fragment shaders
-	struct ShaderProgramSource
-	{
-		std::string vertexSource;
-		std::string fragmentSource;
-	};
-
 	class OpenGLShader : public Shader
 	{
 	public:
-		OpenGLShader(const std::string& filepath);
+		OpenGLShader(const std::string& vertexFilepath, const std::string& fragmentFilepath);
 		~OpenGLShader() override;
 
 		void Bind() const override;
@@ -48,11 +41,11 @@ namespace ArtemEngine {
 		uint32_t shaderID_;
 		std::string name_;
 
-		// Parses a source file to split it into vertex and fragment shader code strings
-		ShaderProgramSource ParseShader(const std::string& filepath);
-
 		// Compile an individual shader program (i.e. fragment, vertex)
 		uint32_t CompileShader(unsigned int type, const std::string& source);
+
+		// Parse the shader file to get the source code
+		const std::string ParseShader(const std::string& filepath);
 
 		// Link two or more compiled shader programs into a single shader 
 		// (i.e. fragment and vertex get combined into a single shader)

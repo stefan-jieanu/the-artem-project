@@ -39,7 +39,7 @@ namespace ArtemEngine {
 
         virtual const std::string& GetName() const = 0;
 
-        static Shared<Shader> Create(const std::string& filepath);
+        static Shared<Shader> Create(const std::string& vertexFilepath, const std::string& fragmentFilepath);
     };
 
     /*************************************************/
@@ -52,7 +52,7 @@ namespace ArtemEngine {
         // when added into the unordered_map; no reason to increment to when passing as a parameter
         void Add(const Shared<Shader>& shader);
 
-        Shared<Shader> Load(const std::string& filepath);
+        Shared<Shader> Load(const std::string& vertexFilepath, const std::string& fragmentFilepath);
 
         Shared<Shader> Get(const std::string& name);
     private:

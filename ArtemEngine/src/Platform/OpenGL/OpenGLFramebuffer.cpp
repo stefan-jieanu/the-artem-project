@@ -32,7 +32,6 @@ namespace ArtemEngine {
 
 		colorTexture_ = MakeShared<OpenGLTexture>(properties_.width, properties_.height);
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, colorTexture_->GetTextureID(), 0);
-		//glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, colorTexture_->get)
 		
 		//glCreateTextures(GL_TEXTURE_2D, 1, &depthAttachment_);
 		//glBindTexture(GL_TEXTURE_2D, depthAttachment_);

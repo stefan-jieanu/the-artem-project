@@ -631,7 +631,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\Shaders\texture.glsl" />
+    <None Include="res\Shaders\texture.frag" />
+    <None Include="res\Shaders\texture.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

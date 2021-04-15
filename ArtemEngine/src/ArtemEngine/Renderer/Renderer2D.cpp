@@ -85,7 +85,7 @@ namespace ArtemEngine {
 		for (uint32_t i = 0; i < sRendererData.maxTextureSlots; i++)
 			samplers[i] = i;
 
-		sRendererData.shader = Shader::Create("E:/Work/Artem/ArtemEngine/res/Shaders/texture.glsl");
+		sRendererData.shader = Shader::Create("E:/Work/Artem/ArtemEngine/res/Shaders/texture.vert", "E:/Work/Artem/ArtemEngine/res/Shaders/texture.frag");
 		sRendererData.shader->Bind();
 
 		sRendererData.shader->SetUniformIntArray("u_textures", samplers, sRendererData.maxTextureSlots);

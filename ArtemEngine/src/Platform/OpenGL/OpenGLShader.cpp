@@ -5,22 +5,26 @@
 
 namespace ArtemEngine {
 
-    OpenGLShader::OpenGLShader(const std::string& filepath)
+    OpenGLShader::OpenGLShader(const std::string& vertexFilepath, const std::string& fragmentFilepath)
         : shaderID_(0)
     {
-        // Get the the of the shader from the filepath
-        auto lastSlash = filepath.find_last_of("/\\");
+        // Get the name of the shader from the filepath
+        auto lastSlash = vertexFilepath.find_last_of("/\\");
         lastSlash = lastSlash == std::string::npos ? 0 : lastSlash + 1;
-        auto lastDot = filepath.rfind(".");
+        auto lastDot = vertexFilepath.rfind(".");
 
-        auto count = lastDot == std::string::npos ? filepath.size() - lastSlash : lastDot - lastSlash;
-        name_ = filepath.substr(lastSlash, count);
+        auto count = lastDot == std::string::npos ? vertexFilepath.size() - lastSlash : lastDot - lastSlash;
+        name_ = vertexFilepath.substr(lastSlash, count);
+        
+        // Parse the vertex source file
+        const std::string vertexSource = ParseShader(vertexFilepath);
 
-        // Get the source code for each shader program
-        ShaderProgramSource source = ParseShader(filepath);
+        // Parse the fragment source file
+        const std::string fragmentSource = ParseShader(fragmentFilepath);
+        LOG_CORE_DEBUG(fragmentSource);
 
         // Create a shader using the source code previously loaded
-        shaderID_ = CreateShader(source.vertexSource, source.fragmentSource);
+        shaderID_ = CreateShader(vertexSource, fragmentSource);
     }
 
     OpenGLShader::~OpenGLShader()
@@ -128,7 +132,23 @@ namespace ArtemEngine {
         LOG_CORE_ASSERT(false, "SetUniformBool() not implemented!");
     }
 
-    ShaderProgramSource OpenGLShader::ParseShader(const std::string& filepath)
+    const std::string OpenGLShader::ParseShader(const std::string& filepath)
+    {
+        // Open the source file
+        std::ifstream source(filepath);
+        if (!source.good())
+        {
+            LOG_CORE_ERROR("Shader source file not found: {}", filepath);
+            return "";
+        }
+
+        // Read file's buffer contents into stream
+        std::string content((std::istreambuf_iterator<char>(source)), (std::istreambuf_iterator<char>()));
+        return content;
+    }
+
+
+    /*ShaderProgramSource OpenGLShader::ParseShader(const std::string& filepath)
     {
         std::ifstream stream(filepath);
         if (!stream.good())
@@ -160,7 +180,7 @@ namespace ArtemEngine {
         }
 
         return { ss[0].str(), ss[1].str() };
-    }
+    }*/
 
     uint32_t OpenGLShader::CompileShader(unsigned int type, const std::string& source)
     {
