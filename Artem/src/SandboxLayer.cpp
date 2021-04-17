@@ -10,6 +10,8 @@ SandboxLayer::SandboxLayer(const std::string& name)
 	fbprops.height = 720.0f;
 
 	framebuffer_ = Engine::Framebuffer::Create(fbprops);
+
+	
 }
 
 SandboxLayer::~SandboxLayer()
@@ -25,7 +27,7 @@ void SandboxLayer::OnUpdate(Engine::DeltaTime dt)
 	Engine::RenderCommand::SetClearColor(Engine::Color::DarkGrey);
 	Engine::RenderCommand::Clear();
 
-	/*Engine::Renderer2D::BeginScene(cameraController_.GetCamera());
+	Engine::Renderer2D::BeginScene(cameraController_.GetCamera());
 	for (float y = -5.0f; y < 5.0f; y += 0.5f)
 	{
 		for (float x = -5.0f; x < 5.0f; x += 0.5f)
@@ -34,7 +36,7 @@ void SandboxLayer::OnUpdate(Engine::DeltaTime dt)
 			Engine::Renderer2D::DrawQuad({ x, y }, { 0.45f, 0.45f }, color, rotation1);
 		}
 	}
-	Engine::Renderer2D::EndScene();*/
+	Engine::Renderer2D::EndScene();
 
 	Engine::Renderer2D::BeginScene(cameraController_.GetCamera());
 
@@ -42,7 +44,7 @@ void SandboxLayer::OnUpdate(Engine::DeltaTime dt)
 	//Engine::Renderer2D::DrawQuad({ 1.0f, 0.0f, 1.0f }, { 0.6f, 0.6f }, { 0.2f, 0.2f, 0.8f, 1.0f }, rotation3);
 
 	Engine::Renderer2D::DrawQuad({ -1.0f, 0.0f, 1.0f }, { 0.6f, 0.6f }, { 0.8f, 0.8f, 0.2f, 1.0f });
-	//Engine::Renderer2D::DrawQuad({ -1.0f, 1.0f, 1.0f }, { 0.6f, 0.6f }, { 0.8f, 0.2f, 0.2f, 0.5f });
+	Engine::Renderer2D::DrawQuad({ -1.0f, 1.0f, 1.0f }, { 0.6f, 0.6f }, { 0.8f, 0.2f, 0.2f, 0.5f });
 	//Engine::Renderer2D::DrawQuad({ -1.4f, 0.0f, 0.2f }, { 0.6f, 0.6f }, texture_, rotation1);
 	//Engine::Renderer2D::DrawQuad({ 1.4f, 0.0f, 0.2f }, { 0.6f, 0.6f }, texture_, rotation1);
 	Engine::Renderer2D::EndScene();

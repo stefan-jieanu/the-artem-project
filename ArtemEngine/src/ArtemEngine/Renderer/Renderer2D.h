@@ -3,6 +3,7 @@
 #include "OrthographicCamera.h"
 #include "Color.h"
 #include "Texture.h"
+#include "Vertex.h"
 
 namespace ArtemEngine {
 

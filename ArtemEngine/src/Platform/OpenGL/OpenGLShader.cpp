@@ -21,7 +21,6 @@ namespace ArtemEngine {
 
         // Parse the fragment source file
         const std::string fragmentSource = ParseShader(fragmentFilepath);
-        LOG_CORE_DEBUG(fragmentSource);
 
         // Create a shader using the source code previously loaded
         shaderID_ = CreateShader(vertexSource, fragmentSource);

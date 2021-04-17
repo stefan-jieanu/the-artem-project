@@ -1404,6 +1404,7 @@
     <ClInclude Include="src\ArtemEngine\Debug\Timer.h" />
     <ClInclude Include="src\ArtemEngine\Renderer\Framebuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
+    <ClInclude Include="src\ArtemEngine\Renderer\Vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Core\Application.cpp">
