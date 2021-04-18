@@ -22,6 +22,9 @@ namespace ArtemEngine {
         // Parse the fragment source file
         const std::string fragmentSource = ParseShader(fragmentFilepath);
 
+        // Generate the shader layout from the vertex shader source 
+        GenerateLayout(vertexSource);
+
         // Create a shader using the source code previously loaded
         shaderID_ = CreateShader(vertexSource, fragmentSource);
     }
@@ -146,6 +149,67 @@ namespace ArtemEngine {
         return content;
     }
 
+    const void OpenGLShader::GenerateLayout(const std::string& source)
+    {
+        // Parse the source code to look for 'in' variables
+        std::stringstream stream(source.c_str());
+        std::string line;
+
+        // TODO: Optimize the string search
+        if (!source.empty())
+        {
+            while (std::getline(stream, line, '\n'))
+            {
+                if (line.find("layout") != std::string::npos)
+                {
+                    // Finding the name
+                    auto semicolon = line.rfind(";");
+                    auto lastSpace = line.rfind(" ");
+                    auto nameCount = semicolon - lastSpace;
+                    std::string name = line.substr(lastSpace + 1, nameCount - 1);
+
+                    // Finding the type
+                    auto secondLastSpace = line.rfind(" ", lastSpace - 1);
+                    auto typeCount = lastSpace - secondLastSpace;
+                    std::string type = line.substr(secondLastSpace + 1, typeCount - 1);
+
+                    if (type.compare("float") == 0)
+                        layout_.AddElement({ ShaderDataType::Float, name });
+                    else if (type.compare("vec2") == 0)
+                        layout_.AddElement({ ShaderDataType::Float2, name });
+                    else if (type.compare("vec3") == 0)
+                        layout_.AddElement({ ShaderDataType::Float3, name });
+                    else if (type.compare("vec4") == 0)
+                        layout_.AddElement({ ShaderDataType::Float4, name });
+                    else if (type.compare("mat3") == 0)
+                        layout_.AddElement({ ShaderDataType::Mat3, name });
+                    else if (type.compare("mat4") == 0)
+                        layout_.AddElement({ ShaderDataType::Mat4, name });
+                    else if (type.compare("int") == 0)
+                        layout_.AddElement({ ShaderDataType::Int, name });
+
+                    // These ints will just be place holders by now becuase I don't know if 
+                    // GLSL even has int vectors
+                    else if (type.compare("int2") == 0)
+                        layout_.AddElement({ ShaderDataType::Int2, name });
+                    else if (type.compare("int3") == 0)
+                        layout_.AddElement({ ShaderDataType::Int3, name });
+                    else if (type.compare("int4") == 0)
+                        layout_.AddElement({ ShaderDataType::Int4, name });
+                    else if (type.compare("bool") == 0)
+                        layout_.AddElement({ ShaderDataType::Bool, name });
+                    else 
+                    {
+                        LOG_CORE_WARN("Invalid shader field: ", name);
+                    }
+                }
+            }
+
+            // After adding the elements to the layout 
+            // Caculate the offsets and stride
+            layout_.CalculateOffsetsAndStride();
+        }
+    }
 
     /*ShaderProgramSource OpenGLShader::ParseShader(const std::string& filepath)
     {

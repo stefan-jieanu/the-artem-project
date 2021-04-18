@@ -33,6 +33,13 @@ namespace ArtemEngine {
 		glBufferSubData(GL_ARRAY_BUFFER, 0, size, data);
 	}
 
+	void* OpenGLVertexBuffer::MapData() const
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, bufferID_);
+		return glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+	}
+
+
 	void OpenGLVertexBuffer::Bind() const
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, bufferID_);

@@ -47,6 +47,9 @@ namespace ArtemEngine {
 		// Parse the shader file to get the source code
 		const std::string ParseShader(const std::string& filepath);
 
+		// Generate shader layout from source file
+		const void GenerateLayout(const std::string& source);
+
 		// Link two or more compiled shader programs into a single shader 
 		// (i.e. fragment and vertex get combined into a single shader)
 		uint32_t CreateShader(const std::string& vertexShader, const std::string& fragmentShader);

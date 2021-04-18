@@ -18,13 +18,14 @@ namespace ArtemEngine {
 		void Bind() const override;
 		void Unbind() const override;
 
-		inline void SetLayout(const BufferLayout& layout) override { layout_ = layout; }
-		inline const BufferLayout& GetLayout() const override { return layout_; }
+		inline void SetLayout(const ShaderLayout& layout) override { layout_ = layout; }
+		inline const ShaderLayout& GetLayout() const override { return layout_; }
 
 		void SetData(const void* data, uint32_t size) override;
+		void* MapData() const override;
 	private:
 		uint32_t bufferID_;
-		BufferLayout layout_;
+		ShaderLayout layout_;
 	};
 
 	/*************************************************/

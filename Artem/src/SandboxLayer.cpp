@@ -11,7 +11,17 @@ SandboxLayer::SandboxLayer(const std::string& name)
 
 	framebuffer_ = Engine::Framebuffer::Create(fbprops);
 
-	
+	shaderLibrary_ = Engine::ShaderLibrary();
+	shaderLibrary_.Load("E:/Work/Artem/ArtemEngine/res/Shaders/texture.vert", "E:/Work/Artem/ArtemEngine/res/Shaders/texture.frag");
+
+	Engine::RenderCommand::SetClearColor(Engine::Color::DarkGrey);
+	Engine::RenderCommand::Clear();
+
+	Engine::Renderer::Init();
+
+	Engine::Renderer2D::BeginBatch(shaderLibrary_.Get("texture"));
+
+	Engine::Renderer2D::EndBatch();
 }
 
 SandboxLayer::~SandboxLayer()
@@ -22,7 +32,8 @@ void SandboxLayer::OnUpdate(Engine::DeltaTime dt)
 {	
 	cameraController_.OnUpdate(dt);
 
-	
+
+
 
 	rotation1 -= 45.0f * dt;
 	rotation2 += 8.0f * dt;
