@@ -78,7 +78,8 @@ namespace ArtemEngine {
 			sBatchData.batchIndicesCount = 0;
 			sBatchData.batchVerticesCount = 0;
 
-			
+
+			VertexData vd = VertexData();
 
 			//sBatchData.quadVertexBufferBase = new Vertex<T>[sBatchData.maxVertices];
 

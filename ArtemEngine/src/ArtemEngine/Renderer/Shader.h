@@ -95,6 +95,17 @@ namespace ArtemEngine {
             }
         }
 
+        int GetElementLocation(const std::string& name) const
+        {
+            for (auto& element : elements_)
+            {
+                if (element.name.compare(name))
+                {
+                    return element.offset;
+                }
+            }
+        }
+
     private:
         std::vector<ShaderInElement> elements_;
         uint32_t stride_ = 0;
