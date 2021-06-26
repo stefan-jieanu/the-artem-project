@@ -66,6 +66,7 @@ project "ArtemEngine"
 
         defines 
         {
+            "AR_ENABLE_ASSERTS",
             "AR_PLATFORM_WINDOWS",
             "AR_BUILD_DLL",
             "GLFW_INCLUDE_NONE"

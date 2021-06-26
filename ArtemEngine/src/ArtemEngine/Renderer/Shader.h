@@ -99,11 +99,13 @@ namespace ArtemEngine {
         {
             for (auto& element : elements_)
             {
-                if (element.name.compare(name))
+                if (element.name.compare(name) == 0)
                 {
                     return element.offset;
                 }
             }
+            LOG_CORE_WARN("Shader element name not found!");
+            return -1;
         }
 
     private:
@@ -151,9 +153,11 @@ namespace ArtemEngine {
         virtual void SetUniformBoll(const std::string& name, bool value) const = 0;
 
         virtual const std::string& GetName() const = 0;
+        virtual const void PrintShaderUniforms() const = 0;
 
         const ShaderLayout& GetLayout() const { return layout_; }
         const uint32_t GetLayoutSize() const { return layout_.GetSize(); }
+
 
         static Shared<Shader> Create(const std::string& vertexFilepath, const std::string& fragmentFilepath);
 

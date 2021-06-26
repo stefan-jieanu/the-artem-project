@@ -7,22 +7,60 @@ namespace ArtemEngine
 	class VertexData
 	{
 	public:
-		VertexData(const ShaderLayout& layout, );
-		~VertexData();
+		VertexData(const ShaderLayout& layout, int count = 1)
+			: layout_(layout), count_(count)
+		{
+			data_  = new float[layout.GetSize() * (uint32_t)count];
+		}
 
+		~VertexData()
+		{
+			delete[] data_;
+		}
+
+		// Methods to set the data in the vertex[]
 		void SetData(const std::string name, float data, int offset = 0)
 		{
-			
+			LOG_CORE_ASSERT(!(offset > count_ - 1), "Vertex index is greater than total number of vertices");
+
+			uint32_t location = layout_.GetElementLocation(name);
+			data_[location + (count_ - 1) * offset] = data;
 		}
 
 		void SetData(const std::string name, Math::Vector2 data, int offset = 0)
 		{
+			LOG_CORE_ASSERT(!(offset > count_ - 1), "Vertex index is greater than total number of vertices");
 
+			uint32_t location = layout_.GetElementLocation(name);
+			data_[location + (count_ - 1) * offset] = data.x;
+			data_[location + 1 + (count_ - 1) * offset] = data.y;
 		}
 
 		void SetData(const std::string name, Math::Vector3 data, int offset = 0)
 		{
+			LOG_CORE_ASSERT(!(offset > count_ - 1), "Vertex index is greater than total number of vertices");
 
+			uint32_t location = layout_.GetElementLocation(name);
+			data_[location + (count_ - 1) * offset] = data.x;
+			data_[location + 1 + (count_ - 1) * offset] = data.y;
+			data_[location + 2 + (count_ - 1) * offset] = data.z;
+		}
+
+		void SetData(const std::string name, Math::Vector4 data, int offset = 0)
+		{
+			LOG_CORE_ASSERT(!(offset > count_ - 1), "Vertex index is greater than total number of vertices");
+
+			uint32_t location = layout_.GetElementLocation(name);
+			data_[location + (count_ - 1) * offset] = data.x;
+			data_[location + 1 + (count_ - 1) * offset] = data.y;
+			data_[location + 2 + (count_ - 1) * offset] = data.z;
+			data_[location + 3 + (count_ - 1) * offset] = data.w;
+		}
+
+		// Methods to get the data in the vertex[]
+		float* GetData()
+		{
+			return data_;
 		}
 
 		template<typename T>
@@ -33,95 +71,49 @@ namespace ArtemEngine
 		template<>
 		float GetData<float>(const std::string name, int offset)
 		{
+			LOG_CORE_ASSERT(!(offset > count_ - 1), "Vertex index is greater than total number of vertices");
 
+			uint32_t location = layout_.GetElementLocation(name);
+			return data_[location + (count_ - 1) * offset];
 		}
 
 		template<>
 		Math::Vector2 GetData<Math::Vector2>(const std::string name, int offset)
 		{
+			LOG_CORE_ASSERT(!(offset > count_ - 1), "Vertex index is greater than total number of vertices");
 
+			uint32_t location = layout_.GetElementLocation(name);
+			return Math::Vector2(data_[location + (count_ - 1) * offset], data_[location + 1 + (count_ - 1) * offset]);
 		}
 
 		template<>
 		Math::Vector3 GetData<Math::Vector3>(const std::string name, int offset)
 		{
+			LOG_CORE_ASSERT(!(offset > count_ - 1), "Vertex index is greater than total number of vertices");
 
+			uint32_t location = layout_.GetElementLocation(name);
+			return Math::Vector3(data_[location + (count_ - 1) * offset], data_[location + 1 + (count_ - 1) * offset], data_[location + 2 + (count_ - 1) * offset]);
+		}
+
+		template<>
+		Math::Vector4 GetData<Math::Vector4>(const std::string name, int offset)
+		{
+			LOG_CORE_ASSERT(!(offset > count_ - 1), "Vertex index is greater than total number of vertices");
+
+			uint32_t location = layout_.GetElementLocation(name);
+			return Math::Vector4(data_[location + (count_ - 1) * offset], data_[location + 1 + (count_ - 1) * offset],
+				data_[location + 2 + (count_ - 1) * offset], data_[location + 3 + (count_ - 1) * offset]);
 		}
 		
+		int GetCount()
+		{
+			return count_;
+		}
+
 	private:
-		float* data;
-		ShaderLayout layout;
-		int count;
-
-		static float* Create(const ShaderLayout& layout, int count = 1)
-		{
-			return new float[layout.GetSize() * count];
-		}
-
-		static void SetData(float* vertex, const ShaderLayout& layout, const std::string& name, float data)
-		{
-			int location = layout.GetElementLocation(name);
-			vertex[location] = data;
-		}
-
-		static void SetData(const float* vertex, const ShaderLayout* layout, const std::string& name, const Math::Vector2 data)
-		{
-
-		}
-
-		static void SetData(const float* vertex, const ShaderLayout* layout, const std::string& name, const Math::Vector3 data)
-		{
-
-		}
-
-		static float GetData(float* vertex, const ShaderLayout& layout, const std::string& name)
-		{
-			int location = layout.GetElementLocation(name);
-			return vertex[location];
-		}
+		float* data_;
+		ShaderLayout layout_;
+		int count_;
 	};
-
-
-	/*template<typename...> struct Vertex;
-
-	template<typename T1>
-	struct Vertex<T1>
-	{
-		T1 t1;
-	};
-
-	template<typename T1, typename T2>
-	struct Vertex<T1, T2>
-	{
-		T1 t1;
-		T2 t2;
-	};
-
-	template<typename T1, typename T2, typename T3>
-	struct Vertex<T1, T2, T3>
-	{
-		T1 t1;
-		T2 t2;
-		T3 t3;
-	};
-
-	template<typename T1, typename T2, typename T3, typename T4>
-	struct Vertex<T1, T2, T3, T4>
-	{
-		T1 t1;
-		T2 t2;
-		T3 t3;
-		T4 t4;
-	};
-
-	template<typename T1, typename T2, typename T3, typename T4, typename T5>
-	struct Vertex<T1, T2, T3, T4, T5>
-	{
-		T1 t1;
-		T2 t2;
-		T3 t3;
-		T4 t4;
-		T5 t5;
-	};*/
 
 }

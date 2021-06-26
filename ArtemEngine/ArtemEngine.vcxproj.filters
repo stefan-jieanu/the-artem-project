@@ -10,6 +10,9 @@
     <Filter Include="src\ArtemEngine\Core">
       <UniqueIdentifier>{63EBEE6B-4F7A-7835-F898-8C30E40689DB}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ArtemEngine\Debug">
+      <UniqueIdentifier>{E1B2D8E9-4D1F-94E4-1613-2C42823EB64C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\ArtemEngine\Events">
       <UniqueIdentifier>{AF617928-9B5B-A27A-84C8-388B706108E7}</UniqueIdentifier>
     </Filter>
@@ -87,6 +90,9 @@
     <ClInclude Include="src\ArtemEngine\Core\Window.h">
       <Filter>src\ArtemEngine\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Debug\Timer.h">
+      <Filter>src\ArtemEngine\Debug</Filter>
+    </ClInclude>
     <ClInclude Include="src\ArtemEngine\Events\ApplicationEvent.h">
       <Filter>src\ArtemEngine\Events</Filter>
     </ClInclude>
@@ -111,6 +117,9 @@
     <ClInclude Include="src\ArtemEngine\Renderer\Color.h">
       <Filter>src\ArtemEngine\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Renderer\Framebuffer.h">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\ArtemEngine\Renderer\OrthographicCamera.h">
       <Filter>src\ArtemEngine\Renderer</Filter>
     </ClInclude>
@@ -132,10 +141,16 @@
     <ClInclude Include="src\ArtemEngine\Renderer\Texture.h">
       <Filter>src\ArtemEngine\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\ArtemEngine\Renderer\Vertex.h">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\ArtemEngine\Renderer\VertexArray.h">
       <Filter>src\ArtemEngine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffers.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
@@ -1401,10 +1416,6 @@
     <ClInclude Include="vendor\stb\stb_image.h">
       <Filter>vendor\stb</Filter>
     </ClInclude>
-    <ClInclude Include="src\ArtemEngine\Debug\Timer.h" />
-    <ClInclude Include="src\ArtemEngine\Renderer\Framebuffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
-    <ClInclude Include="src\ArtemEngine\Renderer\Vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ArtemEngine\Core\Application.cpp">
@@ -1426,6 +1437,9 @@
       <Filter>src\ArtemEngine\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ArtemEngine\Renderer\Color.cpp">
+      <Filter>src\ArtemEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ArtemEngine\Renderer\Framebuffer.cpp">
       <Filter>src\ArtemEngine\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ArtemEngine\Renderer\OrthographicCamera.cpp">
@@ -1455,6 +1469,9 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffers.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1476,11 +1493,9 @@
     <ClCompile Include="src\aepch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ArtemEngine\Renderer\Framebuffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\Shaders\texture.frag" />
-    <None Include="res\Shaders\texture.vert" />
+    <None Include="res\Shaders\basic.vert" />
+    <None Include="res\Shaders\basic.frag" />
   </ItemGroup>
 </Project>
