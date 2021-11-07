@@ -100,7 +100,9 @@ GENERATED :=
 OBJECTS :=
 
 GENERATED += $(OBJDIR)/Application.o
+GENERATED += $(OBJDIR)/Log.o
 OBJECTS += $(OBJDIR)/Application.o
+OBJECTS += $(OBJDIR)/Log.o
 
 # Rules
 # #############################################
@@ -165,6 +167,9 @@ endif
 # #############################################
 
 $(OBJDIR)/Application.o: src/Core/Application.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/Log.o: src/Core/Log.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 
