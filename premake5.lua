@@ -37,7 +37,8 @@ project "ArtemEngine"
 
     includedirs
     {
-        "%{prj.name}"
+        "%{prj.name}",
+        "%{prj.name}/src"
     }
 
     filter "system:linux"
