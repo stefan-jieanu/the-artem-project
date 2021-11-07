@@ -26,6 +26,9 @@ project "ArtemEngine"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "ArtemEngine/src/pch.hpp"
+    pchsource "ArtemEngine/src/pch.cpp"
+
     files
     {
         "%{prj.name}/src/**.hpp",
