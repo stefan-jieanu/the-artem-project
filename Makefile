@@ -11,52 +11,65 @@ endif
 ifeq ($(config),debug_win64)
   ArtemEngine_config = debug_win64
   Artem_config = debug_win64
+  GLFW_config = debug_win64
 
 else ifeq ($(config),debug_linux)
   ArtemEngine_config = debug_linux
   Artem_config = debug_linux
+  GLFW_config = debug_linux
 
 else ifeq ($(config),release_win64)
   ArtemEngine_config = release_win64
   Artem_config = release_win64
+  GLFW_config = release_win64
 
 else ifeq ($(config),release_linux)
   ArtemEngine_config = release_linux
   Artem_config = release_linux
+  GLFW_config = release_linux
 
 else ifeq ($(config),dist_win64)
   ArtemEngine_config = dist_win64
   Artem_config = dist_win64
+  GLFW_config = dist_win64
 
 else ifeq ($(config),dist_linux)
   ArtemEngine_config = dist_linux
   Artem_config = dist_linux
+  GLFW_config = dist_linux
 
 else
   $(error "invalid configuration $(config)")
 endif
 
-PROJECTS := ArtemEngine Artem
+PROJECTS := ArtemEngine Artem GLFW
 
 .PHONY: all clean help $(PROJECTS) 
 
 all: $(PROJECTS)
 
-ArtemEngine:
+ArtemEngine: GLFW
 ifneq (,$(ArtemEngine_config))
 	@echo "==== Building ArtemEngine ($(ArtemEngine_config)) ===="
 	@${MAKE} --no-print-directory -C ArtemEngine -f Makefile config=$(ArtemEngine_config)
 endif
 
-Artem: ArtemEngine
+Artem: ArtemEngine GLFW
 ifneq (,$(Artem_config))
 	@echo "==== Building Artem ($(Artem_config)) ===="
 	@${MAKE} --no-print-directory -C Artem -f Makefile config=$(Artem_config)
 endif
 
+GLFW:
+ifneq (,$(GLFW_config))
+	@echo "==== Building GLFW ($(GLFW_config)) ===="
+	@${MAKE} --no-print-directory -C GLFW -f Makefile config=$(GLFW_config)
+endif
+
 clean:
 	@${MAKE} --no-print-directory -C ArtemEngine -f Makefile clean
 	@${MAKE} --no-print-directory -C Artem -f Makefile clean
+	@${MAKE} --no-print-directory -C GLFW -f Makefile clean
 
 help:
 	@echo "Usage: make [config=name] [target]"
@@ -74,6 +87,7 @@ help:
 	@echo "   clean"
 	@echo "   ArtemEngine"
 	@echo "   Artem"
+	@echo "   GLFW"
 	@echo ""
 	@echo "For more information, see https://github.com/premake/premake-core/wiki"
 

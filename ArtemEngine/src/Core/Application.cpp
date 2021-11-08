@@ -3,12 +3,14 @@
 
 #include "Events/ApplicationEvent.hpp"
 
+
 namespace Engine
 {
     
 Application::Application()
 {
     Log::Init();
+    window_ = std::make_unique<VulkanWindow>(WindowProps());
 }
 
 Application::~Application()

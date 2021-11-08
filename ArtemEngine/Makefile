@@ -22,12 +22,10 @@ RESCOMP = windres
 PCH = src/pch.hpp
 PCH_PLACEHOLDER = $(OBJDIR)/$(notdir $(PCH))
 GCH = $(PCH_PLACEHOLDER).gch
-INCLUDES += -I. -Isrc
+INCLUDES += -I. -Isrc -Ivendor/glfw-3.3.5/include
 FORCE_INCLUDE +=
 ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
 ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-LIBS +=
-LDDEPS +=
 LINKCMD = $(AR) -rcs "$@" $(OBJECTS)
 define PREBUILDCMDS
 endef
@@ -43,6 +41,8 @@ OBJDIR = ../bin-int/Debug-linux-x86_64/ArtemEngine/Win64
 DEFINES += -DAR_PLATFORM_LINUX -DAR_BUILD_DLL -DGLFW_INCLUDE_NONE -DAR_DEBUG
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -g
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -g -std=c++17
+LIBS += -Wl,--start-group ../bin/Debug-linux-x86_64/GLFW/libGLFW.a -lXrandr -lXi -lGL -lX11 -Wl,--end-group
+LDDEPS += ../bin/Debug-linux-x86_64/GLFW/libGLFW.a
 ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64
 
 else ifeq ($(config),debug_linux)
@@ -52,6 +52,8 @@ OBJDIR = ../bin-int/Debug-linux-x86_64/ArtemEngine/Linux
 DEFINES += -DAR_PLATFORM_LINUX -DAR_BUILD_DLL -DGLFW_INCLUDE_NONE -DAR_DEBUG
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -g
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -g -std=c++17
+LIBS += -Wl,--start-group ../bin/Debug-linux-x86_64/GLFW/libGLFW.a -lXrandr -lXi -lGL -lX11 -Wl,--end-group
+LDDEPS += ../bin/Debug-linux-x86_64/GLFW/libGLFW.a
 ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64
 
 else ifeq ($(config),release_win64)
@@ -61,6 +63,8 @@ OBJDIR = ../bin-int/Release-linux-x86_64/ArtemEngine/Win64
 DEFINES += -DAR_PLATFORM_LINUX -DAR_BUILD_DLL -DGLFW_INCLUDE_NONE -DAR_RELEASE
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -std=c++17
+LIBS += -Wl,--start-group ../bin/Release-linux-x86_64/GLFW/libGLFW.a -lXrandr -lXi -lGL -lX11 -Wl,--end-group
+LDDEPS += ../bin/Release-linux-x86_64/GLFW/libGLFW.a
 ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -s
 
 else ifeq ($(config),release_linux)
@@ -70,6 +74,8 @@ OBJDIR = ../bin-int/Release-linux-x86_64/ArtemEngine/Linux
 DEFINES += -DAR_PLATFORM_LINUX -DAR_BUILD_DLL -DGLFW_INCLUDE_NONE -DAR_RELEASE
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -std=c++17
+LIBS += -Wl,--start-group ../bin/Release-linux-x86_64/GLFW/libGLFW.a -lXrandr -lXi -lGL -lX11 -Wl,--end-group
+LDDEPS += ../bin/Release-linux-x86_64/GLFW/libGLFW.a
 ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -s
 
 else ifeq ($(config),dist_win64)
@@ -79,6 +85,8 @@ OBJDIR = ../bin-int/Dist-linux-x86_64/ArtemEngine/Win64
 DEFINES += -DAR_PLATFORM_LINUX -DAR_BUILD_DLL -DGLFW_INCLUDE_NONE -DAR_DIST
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -std=c++17
+LIBS += -Wl,--start-group ../bin/Dist-linux-x86_64/GLFW/libGLFW.a -lXrandr -lXi -lGL -lX11 -Wl,--end-group
+LDDEPS += ../bin/Dist-linux-x86_64/GLFW/libGLFW.a
 ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -s
 
 else ifeq ($(config),dist_linux)
@@ -88,6 +96,8 @@ OBJDIR = ../bin-int/Dist-linux-x86_64/ArtemEngine/Linux
 DEFINES += -DAR_PLATFORM_LINUX -DAR_BUILD_DLL -DGLFW_INCLUDE_NONE -DAR_DIST
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -std=c++17
+LIBS += -Wl,--start-group ../bin/Dist-linux-x86_64/GLFW/libGLFW.a -lXrandr -lXi -lGL -lX11 -Wl,--end-group
+LDDEPS += ../bin/Dist-linux-x86_64/GLFW/libGLFW.a
 ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -s
 
 endif
@@ -104,9 +114,11 @@ OBJECTS :=
 
 GENERATED += $(OBJDIR)/Application.o
 GENERATED += $(OBJDIR)/Log.o
+GENERATED += $(OBJDIR)/VulkanWindow.o
 GENERATED += $(OBJDIR)/pch.o
 OBJECTS += $(OBJDIR)/Application.o
 OBJECTS += $(OBJDIR)/Log.o
+OBJECTS += $(OBJDIR)/VulkanWindow.o
 OBJECTS += $(OBJDIR)/pch.o
 
 # Rules
@@ -175,6 +187,9 @@ $(OBJDIR)/Application.o: src/Core/Application.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/Log.o: src/Core/Log.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/VulkanWindow.o: src/Platform/Vulkan/Window/VulkanWindow.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/pch.o: src/pch.cpp

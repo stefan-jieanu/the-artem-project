@@ -19,7 +19,7 @@ endif
 # #############################################
 
 RESCOMP = windres
-INCLUDES += -I../ArtemEngine
+INCLUDES += -I../ArtemEngine -I../ArtemEngine/vendor/glfw-3.3.5/include
 FORCE_INCLUDE +=
 ALL_CPPFLAGS += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
 ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
@@ -38,9 +38,9 @@ OBJDIR = ../bin-int/Debug-linux-x86_64/Artem/Win64
 DEFINES += -DAR_PLATFORM_LINUX -DAR_DEBUG
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -g
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -g -std=c++17
-LIBS += ../bin/Debug-linux-x86_64/ArtemEngine/libArtemEngine.a
-LDDEPS += ../bin/Debug-linux-x86_64/ArtemEngine/libArtemEngine.a
-ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64
+LIBS += -Wl,--start-group ../bin/Debug-linux-x86_64/ArtemEngine/libArtemEngine.a ../bin/Debug-linux-x86_64/GLFW/libGLFW.a -lGL -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi -Wl,--end-group
+LDDEPS += ../bin/Debug-linux-x86_64/ArtemEngine/libArtemEngine.a ../bin/Debug-linux-x86_64/GLFW/libGLFW.a
+ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 
 else ifeq ($(config),debug_linux)
 TARGETDIR = ../bin/Debug-linux-x86_64/Artem
@@ -49,9 +49,9 @@ OBJDIR = ../bin-int/Debug-linux-x86_64/Artem/Linux
 DEFINES += -DAR_PLATFORM_LINUX -DAR_DEBUG
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -g
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -g -std=c++17
-LIBS += ../bin/Debug-linux-x86_64/ArtemEngine/libArtemEngine.a
-LDDEPS += ../bin/Debug-linux-x86_64/ArtemEngine/libArtemEngine.a
-ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64
+LIBS += -Wl,--start-group ../bin/Debug-linux-x86_64/ArtemEngine/libArtemEngine.a ../bin/Debug-linux-x86_64/GLFW/libGLFW.a -lGL -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi -Wl,--end-group
+LDDEPS += ../bin/Debug-linux-x86_64/ArtemEngine/libArtemEngine.a ../bin/Debug-linux-x86_64/GLFW/libGLFW.a
+ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 
 else ifeq ($(config),release_win64)
 TARGETDIR = ../bin/Release-linux-x86_64/Artem
@@ -60,9 +60,9 @@ OBJDIR = ../bin-int/Release-linux-x86_64/Artem/Win64
 DEFINES += -DAR_PLATFORM_LINUX -DAR_RELEASE
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -std=c++17
-LIBS += ../bin/Release-linux-x86_64/ArtemEngine/libArtemEngine.a
-LDDEPS += ../bin/Release-linux-x86_64/ArtemEngine/libArtemEngine.a
-ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -s
+LIBS += -Wl,--start-group ../bin/Release-linux-x86_64/ArtemEngine/libArtemEngine.a ../bin/Release-linux-x86_64/GLFW/libGLFW.a -lGL -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi -Wl,--end-group
+LDDEPS += ../bin/Release-linux-x86_64/ArtemEngine/libArtemEngine.a ../bin/Release-linux-x86_64/GLFW/libGLFW.a
+ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -s -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 
 else ifeq ($(config),release_linux)
 TARGETDIR = ../bin/Release-linux-x86_64/Artem
@@ -71,9 +71,9 @@ OBJDIR = ../bin-int/Release-linux-x86_64/Artem/Linux
 DEFINES += -DAR_PLATFORM_LINUX -DAR_RELEASE
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -std=c++17
-LIBS += ../bin/Release-linux-x86_64/ArtemEngine/libArtemEngine.a
-LDDEPS += ../bin/Release-linux-x86_64/ArtemEngine/libArtemEngine.a
-ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -s
+LIBS += -Wl,--start-group ../bin/Release-linux-x86_64/ArtemEngine/libArtemEngine.a ../bin/Release-linux-x86_64/GLFW/libGLFW.a -lGL -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi -Wl,--end-group
+LDDEPS += ../bin/Release-linux-x86_64/ArtemEngine/libArtemEngine.a ../bin/Release-linux-x86_64/GLFW/libGLFW.a
+ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -s -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 
 else ifeq ($(config),dist_win64)
 TARGETDIR = ../bin/Dist-linux-x86_64/Artem
@@ -82,9 +82,9 @@ OBJDIR = ../bin-int/Dist-linux-x86_64/Artem/Win64
 DEFINES += -DAR_PLATFORM_LINUX -DAR_DIST
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -std=c++17
-LIBS += ../bin/Dist-linux-x86_64/ArtemEngine/libArtemEngine.a
-LDDEPS += ../bin/Dist-linux-x86_64/ArtemEngine/libArtemEngine.a
-ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -s
+LIBS += -Wl,--start-group ../bin/Dist-linux-x86_64/ArtemEngine/libArtemEngine.a ../bin/Dist-linux-x86_64/GLFW/libGLFW.a -lGL -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi -Wl,--end-group
+LDDEPS += ../bin/Dist-linux-x86_64/ArtemEngine/libArtemEngine.a ../bin/Dist-linux-x86_64/GLFW/libGLFW.a
+ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -s -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 
 else ifeq ($(config),dist_linux)
 TARGETDIR = ../bin/Dist-linux-x86_64/Artem
@@ -93,9 +93,9 @@ OBJDIR = ../bin-int/Dist-linux-x86_64/Artem/Linux
 DEFINES += -DAR_PLATFORM_LINUX -DAR_DIST
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -std=c++17
-LIBS += ../bin/Dist-linux-x86_64/ArtemEngine/libArtemEngine.a
-LDDEPS += ../bin/Dist-linux-x86_64/ArtemEngine/libArtemEngine.a
-ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -s
+LIBS += -Wl,--start-group ../bin/Dist-linux-x86_64/ArtemEngine/libArtemEngine.a ../bin/Dist-linux-x86_64/GLFW/libGLFW.a -lGL -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi -Wl,--end-group
+LDDEPS += ../bin/Dist-linux-x86_64/ArtemEngine/libArtemEngine.a ../bin/Dist-linux-x86_64/GLFW/libGLFW.a
+ALL_LDFLAGS += $(LDFLAGS) -L/usr/lib64 -m64 -s -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 
 endif
 
