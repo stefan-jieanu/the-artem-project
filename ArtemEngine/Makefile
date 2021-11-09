@@ -113,10 +113,12 @@ GENERATED :=
 OBJECTS :=
 
 GENERATED += $(OBJDIR)/Application.o
+GENERATED += $(OBJDIR)/LinuxWindow.o
 GENERATED += $(OBJDIR)/Log.o
 GENERATED += $(OBJDIR)/VulkanWindow.o
 GENERATED += $(OBJDIR)/pch.o
 OBJECTS += $(OBJDIR)/Application.o
+OBJECTS += $(OBJDIR)/LinuxWindow.o
 OBJECTS += $(OBJDIR)/Log.o
 OBJECTS += $(OBJDIR)/VulkanWindow.o
 OBJECTS += $(OBJDIR)/pch.o
@@ -187,6 +189,9 @@ $(OBJDIR)/Application.o: src/Core/Application.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/Log.o: src/Core/Log.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/LinuxWindow.o: src/Platform/Linux/LinuxWindow.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) -include $(PCH_PLACEHOLDER) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/VulkanWindow.o: src/Platform/Vulkan/Window/VulkanWindow.cpp

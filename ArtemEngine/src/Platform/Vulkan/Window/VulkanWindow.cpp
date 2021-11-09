@@ -6,11 +6,6 @@ namespace Engine
 
 static bool GLFWInitialized = false;
 
-Window* Window::Create(const WindowProps& props)
-{
-    return new VulkanWindow(props);
-}
-
 VulkanWindow::VulkanWindow(const WindowProps& props)
 {
     Init(props);
@@ -60,7 +55,7 @@ void VulkanWindow::Init(const WindowProps& props)
 void VulkanWindow::Shutdown()
 {
     glfwDestroyWindow(window_);
-    // glfwTerminate();
+    glfwTerminate();
 }
 
 }

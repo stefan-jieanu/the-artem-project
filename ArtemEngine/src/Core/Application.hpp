@@ -5,7 +5,8 @@
 
 
 #include "Window.hpp"
-#include "src/Platform/Vulkan/Window/VulkanWindow.hpp"
+#include "src/Platform/Linux/LinuxWindow.hpp"
+
 namespace Engine
 {
 
@@ -15,7 +16,7 @@ public:
     Application();
     virtual ~Application();
 
-    std::unique_ptr<VulkanWindow> window_;
+    std::unique_ptr<LinuxWindow> window_;
 
     void Run();
 };
