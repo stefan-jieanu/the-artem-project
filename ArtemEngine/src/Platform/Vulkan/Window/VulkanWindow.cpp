@@ -18,7 +18,7 @@ VulkanWindow::~VulkanWindow()
 
 void VulkanWindow::OnUpdate()
 {
-
+    glfwPollEvents();
 }
 
 // void VulkanWindow::CreateWindowSurface(VkInstance instance, VkSurfaceKHR *surface)

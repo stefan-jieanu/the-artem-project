@@ -23,10 +23,10 @@ void Application::Run()
     WindowResizeEvent e(128, 256);
     LOG_CORE_TRACE(e);
 
-    LOG_CORE_TRACE("hello now");
+    while (!window_->ShouldClose()) {
+        window_->OnUpdate();
+    }
 
-    while (!window_->ShouldClose()) {}
-    LOG_CORE_INFO("closed window");
 }
 
 
