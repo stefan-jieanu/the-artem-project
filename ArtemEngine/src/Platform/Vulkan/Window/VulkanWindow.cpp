@@ -21,13 +21,13 @@ void VulkanWindow::OnUpdate()
     glfwPollEvents();
 }
 
-// void VulkanWindow::CreateWindowSurface(VkInstance instance, VkSurfaceKHR *surface)
-// {
-//     if (glfwCreateWindowSurface(instance, window_, nullptr, surface) != VK_SUCCESS) 
-//     {
-//         throw std::runtime_error("failed to create window surface");
-//     }
-// }
+void VulkanWindow::CreateWindowSurface(VkInstance instance, VkSurfaceKHR *surface)
+{
+    if (glfwCreateWindowSurface(instance, window_, nullptr, surface) != VK_SUCCESS) 
+    {
+        throw std::runtime_error("failed to create window surface");
+    }
+}
 
 void VulkanWindow::Init(const WindowProps& props)
 {
